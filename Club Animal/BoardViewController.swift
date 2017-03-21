@@ -8,17 +8,22 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class BoardViewController: UIViewController {
 
     @IBOutlet weak var containerView: UIView!
     weak var currentViewController: UIViewController?
 
     override func viewDidLoad() {
+        super.viewDidLoad()
+
         self.currentViewController = self.storyboard?.instantiateViewController(withIdentifier: "boardRecommendVC")
         self.currentViewController!.view.translatesAutoresizingMaskIntoConstraints = false
         self.addChildViewController(self.currentViewController!)
         self.addSubview(subView: self.currentViewController!.view, toView: self.containerView)
-        super.viewDidLoad()
+        
+        self.title = "看板"
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

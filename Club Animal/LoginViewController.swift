@@ -16,36 +16,48 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var btnFbLogin: UIButton!
     
     var fbLoginSuccess = false
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         if FBSDKAccessToken.current() != nil {
+            // get user data whenever luanchs
             FBManager.getFBUserData(completionHandler: {
-                print("FBTOKEN VALID")
-//                self.btnFbLogin.setTitle("Continue as \(User.currentUser.email!)", for: .normal)
+                
+                APIManager.shared.login(fbuid: User.currentUser.fbuid!, completionHandler: { (error) in
+                    self.fbLoginSuccess = true
+                    self.viewDidAppear(true)
+                })
+                
+                self.btnFbLogin.setTitle("Continue as \(User.currentUser.name!)", for: .normal)
                 
             })
         }
-
-        print("VIEW DID LOAD")
 
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
         if FBSDKAccessToken.current() != nil && fbLoginSuccess == true {
-            performSegue(withIdentifier: "HomeSegue", sender: self)
+            if User.currentUser.isNewUser {
+                performSegue(withIdentifier: "InitUserSegue", sender: self)
+
+            }
+            else {
+                performSegue(withIdentifier: "HomeSegue", sender: self)
+            }
         }
     }
 
     @IBAction func touchFacebookLogin(_ sender: Any) {
         if FBSDKAccessToken.current() != nil {
-            fbLoginSuccess = true
-            self.viewDidAppear(true)
             
+            APIManager.shared.login(fbuid: User.currentUser.fbuid!, completionHandler: { (error) in
+                if error == nil {
+                    self.fbLoginSuccess = true
+                    self.viewDidAppear(true)
+                }
+            })
         }
         else {
             FBManager.shared.logIn(
@@ -56,8 +68,12 @@ class LoginViewController: UIViewController {
                     if error == nil {
                         
                         FBManager.getFBUserData(completionHandler: {
-                            self.fbLoginSuccess = true
-                            self.viewDidAppear(true)
+                            APIManager.shared.login(fbuid: User.currentUser.fbuid!, completionHandler: { (error) in
+                                if error == nil {
+                                    self.fbLoginSuccess = true
+                                    self.viewDidAppear(true)
+                                }
+                            })
                         })
                     }
             })

@@ -10,9 +10,11 @@
 		1F96E062436547333705AC65 /* Pods_ClubAnimal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284CB80B94DA67FF3CD3559C /* Pods_ClubAnimal.framework */; };
 		9B4653F91E7D64DB009E02AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4653F81E7D64DB009E02AB /* User.swift */; };
 		9B4653FD1E7D700B009E02AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B4653FB1E7D700B009E02AB /* Main.storyboard */; };
+		9B4654251E811DD1009E02AB /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4654241E811DD1009E02AB /* APIManager.swift */; };
+		9B4654271E811E64009E02AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4654261E811E64009E02AB /* Constants.swift */; };
 		9BC3D3041E7149F6007BA522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D3031E7149F6007BA522 /* AppDelegate.swift */; };
-		9BC3D3061E7149F6007BA522 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D3051E7149F6007BA522 /* FirstViewController.swift */; };
-		9BC3D3081E7149F6007BA522 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D3071E7149F6007BA522 /* SecondViewController.swift */; };
+		9BC3D3061E7149F6007BA522 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D3051E7149F6007BA522 /* BoardViewController.swift */; };
+		9BC3D3081E7149F6007BA522 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D3071E7149F6007BA522 /* SearchViewController.swift */; };
 		9BC3D30D1E7149F6007BA522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BC3D30C1E7149F6007BA522 /* Assets.xcassets */; };
 		9BC3D3101E7149F6007BA522 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BC3D30E1E7149F6007BA522 /* LaunchScreen.storyboard */; };
 		9BC3D31B1E7149F6007BA522 /* Club_AnimalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D31A1E7149F6007BA522 /* Club_AnimalTests.swift */; };
@@ -46,10 +48,12 @@
 		9B4653F81E7D64DB009E02AB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9B4653FC1E7D700B009E02AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9B4653FE1E7EF396009E02AB /* ClubAnimal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClubAnimal.entitlements; sourceTree = SOURCE_ROOT; };
+		9B4654241E811DD1009E02AB /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		9B4654261E811E64009E02AB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9BC3D3001E7149F6007BA522 /* ClubAnimal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClubAnimal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BC3D3031E7149F6007BA522 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9BC3D3051E7149F6007BA522 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		9BC3D3071E7149F6007BA522 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		9BC3D3051E7149F6007BA522 /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BoardViewController.swift; path = "Club Animal/BoardViewController.swift"; sourceTree = "<group>"; };
+		9BC3D3071E7149F6007BA522 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = "Club Animal/SearchViewController.swift"; sourceTree = "<group>"; };
 		9BC3D30C1E7149F6007BA522 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BC3D30F1E7149F6007BA522 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9BC3D3111E7149F6007BA522 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,7 +63,7 @@
 		9BC3D3211E7149F6007BA522 /* ClubAnimalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClubAnimalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BC3D3251E7149F6007BA522 /* Club_AnimalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Club_AnimalUITests.swift; sourceTree = "<group>"; };
 		9BC3D3271E7149F6007BA522 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9BCEFDBD1E7D5AA60098C2FA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9BCEFDBD1E7D5AA60098C2FA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "Club Animal/LoginViewController.swift"; sourceTree = "<group>"; };
 		9BCEFDBF1E7D5D9F0098C2FA /* FBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FBManager.swift; path = "Club Animal/FBManager.swift"; sourceTree = "<group>"; };
 		CBA8243CC709BB435A5FC824 /* Pods-ClubAnimalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClubAnimalTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClubAnimalTests/Pods-ClubAnimalTests.release.xcconfig"; sourceTree = "<group>"; };
 		D23D694705EDBE89ED36591D /* Pods-ClubAnimal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClubAnimal.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClubAnimal/Pods-ClubAnimal.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +129,8 @@
 			isa = PBXGroup;
 			children = (
 				9BCEFDBF1E7D5D9F0098C2FA /* FBManager.swift */,
+				9B4654241E811DD1009E02AB /* APIManager.swift */,
+				9B4654261E811E64009E02AB /* Constants.swift */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -137,9 +143,20 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		9B4654211E8117AA009E02AB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9BCEFDBD1E7D5AA60098C2FA /* LoginViewController.swift */,
+				9BC3D3051E7149F6007BA522 /* BoardViewController.swift */,
+				9BC3D3071E7149F6007BA522 /* SearchViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		9BC3D2F71E7149F6007BA522 = {
 			isa = PBXGroup;
 			children = (
+				9B4654211E8117AA009E02AB /* Controller */,
 				9B4653FA1E7D64E3009E02AB /* Model */,
 				9B4653F71E7D60F8009E02AB /* Manager */,
 				9BC3D3021E7149F6007BA522 /* ClubAnimal */,
@@ -166,13 +183,10 @@
 			children = (
 				9B4653FE1E7EF396009E02AB /* ClubAnimal.entitlements */,
 				9BC3D3031E7149F6007BA522 /* AppDelegate.swift */,
-				9BC3D3051E7149F6007BA522 /* FirstViewController.swift */,
-				9BC3D3071E7149F6007BA522 /* SecondViewController.swift */,
 				9BC3D30C1E7149F6007BA522 /* Assets.xcassets */,
 				9BC3D30E1E7149F6007BA522 /* LaunchScreen.storyboard */,
 				9B4653FB1E7D700B009E02AB /* Main.storyboard */,
 				9BC3D3111E7149F6007BA522 /* Info.plist */,
-				9BCEFDBD1E7D5AA60098C2FA /* LoginViewController.swift */,
 			);
 			name = ClubAnimal;
 			path = "Club Animal";
@@ -486,9 +500,11 @@
 				9BCEFDC01E7D5D9F0098C2FA /* FBManager.swift in Sources */,
 				9BCEFDBE1E7D5AA60098C2FA /* LoginViewController.swift in Sources */,
 				9B4653F91E7D64DB009E02AB /* User.swift in Sources */,
-				9BC3D3081E7149F6007BA522 /* SecondViewController.swift in Sources */,
+				9BC3D3081E7149F6007BA522 /* SearchViewController.swift in Sources */,
 				9BC3D3041E7149F6007BA522 /* AppDelegate.swift in Sources */,
-				9BC3D3061E7149F6007BA522 /* FirstViewController.swift in Sources */,
+				9BC3D3061E7149F6007BA522 /* BoardViewController.swift in Sources */,
+				9B4654251E811DD1009E02AB /* APIManager.swift in Sources */,
+				9B4654271E811E64009E02AB /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

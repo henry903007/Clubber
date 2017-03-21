@@ -8,11 +8,12 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.title = "搜尋"
     }
 
     override func didReceiveMemoryWarning() {
