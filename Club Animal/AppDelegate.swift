@@ -18,10 +18,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        let defaults = UserDefaults.standard
+        var vc = UIViewController()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        print(defaults.object(forKey: "FBAccessTokenExpirationDate") as? Date ?? Date()) // FBAccessTokenExpirationDate
+        print(Date()) // now        
+        print(defaults.string(forKey: "sessionToken") ?? "")
+
+        
+        
+        if defaults.string(forKey: "sessionToken") != nil &&
+            (defaults.object(forKey: "FBAccessTokenExpirationDate") as? Date ?? Date()) > Date() {
+            vc = storyboard.instantiateInitialViewController()!
+        }
+        else {
+            vc = storyboard.instantiateViewController(withIdentifier: "LoginVC")
+                as UIViewController!
+        }
+        self.window?.rootViewController = vc
+
+        
         return FBSDKApplicationDelegate.sharedInstance().application(
             application,
             didFinishLaunchingWithOptions: launchOptions
         )
+        
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {

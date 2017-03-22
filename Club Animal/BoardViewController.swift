@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
 class BoardViewController: UIViewController {
 
@@ -16,12 +17,25 @@ class BoardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = "看板"
+
+        // handle segment control's view switching
         self.currentViewController = self.storyboard?.instantiateViewController(withIdentifier: "boardRecommendVC")
         self.currentViewController!.view.translatesAutoresizingMaskIntoConstraints = false
         self.addChildViewController(self.currentViewController!)
         self.addSubview(subView: self.currentViewController!.view, toView: self.containerView)
         
-        self.title = "看板"
+    
+        if User.currentUser.name == nil {
+            FBManager.getFBUserData(completionHandler: {
+                print("Get FB data in BoardVC")
+                let defaults = UserDefaults.standard
+                defaults.set(FBSDKAccessToken.current().expirationDate,
+                             forKey: "FBAccessTokenExpirationDate")
+                
+            })
+        }
+
         
         
     }

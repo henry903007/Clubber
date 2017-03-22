@@ -25,7 +25,7 @@ class APIManager {
     
     func login(fbuid: String, completionHandler: @escaping (NSError?) -> Void ) {
         
-        let path = "v1/api/login/"
+        let path = "api/login/"
         let url = baseURL!.appendingPathComponent(path)
         
         let params: Parameters = [
@@ -59,5 +59,26 @@ class APIManager {
         }
     }
 
-    
+    func logout(completionHandler: @escaping (NSError?) -> Void ) {
+        
+        let path = "api/logout/"
+        let url = baseURL!.appendingPathComponent(path)
+        
+        Alamofire.request(url!, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: HEADERS_WITH_SESSION_KEY)
+            .responseString { (response) in
+                
+                switch response.result {
+                case .success:
+                    print("Log out successfully")
+                    completionHandler(nil)
+                    break
+                    
+                case .failure(let error):
+                    print(error)
+                    completionHandler(error as NSError)
+                    break
+                }
+        }
+        
+    }
 }

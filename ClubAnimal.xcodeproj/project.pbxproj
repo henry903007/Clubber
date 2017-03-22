@@ -12,6 +12,7 @@
 		9B4653FD1E7D700B009E02AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B4653FB1E7D700B009E02AB /* Main.storyboard */; };
 		9B4654251E811DD1009E02AB /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4654241E811DD1009E02AB /* APIManager.swift */; };
 		9B4654271E811E64009E02AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4654261E811E64009E02AB /* Constants.swift */; };
+		9B4654291E8276B3009E02AB /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4654281E8276B3009E02AB /* MeViewController.swift */; };
 		9BC3D3041E7149F6007BA522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D3031E7149F6007BA522 /* AppDelegate.swift */; };
 		9BC3D3061E7149F6007BA522 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D3051E7149F6007BA522 /* BoardViewController.swift */; };
 		9BC3D3081E7149F6007BA522 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D3071E7149F6007BA522 /* SearchViewController.swift */; };
@@ -50,6 +51,7 @@
 		9B4653FE1E7EF396009E02AB /* ClubAnimal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClubAnimal.entitlements; sourceTree = SOURCE_ROOT; };
 		9B4654241E811DD1009E02AB /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		9B4654261E811E64009E02AB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9B4654281E8276B3009E02AB /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		9BC3D3001E7149F6007BA522 /* ClubAnimal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClubAnimal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BC3D3031E7149F6007BA522 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BC3D3051E7149F6007BA522 /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BoardViewController.swift; path = "Club Animal/BoardViewController.swift"; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				9BCEFDBD1E7D5AA60098C2FA /* LoginViewController.swift */,
 				9BC3D3051E7149F6007BA522 /* BoardViewController.swift */,
 				9BC3D3071E7149F6007BA522 /* SearchViewController.swift */,
+				9B4654281E8276B3009E02AB /* MeViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B4654291E8276B3009E02AB /* MeViewController.swift in Sources */,
 				9BCEFDC01E7D5D9F0098C2FA /* FBManager.swift in Sources */,
 				9BCEFDBE1E7D5AA60098C2FA /* LoginViewController.swift in Sources */,
 				9B4653F91E7D64DB009E02AB /* User.swift in Sources */,

@@ -9,7 +9,9 @@
 import Foundation
 import Alamofire
 
-let BASE_URL: String = "http://172.104.34.50:2000"
+let defaults = UserDefaults.standard
+
+let BASE_URL: String = "http://172.104.34.50:2000/v1/"
 
 let HEADERS: HTTPHeaders = [
     "X-Parse-Application-Id": "ClubsProject",
@@ -18,6 +20,6 @@ let HEADERS: HTTPHeaders = [
 
 let HEADERS_WITH_SESSION_KEY: HTTPHeaders = [
     "X-Parse-Application-Id": "ClubsProject",
-    "X-Parse-Session-Token": APIManager.shared.sessionToken,
+    "X-Parse-Session-Token": defaults.string(forKey: "sessionToken") ?? "",
     "Content-Type": "application/json"
 ]

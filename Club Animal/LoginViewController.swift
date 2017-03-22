@@ -20,19 +20,19 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if FBSDKAccessToken.current() != nil {
-            // get user data whenever luanchs
-            FBManager.getFBUserData(completionHandler: {
-                
-                APIManager.shared.login(fbuid: User.currentUser.fbuid!, completionHandler: { (error) in
-                    self.fbLoginSuccess = true
-                    self.viewDidAppear(true)
-                })
-                
-                self.btnFbLogin.setTitle("Continue as \(User.currentUser.name!)", for: .normal)
-                
-            })
-        }
+//        if FBSDKAccessToken.current() != nil {
+//            // get user data whenever luanchs
+//            FBManager.getFBUserData(completionHandler: {
+//                
+//                APIManager.shared.login(fbuid: User.currentUser.fbuid!, completionHandler: { (error) in
+//                    self.fbLoginSuccess = true
+//                    self.viewDidAppear(true)
+//                })
+//                
+//                self.btnFbLogin.setTitle("Continue as \(User.currentUser.name!)", for: .normal)
+//                
+//            })
+//        }
 
     }
     
@@ -51,13 +51,19 @@ class LoginViewController: UIViewController {
 
     @IBAction func touchFacebookLogin(_ sender: Any) {
         if FBSDKAccessToken.current() != nil {
-            
-            APIManager.shared.login(fbuid: User.currentUser.fbuid!, completionHandler: { (error) in
-                if error == nil {
-                    self.fbLoginSuccess = true
-                    self.viewDidAppear(true)
-                }
+            FBManager.getFBUserData(completionHandler: {
+                APIManager.shared.login(fbuid: User.currentUser.fbuid!, completionHandler: { (error) in
+                    if error == nil {
+                        let defaults = UserDefaults.standard
+                        defaults.set(APIManager.shared.sessionToken, forKey: "sessionToken")
+                        defaults.set(FBSDKAccessToken.current().expirationDate,
+                                          forKey: "FBAccessTokenExpirationDate")
+                        self.fbLoginSuccess = true
+                        self.viewDidAppear(true)
+                    }
+                })
             })
+
         }
         else {
             FBManager.shared.logIn(
@@ -70,6 +76,10 @@ class LoginViewController: UIViewController {
                         FBManager.getFBUserData(completionHandler: {
                             APIManager.shared.login(fbuid: User.currentUser.fbuid!, completionHandler: { (error) in
                                 if error == nil {
+                                    let defaults = UserDefaults.standard
+                                    defaults.set(APIManager.shared.sessionToken, forKey: "sessionToken")
+                                    defaults.set(FBSDKAccessToken.current().expirationDate,
+                                                      forKey: "FBAccessTokenExpirationDate")
                                     self.fbLoginSuccess = true
                                     self.viewDidAppear(true)
                                 }
