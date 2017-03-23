@@ -13,26 +13,27 @@ import FBSDKLoginKit
 class LoginViewController: UIViewController {
 
     
-    @IBOutlet weak var btnFbLogin: UIButton!
+    @IBOutlet weak var btnFbLogin: LoadingButton!
     
+    let activityIndicator = UIActivityIndicatorView()
     var fbLoginSuccess = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        if FBSDKAccessToken.current() != nil {
-//            // get user data whenever luanchs
-//            FBManager.getFBUserData(completionHandler: {
-//                
-//                APIManager.shared.login(fbuid: User.currentUser.fbuid!, completionHandler: { (error) in
-//                    self.fbLoginSuccess = true
-//                    self.viewDidAppear(true)
-//                })
-//                
-//                self.btnFbLogin.setTitle("Continue as \(User.currentUser.name!)", for: .normal)
-//                
-//            })
-//        }
+        if FBSDKAccessToken.current() != nil {
+            // get user data whenever luanchs
+            FBManager.getFBUserData(completionHandler: {
+                /*
+                APIManager.shared.login(fbuid: User.currentUser.fbuid!, completionHandler: { (error) in
+                    self.fbLoginSuccess = true
+                    self.viewDidAppear(true)
+                })
+                */
+                self.btnFbLogin.setTitle("Continue as \(User.currentUser.name!)", for: .normal)
+                
+            })
+        }
 
     }
     
@@ -49,7 +50,10 @@ class LoginViewController: UIViewController {
         }
     }
 
-    @IBAction func touchFacebookLogin(_ sender: Any) {
+    @IBAction func touchFacebookLogin(_ sender: LoadingButton) {
+        
+
+    
         if FBSDKAccessToken.current() != nil {
             FBManager.getFBUserData(completionHandler: {
                 APIManager.shared.login(fbuid: User.currentUser.fbuid!, completionHandler: { (error) in
@@ -64,33 +68,41 @@ class LoginViewController: UIViewController {
                 })
             })
 
+            
         }
+        // get NEW Facebook access token then log in
         else {
             FBManager.shared.logIn(
                 withReadPermissions: ["public_profile", "email"],
                 from: self,
                 handler: { (result, error) in
-                    
-                    if error == nil {
-                        
-                        FBManager.getFBUserData(completionHandler: {
-                            APIManager.shared.login(fbuid: User.currentUser.fbuid!, completionHandler: { (error) in
-                                if error == nil {
-                                    let defaults = UserDefaults.standard
-                                    defaults.set(APIManager.shared.sessionToken, forKey: "sessionToken")
-                                    defaults.set(FBSDKAccessToken.current().expirationDate,
-                                                      forKey: "FBAccessTokenExpirationDate")
-                                    self.fbLoginSuccess = true
-                                    self.viewDidAppear(true)
-                                }
+
+                    if !(result?.isCancelled)! {
+                        if error == nil {
+                            sender.showLoading()
+
+                            FBManager.getFBUserData(completionHandler: {
+                                APIManager.shared.login(fbuid: User.currentUser.fbuid!, completionHandler: { (error) in
+                                    if error == nil {
+                                        
+                                        let defaults = UserDefaults.standard
+                                        defaults.set(APIManager.shared.sessionToken, forKey: "sessionToken")
+                                        defaults.set(FBSDKAccessToken.current().expirationDate,
+                                                     forKey: "FBAccessTokenExpirationDate")
+                                        self.fbLoginSuccess = true
+                                        self.viewDidAppear(true)
+                                    }
+                                })
                             })
-                        })
+                        }
                     }
+               
+
+
             })
         }
 
     }
-
     
 
 }

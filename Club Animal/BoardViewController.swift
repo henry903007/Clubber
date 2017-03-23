@@ -16,7 +16,6 @@ class BoardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.title = "看板"
 
         // handle segment control's view switching
@@ -25,7 +24,7 @@ class BoardViewController: UIViewController {
         self.addChildViewController(self.currentViewController!)
         self.addSubview(subView: self.currentViewController!.view, toView: self.containerView)
         
-    
+        // if user is logged in directly, get the user data from Facebook
         if User.currentUser.name == nil {
             FBManager.getFBUserData(completionHandler: {
                 print("Get FB data in BoardVC")
@@ -35,16 +34,9 @@ class BoardViewController: UIViewController {
                 
             })
         }
-
         
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
     
     @IBAction func segmentIndexSelected(_ sender: UISegmentedControl) {
@@ -78,15 +70,16 @@ class BoardViewController: UIViewController {
         self.addSubview(subView: newViewController.view, toView:self.containerView!)
         newViewController.view.alpha = 0
         newViewController.view.layoutIfNeeded()
-        UIView.animate(withDuration: 0.5, animations: {
-            newViewController.view.alpha = 1
-            oldViewController.view.alpha = 0
-        },
-                                   completion: { finished in
-                                    oldViewController.view.removeFromSuperview()
-                                    oldViewController.removeFromParentViewController()
-                                    newViewController.didMove(toParentViewController: self)
-        })
+        UIView.animate(withDuration: 0.5,
+                       animations: {
+                        newViewController.view.alpha = 1
+                        oldViewController.view.alpha = 0
+                        },
+                       completion: { finished in
+                        oldViewController.view.removeFromSuperview()
+                        oldViewController.removeFromParentViewController()
+                        newViewController.didMove(toParentViewController: self)
+                        })
     }
 }
 

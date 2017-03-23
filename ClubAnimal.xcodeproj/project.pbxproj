@@ -13,6 +13,7 @@
 		9B4654251E811DD1009E02AB /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4654241E811DD1009E02AB /* APIManager.swift */; };
 		9B4654271E811E64009E02AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4654261E811E64009E02AB /* Constants.swift */; };
 		9B4654291E8276B3009E02AB /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4654281E8276B3009E02AB /* MeViewController.swift */; };
+		9BB467091E83C13F0073CA0F /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB467081E83C13F0073CA0F /* LoadingButton.swift */; };
 		9BC3D3041E7149F6007BA522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D3031E7149F6007BA522 /* AppDelegate.swift */; };
 		9BC3D3061E7149F6007BA522 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D3051E7149F6007BA522 /* BoardViewController.swift */; };
 		9BC3D3081E7149F6007BA522 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D3071E7149F6007BA522 /* SearchViewController.swift */; };
@@ -52,6 +53,7 @@
 		9B4654241E811DD1009E02AB /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		9B4654261E811E64009E02AB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9B4654281E8276B3009E02AB /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
+		9BB467081E83C13F0073CA0F /* LoadingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		9BC3D3001E7149F6007BA522 /* ClubAnimal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClubAnimal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BC3D3031E7149F6007BA522 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BC3D3051E7149F6007BA522 /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BoardViewController.swift; path = "Club Animal/BoardViewController.swift"; sourceTree = "<group>"; };
@@ -156,9 +158,18 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		9BB467071E83C10B0073CA0F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9BB467081E83C13F0073CA0F /* LoadingButton.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		9BC3D2F71E7149F6007BA522 = {
 			isa = PBXGroup;
 			children = (
+				9BB467071E83C10B0073CA0F /* View */,
 				9B4654211E8117AA009E02AB /* Controller */,
 				9B4653FA1E7D64E3009E02AB /* Model */,
 				9B4653F71E7D60F8009E02AB /* Manager */,
@@ -505,6 +516,7 @@
 				9BCEFDBE1E7D5AA60098C2FA /* LoginViewController.swift in Sources */,
 				9B4653F91E7D64DB009E02AB /* User.swift in Sources */,
 				9BC3D3081E7149F6007BA522 /* SearchViewController.swift in Sources */,
+				9BB467091E83C13F0073CA0F /* LoadingButton.swift in Sources */,
 				9BC3D3041E7149F6007BA522 /* AppDelegate.swift in Sources */,
 				9BC3D3061E7149F6007BA522 /* BoardViewController.swift in Sources */,
 				9B4654251E811DD1009E02AB /* APIManager.swift in Sources */,
@@ -664,6 +676,7 @@
 				CODE_SIGN_ENTITLEMENTS = ClubAnimal.entitlements;
 				DEVELOPMENT_TEAM = 83XE9BDRQ7;
 				INFOPLIST_FILE = "Club Animal/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = henrysu.ClubAnimal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -679,6 +692,7 @@
 				CODE_SIGN_ENTITLEMENTS = ClubAnimal.entitlements;
 				DEVELOPMENT_TEAM = 83XE9BDRQ7;
 				INFOPLIST_FILE = "Club Animal/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = henrysu.ClubAnimal;
 				PRODUCT_NAME = "$(TARGET_NAME)";

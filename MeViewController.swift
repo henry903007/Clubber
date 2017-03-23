@@ -10,28 +10,25 @@ import UIKit
 
 class MeViewController: UIViewController {
 
+    @IBOutlet weak var username: UILabel!
+    @IBOutlet weak var logoutBtn: LoadingButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        username.text = User.currentUser.name ?? "使用者名稱"
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func touchLogout(_ sender: UIButton) {
     }
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         
         if identifier == "LogoutSegue" {
-            
+            self.logoutBtn.showLoading()
+
             APIManager.shared.logout(completionHandler: { (error) in
                 
                 if error == nil {
-                    FBManager.shared.logOut()
+                    FBManager.shared.logOut()   // will clear the FB access token
                     User.currentUser.resetInfo()
                     let defaults = UserDefaults.standard
                     defaults.set(nil, forKey: "sessionToken")
@@ -43,11 +40,11 @@ class MeViewController: UIViewController {
                     
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     appDelegate.window!.rootViewController = appController
-                
-         
-                    
-
                 }
+                else {
+                    self.logoutBtn.hideLoading()
+                }
+                
             })
             
             return false
