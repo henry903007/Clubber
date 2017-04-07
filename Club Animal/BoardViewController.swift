@@ -14,6 +14,7 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     weak var currentViewController: UIViewController?
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "看板"
@@ -24,17 +25,17 @@ class BoardViewController: UIViewController {
         self.addChildViewController(self.currentViewController!)
         self.addSubview(subView: self.currentViewController!.view, toView: self.containerView)
         
-        // if user is logged in directly, get the user data from Facebook
-        if User.currentUser.name == nil {
-            FBManager.getFBUserData(completionHandler: {
-                print("Get FB data in BoardVC")
-                let defaults = UserDefaults.standard
-                defaults.set(FBSDKAccessToken.current().expirationDate,
-                             forKey: "FBAccessTokenExpirationDate")
-                
-            })
-        }
-        
+//        // if user is logged in directly, get the user data from Facebook
+//        if User.currentUser.name == nil {
+//            FBManager.getFBUserData(completionHandler: {
+//                print("Get FB data in BoardVC")
+//                let defaults = UserDefaults.standard
+//                defaults.set(FBSDKAccessToken.current().expirationDate,
+//                             forKey: "FBAccessTokenExpirationDate")
+//                
+//            })
+//        }
+
         
     }
 
