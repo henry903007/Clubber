@@ -11,77 +11,79 @@ import FBSDKLoginKit
 
 class BoardViewController: UIViewController {
 
+    enum TabIndex : Int {
+        case boardRecommendTab = 0
+        case boardCategoryTab = 1
+    }
+    
+    @IBOutlet weak var segmentedControl: BoardSegmentedControl!
     @IBOutlet weak var containerView: UIView!
-    weak var currentViewController: UIViewController?
-
-
+    var currentViewController: UIViewController?
+    
+    lazy var boardRecommendVC: UIViewController? = {
+        let boardRecommendVC = self.storyboard?.instantiateViewController(withIdentifier: "boardRecommendVC")
+        return boardRecommendVC
+    }()
+    lazy var boardCategoryVC : UIViewController? = {
+        let boardCategoryVC = self.storyboard?.instantiateViewController(withIdentifier: "boardCategoryVC")
+        return boardCategoryVC
+    }()
+    
+    
+    
+    // MARK: - View Controller Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "看板"
-
-        // handle segment control's view switching
-        self.currentViewController = self.storyboard?.instantiateViewController(withIdentifier: "boardRecommendVC")
-        self.currentViewController!.view.translatesAutoresizingMaskIntoConstraints = false
-        self.addChildViewController(self.currentViewController!)
-        self.addSubview(subView: self.currentViewController!.view, toView: self.containerView)
+        self.automaticallyAdjustsScrollViewInsets = false
         
-//        // if user is logged in directly, get the user data from Facebook
-//        if User.currentUser.name == nil {
-//            FBManager.getFBUserData(completionHandler: {
-//                print("Get FB data in BoardVC")
-//                let defaults = UserDefaults.standard
-//                defaults.set(FBSDKAccessToken.current().expirationDate,
-//                             forKey: "FBAccessTokenExpirationDate")
-//                
-//            })
-//        }
-
-        
+        segmentedControl.initUI()
+        segmentedControl.selectedSegmentIndex = TabIndex.boardRecommendTab.rawValue
+        displayCurrentTab(TabIndex.boardRecommendTab.rawValue)
     }
-
     
-    @IBAction func segmentIndexSelected(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 {
-            let newViewController = self.storyboard?.instantiateViewController(withIdentifier: "boardRecommendVC")
-            newViewController!.view.translatesAutoresizingMaskIntoConstraints = false
-            self.cycleFromViewController(oldViewController: self.currentViewController!, toViewController: newViewController!)
-            self.currentViewController = newViewController
-        } else {
-            let newViewController = self.storyboard?.instantiateViewController(withIdentifier: "boardCategoryVC")
-            newViewController!.view.translatesAutoresizingMaskIntoConstraints = false
-            self.cycleFromViewController(oldViewController: self.currentViewController!, toViewController: newViewController!)
-            self.currentViewController = newViewController
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let currentViewController = currentViewController {
+            currentViewController.viewWillDisappear(animated)
         }
     }
-
-    func addSubview(subView:UIView, toView parentView:UIView) {
-        parentView.addSubview(subView)
+    
+    
+    // MARK: - Switching Tabs Functions
+    @IBAction func switchTabs(_ sender: UISegmentedControl) {
+        self.currentViewController!.view.removeFromSuperview()
+        self.currentViewController!.removeFromParentViewController()
         
-        var viewBindingsDict = [String: AnyObject]()
-        viewBindingsDict["subView"] = subView
-        parentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[subView]|",
-                                                                 options: [], metrics: nil, views: viewBindingsDict))
-        parentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[subView]|",
-                                                                 options: [], metrics: nil, views: viewBindingsDict))
+        displayCurrentTab(sender.selectedSegmentIndex)
     }
     
-    func cycleFromViewController(oldViewController: UIViewController, toViewController newViewController: UIViewController) {
-        oldViewController.willMove(toParentViewController: nil)
-        self.addChildViewController(newViewController)
-        self.addSubview(subView: newViewController.view, toView:self.containerView!)
-        newViewController.view.alpha = 0
-        newViewController.view.layoutIfNeeded()
-        UIView.animate(withDuration: 0.5,
-                       animations: {
-                        newViewController.view.alpha = 1
-                        oldViewController.view.alpha = 0
-                        },
-                       completion: { finished in
-                        oldViewController.view.removeFromSuperview()
-                        oldViewController.removeFromParentViewController()
-                        newViewController.didMove(toParentViewController: self)
-                        })
+    func displayCurrentTab(_ tabIndex: Int){
+        if let vc = viewControllerForSelectedSegmentIndex(tabIndex) {
+            
+            self.addChildViewController(vc)
+            vc.didMove(toParentViewController: self)
+            
+            vc.view.frame = self.containerView.bounds
+            self.containerView.addSubview(vc.view)
+            self.currentViewController = vc
+        }
     }
+    
+    func viewControllerForSelectedSegmentIndex(_ index: Int) -> UIViewController? {
+        var vc: UIViewController?
+        switch index {
+        case TabIndex.boardRecommendTab.rawValue :
+            vc = boardRecommendVC
+        case TabIndex.boardCategoryTab.rawValue :
+            vc = boardCategoryVC
+        default:
+            return nil
+        }
+        
+        return vc
+    }
+
 }
 
 

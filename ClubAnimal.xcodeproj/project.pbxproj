@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		1F96E062436547333705AC65 /* Pods_ClubAnimal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284CB80B94DA67FF3CD3559C /* Pods_ClubAnimal.framework */; };
 		9B3870591E962130005D96DE /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3870581E962130005D96DE /* LoadingViewController.swift */; };
-		9B38705B1E9629B8005D96DE /* ClubTypeCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38705A1E9629B8005D96DE /* ClubTypeCollectionVC.swift */; };
-		9B38705D1E962BBC005D96DE /* ClubTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38705C1E962BBC005D96DE /* ClubTypeCell.swift */; };
-		9B38705F1E97D4FC005D96DE /* ClubType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38705E1E97D4FC005D96DE /* ClubType.swift */; };
+		9B38705B1E9629B8005D96DE /* BoardCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38705A1E9629B8005D96DE /* BoardCategoryVC.swift */; };
+		9B38705D1E962BBC005D96DE /* ClubCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38705C1E962BBC005D96DE /* ClubCategoryCell.swift */; };
+		9B38705F1E97D4FC005D96DE /* ClubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38705E1E97D4FC005D96DE /* ClubCategory.swift */; };
+		9B3870891E9BADE6005D96DE /* BoardSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3870881E9BADE6005D96DE /* BoardSegmentedControl.swift */; };
 		9B4653F91E7D64DB009E02AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4653F81E7D64DB009E02AB /* User.swift */; };
 		9B4653FD1E7D700B009E02AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B4653FB1E7D700B009E02AB /* Main.storyboard */; };
 		9B4654251E811DD1009E02AB /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4654241E811DD1009E02AB /* APIManager.swift */; };
@@ -53,9 +54,10 @@
 		284CB80B94DA67FF3CD3559C /* Pods_ClubAnimal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClubAnimal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FE2941F08A169309BC3A71 /* Pods-ClubAnimalUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClubAnimalUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClubAnimalUITests/Pods-ClubAnimalUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9B3870581E962130005D96DE /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
-		9B38705A1E9629B8005D96DE /* ClubTypeCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubTypeCollectionVC.swift; sourceTree = "<group>"; };
-		9B38705C1E962BBC005D96DE /* ClubTypeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubTypeCell.swift; sourceTree = "<group>"; };
-		9B38705E1E97D4FC005D96DE /* ClubType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubType.swift; sourceTree = "<group>"; };
+		9B38705A1E9629B8005D96DE /* BoardCategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardCategoryVC.swift; sourceTree = "<group>"; };
+		9B38705C1E962BBC005D96DE /* ClubCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubCategoryCell.swift; sourceTree = "<group>"; };
+		9B38705E1E97D4FC005D96DE /* ClubCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubCategory.swift; sourceTree = "<group>"; };
+		9B3870881E9BADE6005D96DE /* BoardSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardSegmentedControl.swift; sourceTree = "<group>"; };
 		9B4653F81E7D64DB009E02AB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9B4653FC1E7D700B009E02AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9B4653FE1E7EF396009E02AB /* ClubAnimal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClubAnimal.entitlements; sourceTree = SOURCE_ROOT; };
@@ -153,7 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				9B4653F81E7D64DB009E02AB /* User.swift */,
-				9B38705E1E97D4FC005D96DE /* ClubType.swift */,
+				9B38705E1E97D4FC005D96DE /* ClubCategory.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -167,7 +169,7 @@
 				9B4654281E8276B3009E02AB /* MeViewController.swift */,
 				9B76225F1E8A8BA600400DAD /* FeedbackViewController.swift */,
 				9B3870581E962130005D96DE /* LoadingViewController.swift */,
-				9B38705A1E9629B8005D96DE /* ClubTypeCollectionVC.swift */,
+				9B38705A1E9629B8005D96DE /* BoardCategoryVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -176,7 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				9BB467081E83C13F0073CA0F /* LoadingButton.swift */,
-				9B38705C1E962BBC005D96DE /* ClubTypeCell.swift */,
+				9B38705C1E962BBC005D96DE /* ClubCategoryCell.swift */,
+				9B3870881E9BADE6005D96DE /* BoardSegmentedControl.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -528,17 +531,18 @@
 			files = (
 				9B4654291E8276B3009E02AB /* MeViewController.swift in Sources */,
 				9BCEFDC01E7D5D9F0098C2FA /* FBManager.swift in Sources */,
+				9B3870891E9BADE6005D96DE /* BoardSegmentedControl.swift in Sources */,
 				9B7622601E8A8BA600400DAD /* FeedbackViewController.swift in Sources */,
-				9B38705B1E9629B8005D96DE /* ClubTypeCollectionVC.swift in Sources */,
+				9B38705B1E9629B8005D96DE /* BoardCategoryVC.swift in Sources */,
 				9BCEFDBE1E7D5AA60098C2FA /* LoginViewController.swift in Sources */,
 				9B4653F91E7D64DB009E02AB /* User.swift in Sources */,
 				9BC3D3081E7149F6007BA522 /* SearchViewController.swift in Sources */,
 				9BB467091E83C13F0073CA0F /* LoadingButton.swift in Sources */,
 				9BC3D3041E7149F6007BA522 /* AppDelegate.swift in Sources */,
 				9BC3D3061E7149F6007BA522 /* BoardViewController.swift in Sources */,
-				9B38705F1E97D4FC005D96DE /* ClubType.swift in Sources */,
+				9B38705F1E97D4FC005D96DE /* ClubCategory.swift in Sources */,
 				9B4654251E811DD1009E02AB /* APIManager.swift in Sources */,
-				9B38705D1E962BBC005D96DE /* ClubTypeCell.swift in Sources */,
+				9B38705D1E962BBC005D96DE /* ClubCategoryCell.swift in Sources */,
 				9B3870591E962130005D96DE /* LoadingViewController.swift in Sources */,
 				9B4654271E811E64009E02AB /* Constants.swift in Sources */,
 			);

@@ -8,15 +8,11 @@
 
 import UIKit
 
+class BoardCategoryVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
+    private let reuseIdentifier = "ClubCategoryCell"
 
-
-
-class ClubTypeCollectionVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-
-    private let reuseIdentifier = "ClubTypeCell"
-
-    var clubTypes = [ClubType]()
+    var clubCategories = [ClubCategory]()
 
     let activityIndicator = UIActivityIndicatorView()
     
@@ -31,16 +27,16 @@ class ClubTypeCollectionVC: UICollectionViewController, UICollectionViewDelegate
         
         showActivityIndicator()
         
-        APIManager.shared.getClubTypes { (json) in
+        APIManager.shared.getClubCategories { (json) in
             if json != nil {
                 print(json)
-                self.clubTypes = []
+                self.clubCategories = []
                 
-                if let listClubTypes = json["results"].array {
-                    for item in listClubTypes {
+                if let listClubCategories = json["results"].array {
+                    for item in listClubCategories {
                         print(item)
-                        let clubType = ClubType(json: item)
-                        self.clubTypes.append(clubType)
+                        let clubCategory = ClubCategory(json: item)
+                        self.clubCategories.append(clubCategory)
                     }
                     
                     self.collectionView?.reloadData()
@@ -78,18 +74,18 @@ class ClubTypeCollectionVC: UICollectionViewController, UICollectionViewDelegate
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.clubTypes.count
+        return self.clubCategories.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ClubTypeCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ClubCategoryCell
         
-        let clubType: ClubType
+        let clubCategory: ClubCategory
         
-        clubType = clubTypes[indexPath.row]
+        clubCategory = clubCategories[indexPath.row]
         
-        cell.lbClubTypeName.text = clubType.name!
+        cell.lbClubCategoryName.text = clubCategory.name!
     
         return cell
     }

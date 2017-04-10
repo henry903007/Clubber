@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-class ClubType {
+class ClubCategory {
     
     var objectId: String?
     var name: String?

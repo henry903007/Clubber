@@ -82,7 +82,7 @@ class APIManager {
         
     }
     
-    func getClubTypes(completionHandler: @escaping (JSON) -> Void ) {
+    func getClubCategories(completionHandler: @escaping (JSON) -> Void ) {
         
         let path = "api/classes/types/"
         let url = baseURL!.appendingPathComponent(path)

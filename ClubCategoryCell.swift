@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ClubTypeCell: UICollectionViewCell {
+class ClubCategoryCell: UICollectionViewCell {
     
-    @IBOutlet weak var lbClubTypeName: UILabel!
+
+    @IBOutlet weak var lbClubCategoryName: UILabel!
 }
