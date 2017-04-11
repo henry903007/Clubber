@@ -23,9 +23,10 @@ class APIManager {
 //    var expired = Date()
 
     
+    // API - Login
     func login(fbuid: String, completionHandler: @escaping (NSError?) -> Void ) {
         
-        let path = "api/login/"
+        let path = "/login/"
         let url = baseURL!.appendingPathComponent(path)
         
         let params: Parameters = [
@@ -59,9 +60,10 @@ class APIManager {
         }
     }
 
+    // API - Logout
     func logout(completionHandler: @escaping (NSError?) -> Void ) {
         
-        let path = "api/logout/"
+        let path = "/logout/"
         let url = baseURL!.appendingPathComponent(path)
         
         Alamofire.request(url!, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: HEADERS_WITH_SESSION_KEY)
@@ -82,9 +84,10 @@ class APIManager {
         
     }
     
+    // API - Get the list of culb's categories
     func getClubCategories(completionHandler: @escaping (JSON) -> Void ) {
         
-        let path = "api/classes/types/"
+        let path = "/classes/types/"
         let url = baseURL!.appendingPathComponent(path)
         
         Alamofire.request(url!, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: HEADERS_WITH_SESSION_KEY)
@@ -102,4 +105,7 @@ class APIManager {
                 }
             })
     }
+    
+    
+    
 }

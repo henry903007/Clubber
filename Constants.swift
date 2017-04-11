@@ -11,7 +11,7 @@ import Alamofire
 
 let defaults = UserDefaults.standard
 
-let BASE_URL: String = "http://172.104.34.50:2000/v1/"
+let BASE_URL: String = "http://172.104.34.50:2000/v2/api"
 
 let HEADERS: HTTPHeaders = [
     "X-Parse-Application-Id": "ClubsProject",
