@@ -14,10 +14,18 @@ class BoardRecommendVC: UITableViewController {
 
     var clubEvents = [ClubEvent]()
 
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.contentInset = UIEdgeInsets(top: 3, left: 0, bottom: 18, right: 0)
+
+        // Initialize the refresh control.
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.backgroundColor = UIColor.lightGray
+        self.refreshControl?.tintColor = UIColor.white
+        self.refreshControl?.addTarget(self, action: #selector(BoardRecommendVC.loadClubEvents), for: .valueChanged)
+
         
         loadClubEvents()
 
@@ -25,8 +33,14 @@ class BoardRecommendVC: UITableViewController {
 
     
     func loadClubEvents() {
+        
         let loadingView = LoadingIndicator()
-        loadingView.showLoading(in: tableView)
+
+        
+        if !(self.refreshControl?.isRefreshing)! {
+            loadingView.showLoading(in: self.tableView)
+        }
+
         
         APIManager.shared.getClubEvents { (json) in
             if json != nil {
@@ -38,7 +52,22 @@ class BoardRecommendVC: UITableViewController {
                         self.clubEvents.append(clubEvent)
                     }
                     self.tableView?.reloadData()
-                    loadingView.hideLoading()
+//
+//                    let updateString = "Last Updated at " + DateFormatter().string(from: Date())
+//                    self.refreshControl?.attributedTitle = NSAttributedString(string: updateString)
+                    
+                    if (self.refreshControl?.isRefreshing)! {
+                        let attributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.systemFont(ofSize: 10)]
+                        let updateString = "Last Updated at \(Date())"
+                        
+                        self.refreshControl?.attributedTitle = NSAttributedString(string: updateString, attributes: attributes)
+                        
+                        self.refreshControl?.endRefreshing()
+                    }
+                    else {
+                        loadingView.hideLoading()
+                    }
+                   
                 }
             }
         }
