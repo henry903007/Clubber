@@ -35,6 +35,7 @@ class BoardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "看板"
         self.automaticallyAdjustsScrollViewInsets = false
         
         segmentedControl.initUI()

@@ -16,11 +16,35 @@ class BoardCategoryVC: UICollectionViewController, UICollectionViewDelegateFlowL
     
     let activityIndicator = UIActivityIndicatorView()
     
+    var categoryIdToPass: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadClubTypes()
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showEventByCategorySegue" {
+            let indexPaths = self.collectionView?.indexPathsForSelectedItems
+            let indexPath = (indexPaths?[0])! as IndexPath
+            
+            let categoryName = self.clubCategories[(indexPath.row)].name
+            let categoryId = self.clubCategories[(indexPath.row)].objectId
+            
+            // get a reference to the second view controller
+            let categoryEventVC = segue.destination as! CategoryEventVC
+            
+            // set a variable in the second view controller with the data to pass
+            categoryEventVC.categoryName = categoryName
+            categoryEventVC.categoryId = categoryId
+            
+            
+
+        }
+        
+        
+
     }
     
     func loadClubTypes() {
@@ -80,6 +104,10 @@ class BoardCategoryVC: UICollectionViewController, UICollectionViewDelegateFlowL
     
     
     // MARK: UICollectionViewDelegate
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "showEventByCategorySegue", sender: self)
+    }
     
     /*
      // Uncomment this method to specify if the specified item should be highlighted during tracking

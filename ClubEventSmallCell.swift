@@ -1,26 +1,21 @@
 //
-//  ClubEventCell.swift
+//  ClubEventSmallCell.swift
 //  ClubAnimal
 //
-//  Created by HenrySu on 4/11/17.
+//  Created by HenrySu on 4/13/17.
 //  Copyright © 2017 Henry Su. All rights reserved.
 //
 
 import UIKit
 
-class ClubEventCell: UITableViewCell {
+class ClubEventSmallCell: UITableViewCell {
 
     @IBOutlet weak var lbSchool: UILabel!
+    
     @IBOutlet weak var lbClub: UILabel!
     @IBOutlet weak var lbEvent: UILabel!
     
     @IBOutlet weak var lbTime: UILabel!
-    @IBOutlet weak var lbLocation: UILabel!
-    
-    @IBOutlet weak var imgThumbnail: UIImageView!
-    
-    @IBOutlet weak var imgBtnCollect: UIImageView!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -46,6 +41,7 @@ class ClubEventCell: UITableViewCell {
             super.frame = frame
         }
     }
+    
 
 
 }
