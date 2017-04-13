@@ -18,6 +18,8 @@ class User {
     var objectId: String?
     var isNewUser = true
     
+//    var school
+    
     static let currentUser = User()
     
     func setInfo(json: JSON) {

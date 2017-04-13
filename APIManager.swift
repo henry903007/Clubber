@@ -106,6 +106,31 @@ class APIManager {
             })
     }
     
+    // API - Get all events
+    func getClubEvents(completionHandler: @escaping (JSON) -> Void ) {
+        
+        let path = "/classes/events/"
+        let url = baseURL!.appendingPathComponent(path)
+        
+        Alamofire.request(url!, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: HEADERS_WITH_SESSION_KEY)
+            .responseJSON(completionHandler: { (response) in
+                
+                switch response.result {
+                case .success(let value):
+                    let jsonData = JSON(value)
+                    completionHandler(jsonData)
+                    break
+                    
+                case .failure:
+                    completionHandler(JSON.null)
+                    break
+                }
+            })
+    }
+    
+    
+    
+    
     
     
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F96E062436547333705AC65 /* Pods_ClubAnimal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284CB80B94DA67FF3CD3559C /* Pods_ClubAnimal.framework */; };
 		9B118DF31E9D1C62003ACC83 /* ClubEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B118DF21E9D1C62003ACC83 /* ClubEventCell.swift */; };
+		9B118DF51E9E81F7003ACC83 /* ClubEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B118DF41E9E81F7003ACC83 /* ClubEvent.swift */; };
 		9B3870591E962130005D96DE /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3870581E962130005D96DE /* LoadingViewController.swift */; };
 		9B38705B1E9629B8005D96DE /* BoardCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38705A1E9629B8005D96DE /* BoardCategoryVC.swift */; };
 		9B38705D1E962BBC005D96DE /* ClubCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38705C1E962BBC005D96DE /* ClubCategoryCell.swift */; };
@@ -56,6 +57,7 @@
 		284CB80B94DA67FF3CD3559C /* Pods_ClubAnimal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClubAnimal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FE2941F08A169309BC3A71 /* Pods-ClubAnimalUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClubAnimalUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClubAnimalUITests/Pods-ClubAnimalUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9B118DF21E9D1C62003ACC83 /* ClubEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubEventCell.swift; sourceTree = "<group>"; };
+		9B118DF41E9E81F7003ACC83 /* ClubEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubEvent.swift; sourceTree = "<group>"; };
 		9B3870581E962130005D96DE /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		9B38705A1E9629B8005D96DE /* BoardCategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardCategoryVC.swift; sourceTree = "<group>"; };
 		9B38705C1E962BBC005D96DE /* ClubCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubCategoryCell.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			children = (
 				9B4653F81E7D64DB009E02AB /* User.swift */,
 				9B38705E1E97D4FC005D96DE /* ClubCategory.swift */,
+				9B118DF41E9E81F7003ACC83 /* ClubEvent.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 				9B38705D1E962BBC005D96DE /* ClubCategoryCell.swift in Sources */,
 				9B3870591E962130005D96DE /* LoadingViewController.swift in Sources */,
 				9B4654271E811E64009E02AB /* Constants.swift in Sources */,
+				9B118DF51E9E81F7003ACC83 /* ClubEvent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

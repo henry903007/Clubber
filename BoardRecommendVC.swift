@@ -12,23 +12,80 @@ class BoardRecommendVC: UITableViewController {
 
     private let reuseIdentifier = "ClubEventCell"
 
+    var clubEvents = [ClubEvent]()
+
+    let activityIndicator = UIActivityIndicatorView()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.contentInset = UIEdgeInsets(top: 3, left: 0, bottom: 18, right: 0)
+        
+        loadClubEvents()
 
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func loadClubEvents() {
+        
+        showActivityIndicator()
+        
+        APIManager.shared.getClubEvents { (json) in
+            if json != nil {
+                self.clubEvents = []
+                if let listClubEvents = json["results"].array {
+                    for item in listClubEvents {
+                        print(item)
+                        let clubEvent = ClubEvent(json: item)
+                        self.clubEvents.append(clubEvent)
+                    }
+                    
+                    self.tableView?.reloadData()
+                    self.hideActivityIndicator()
+                }
+            }
+        }
+    }
+    
+    
+    func showActivityIndicator() {
+        activityIndicator.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0)
+        
+        // view is default to the current view controller
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        activityIndicator.color = UIColor.black
+        
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+    }
+    
+    func hideActivityIndicator() {
+        activityIndicator.stopAnimating()
     }
 
+    func loadImage(imageView: UIImageView, urlString: String) {
+        let imgURL: URL = URL(string: urlString)!
+        
+        URLSession.shared.dataTask(with: imgURL) { (data, response, error) in
+            
+            guard let data = data, error == nil else {return}
+            
+            DispatchQueue.main.async(execute: {
+                imageView.image = UIImage(data: data)
+            })
+            }.resume()
+        
+    }
+
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 5
+        return clubEvents.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,13 +94,27 @@ class BoardRecommendVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! ClubEventCell
 
+        let clubEvent: ClubEvent
+        
+        //indexPath.section is used rather than indexPath.row
+        clubEvent = clubEvents[indexPath.section]
+        
+//        cell.lbSchool.text
+//        cell.lbClub.text
+        cell.lbEvent.text = clubEvent.name!
+        cell.lbLocation.text = clubEvent.location
+        cell.lbTime.text = "\(clubEvent.startDate!) - \(clubEvent.endDate!) / \(clubEvent.startTime!) - \(clubEvent.endTime!)"
+        loadImage(imageView: cell.imgThumbnail, urlString: clubEvent.imageURL!)
+        
+        // Setup cell style
         cell.layer.cornerRadius = 3
         
         return cell
     }
     
+    // Setup spacing between cells
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 15
     }

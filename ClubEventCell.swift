@@ -10,6 +10,18 @@ import UIKit
 
 class ClubEventCell: UITableViewCell {
 
+    @IBOutlet weak var lbSchool: UILabel!
+    @IBOutlet weak var lbClub: UILabel!
+    @IBOutlet weak var lbEvent: UILabel!
+    
+    @IBOutlet weak var lbTime: UILabel!
+    @IBOutlet weak var lbLocation: UILabel!
+    
+    @IBOutlet weak var imgThumbnail: UIImageView!
+    
+    @IBOutlet weak var imgBtnCollect: UIImageView!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
