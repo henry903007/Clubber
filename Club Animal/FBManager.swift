@@ -19,7 +19,7 @@ class FBManager {
         if FBSDKAccessToken.current() != nil {
             
             FBSDKGraphRequest(graphPath: "me",
-                              parameters: ["fields": "name, email, picture.type(normal)"])
+                              parameters: ["fields": "name, email, picture.type(large)"])
                 .start(completionHandler: { (connection, result, error) in
                     
                     if error == nil {
