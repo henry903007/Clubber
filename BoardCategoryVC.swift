@@ -25,7 +25,8 @@ class BoardCategoryVC: UICollectionViewController, UICollectionViewDelegateFlowL
     
     func loadClubTypes() {
         
-        showActivityIndicator()
+        let loadingView = LoadingIndicator()
+        loadingView.showLoading(in: collectionView!)
         
         APIManager.shared.getClubCategories { (json) in
             if json != nil {
@@ -38,30 +39,13 @@ class BoardCategoryVC: UICollectionViewController, UICollectionViewDelegateFlowL
                     }
                     
                     self.collectionView?.reloadData()
-                    self.hideActivityIndicator()
+                    loadingView.hideLoading()
                 }
             }
         }
     }
     
-    func showActivityIndicator() {
-        activityIndicator.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0)
-        
-        // view is default to the current view controller
-        activityIndicator.center = view.center
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
-        activityIndicator.color = UIColor.black
-        
-        view.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
-    }
-    
-    func hideActivityIndicator() {
-        activityIndicator.stopAnimating()
-    }
-    
-    
+
     
     
     // MARK: UICollectionViewDataSource

@@ -18,7 +18,7 @@ class MeViewController: UIViewController {
         
         self.title = "我"
         username.text = User.currentUser.name ?? "使用者名稱"
-        imgUserAvatar.image = try! UIImage(data: Data(contentsOf: URL(string: User.currentUser.pictureURL!)!))
+        Utils.loadImageFromURL(imageView: imgUserAvatar, urlString: User.currentUser.pictureURL!)
         imgUserAvatar.layer.cornerRadius = 50
         imgUserAvatar.clipsToBounds = true
     }
@@ -30,19 +30,6 @@ class MeViewController: UIViewController {
 
     
     
-    func loadImage(imageView: UIImageView, urlString: String) {
-        let imgURL: URL = URL(string: urlString)!
-        
-        URLSession.shared.dataTask(with: imgURL) { (data, response, error) in
-            
-            guard let data = data, error == nil else {return}
-            
-            DispatchQueue.main.async(execute: {
-                imageView.image = UIImage(data: data)
-            })
-            }.resume()
-        
-    }
 
     func logoutAndPresentLoginVC() {
         

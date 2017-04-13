@@ -14,8 +14,6 @@ class BoardRecommendVC: UITableViewController {
 
     var clubEvents = [ClubEvent]()
 
-    let activityIndicator = UIActivityIndicatorView()
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +25,8 @@ class BoardRecommendVC: UITableViewController {
 
     
     func loadClubEvents() {
-        
-        showActivityIndicator()
+        let loadingView = LoadingIndicator()
+        loadingView.showLoading(in: tableView)
         
         APIManager.shared.getClubEvents { (json) in
             if json != nil {
@@ -39,45 +37,14 @@ class BoardRecommendVC: UITableViewController {
                         let clubEvent = ClubEvent(json: item)
                         self.clubEvents.append(clubEvent)
                     }
-                    
                     self.tableView?.reloadData()
-                    self.hideActivityIndicator()
+                    loadingView.hideLoading()
                 }
             }
         }
     }
     
-    
-    func showActivityIndicator() {
-        activityIndicator.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0)
-        
-        // view is default to the current view controller
-        activityIndicator.center = view.center
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
-        activityIndicator.color = UIColor.black
-        
-        view.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
-    }
-    
-    func hideActivityIndicator() {
-        activityIndicator.stopAnimating()
-    }
 
-    func loadImage(imageView: UIImageView, urlString: String) {
-        let imgURL: URL = URL(string: urlString)!
-        
-        URLSession.shared.dataTask(with: imgURL) { (data, response, error) in
-            
-            guard let data = data, error == nil else {return}
-            
-            DispatchQueue.main.async(execute: {
-                imageView.image = UIImage(data: data)
-            })
-            }.resume()
-        
-    }
 
     
     
@@ -106,7 +73,7 @@ class BoardRecommendVC: UITableViewController {
         cell.lbEvent.text = clubEvent.name!
         cell.lbLocation.text = clubEvent.location
         cell.lbTime.text = "\(clubEvent.startDate!) - \(clubEvent.endDate!) / \(clubEvent.startTime!) - \(clubEvent.endTime!)"
-        loadImage(imageView: cell.imgThumbnail, urlString: clubEvent.imageURL!)
+        Utils.loadImageFromURL(imageView: cell.imgThumbnail, urlString: clubEvent.imageURL!)
         
         // Setup cell style
         cell.layer.cornerRadius = 3
