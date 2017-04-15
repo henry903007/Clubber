@@ -12,8 +12,9 @@ class CategoryEventVC: UITableViewController {
 
     private let reuseIdentifier = "ClubEventSmallCell"
     
-    var clubEvents = [ClubEvent]()
+    let loadingView = LoadingIndicator()
 
+    var clubEvents = [ClubEvent]()
     var categoryName: String?
     var categoryId: String?
     
@@ -26,9 +27,16 @@ class CategoryEventVC: UITableViewController {
         
         // Initialize the refresh control.
         self.refreshControl = UIRefreshControl()
-        self.refreshControl?.backgroundColor = UIColor.lightGray
         self.refreshControl?.tintColor = UIColor.white
-        self.refreshControl?.addTarget(self, action: #selector(CategoryEventVC.loadClubEvents(byCategoryId:)), for: .valueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(CategoryEventVC.refreshData), for: .valueChanged)
+        let attributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.systemFont(ofSize: 10)]
+        let updateString = "Pull to refresh"
+        
+        self.refreshControl?.attributedTitle = NSAttributedString(string: updateString, attributes: attributes)
+        
+        
+        
+
         
         if categoryId != nil{
             loadClubEvents(byCategoryId: categoryId!)
@@ -37,11 +45,36 @@ class CategoryEventVC: UITableViewController {
 
 
     
+    func refreshData() {
+        if categoryId != nil{
+            loadClubEvents(byCategoryId: categoryId!)
+        }
+        else {
+            self.refreshControl?.endRefreshing()
+        }
+        
+        
+        if (self.refreshControl?.isRefreshing)! {
+            
+            self.refreshControl?.endRefreshing()
+            
+            DispatchQueue.main.async {
+                let attributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.systemFont(ofSize: 10)]
+                let updateString = "Last Updated at \(Date())"
+                
+                self.refreshControl?.attributedTitle = NSAttributedString(string: updateString, attributes: attributes)
+
+            }
+
+        }
+    }
+    
+    
+    
+
     
     
     func loadClubEvents(byCategoryId id: String) {
-        
-        let loadingView = LoadingIndicator()
         
         
         if !(self.refreshControl?.isRefreshing)! {
@@ -57,23 +90,19 @@ class CategoryEventVC: UITableViewController {
                         let clubEvent = ClubEvent(json: item)
                         self.clubEvents.append(clubEvent)
                     }
-                    self.tableView?.reloadData()
-                    if (self.refreshControl?.isRefreshing)! {
-                        let attributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.systemFont(ofSize: 10)]
-                        let updateString = "Last Updated at \(Date())"
-                        
-                        self.refreshControl?.attributedTitle = NSAttributedString(string: updateString, attributes: attributes)
-                        
-                        self.refreshControl?.endRefreshing()
-                    }
-                    else {
-                        loadingView.hideLoading()
+                    
+                    self.tableView.reloadData()
+
+                    if !(self.refreshControl?.isRefreshing)! {
+                        self.loadingView.hideLoading()
                     }
                     
                 }
             }
            
         })
+        
+
     }
 
 

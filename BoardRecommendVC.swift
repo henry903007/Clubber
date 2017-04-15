@@ -24,15 +24,38 @@ class BoardRecommendVC: UITableViewController {
 
         // Initialize the refresh control.
         self.refreshControl = UIRefreshControl()
-        self.refreshControl?.backgroundColor = UIColor.lightGray
         self.refreshControl?.tintColor = UIColor.white
-        self.refreshControl?.addTarget(self, action: #selector(BoardRecommendVC.loadClubEvents), for: .valueChanged)
-
+        self.refreshControl?.addTarget(self, action: #selector(BoardRecommendVC.refreshData), for: .valueChanged)
+        let attributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.systemFont(ofSize: 10)]
+        let updateString = "Pull to refresh"
+        
+        self.refreshControl?.attributedTitle = NSAttributedString(string: updateString, attributes: attributes)
+        
         
         loadClubEvents()
 
     }
 
+    
+    
+    func refreshData() {
+        loadClubEvents()
+        
+        if (self.refreshControl?.isRefreshing)! {
+            
+            self.refreshControl?.endRefreshing()
+            
+            DispatchQueue.main.async {
+                let attributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.systemFont(ofSize: 10)]
+                let updateString = "Last Updated at \(Date())"
+                
+                self.refreshControl?.attributedTitle = NSAttributedString(string: updateString, attributes: attributes)
+                
+            }
+            
+        }
+    }
+    
     
     func loadClubEvents() {
         
@@ -52,19 +75,12 @@ class BoardRecommendVC: UITableViewController {
                         let clubEvent = ClubEvent(json: item)
                         self.clubEvents.append(clubEvent)
                     }
+                    
                     self.tableView?.reloadData()
-                    if (self.refreshControl?.isRefreshing)! {
-                        let attributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.systemFont(ofSize: 10)]
-                        let updateString = "Last Updated at \(Date())"
-                        
-                        self.refreshControl?.attributedTitle = NSAttributedString(string: updateString, attributes: attributes)
-                        
-                        self.refreshControl?.endRefreshing()
-                    }
-                    else {
+        
+                    if !(self.refreshControl?.isRefreshing)! {
                         loadingView.hideLoading()
                     }
-                   
                 }
             }
         }

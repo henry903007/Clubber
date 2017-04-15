@@ -1,0 +1,730 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		57309767280D027D50542C79 /* Pods_Clubber.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26C9C3C50C9D7889480B527 /* Pods_Clubber.framework */; };
+		9B118DF31E9D1C62003ACC83 /* ClubEventBigCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B118DF21E9D1C62003ACC83 /* ClubEventBigCell.swift */; };
+		9B118DF51E9E81F7003ACC83 /* ClubEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B118DF41E9E81F7003ACC83 /* ClubEvent.swift */; };
+		9B118E1F1E9F6C98003ACC83 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B118E1E1E9F6C98003ACC83 /* LoadingIndicator.swift */; };
+		9B118E221E9F6FD6003ACC83 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B118E211E9F6FD6003ACC83 /* Utils.swift */; };
+		9B118E241E9F9AEC003ACC83 /* ClubEventSmallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B118E231E9F9AEC003ACC83 /* ClubEventSmallCell.swift */; };
+		9B118E261E9F9BFB003ACC83 /* CategoryEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B118E251E9F9BFB003ACC83 /* CategoryEventVC.swift */; };
+		9B38705B1E9629B8005D96DE /* BoardCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38705A1E9629B8005D96DE /* BoardCategoryVC.swift */; };
+		9B38705D1E962BBC005D96DE /* ClubCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38705C1E962BBC005D96DE /* ClubCategoryCell.swift */; };
+		9B38705F1E97D4FC005D96DE /* ClubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38705E1E97D4FC005D96DE /* ClubCategory.swift */; };
+		9B3870891E9BADE6005D96DE /* BoardSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3870881E9BADE6005D96DE /* BoardSegmentedControl.swift */; };
+		9B38708D1E9CF78A005D96DE /* BoardRecommendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38708C1E9CF78A005D96DE /* BoardRecommendVC.swift */; };
+		9B4653F91E7D64DB009E02AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4653F81E7D64DB009E02AB /* User.swift */; };
+		9B4653FD1E7D700B009E02AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B4653FB1E7D700B009E02AB /* Main.storyboard */; };
+		9B4654251E811DD1009E02AB /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4654241E811DD1009E02AB /* APIManager.swift */; };
+		9B4654271E811E64009E02AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4654261E811E64009E02AB /* Constants.swift */; };
+		9B4654291E8276B3009E02AB /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4654281E8276B3009E02AB /* MeViewController.swift */; };
+		9B7622601E8A8BA600400DAD /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B76225F1E8A8BA600400DAD /* FeedbackViewController.swift */; };
+		9BB467091E83C13F0073CA0F /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB467081E83C13F0073CA0F /* LoadingButton.swift */; };
+		9BC3D3041E7149F6007BA522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D3031E7149F6007BA522 /* AppDelegate.swift */; };
+		9BC3D3061E7149F6007BA522 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D3051E7149F6007BA522 /* BoardViewController.swift */; };
+		9BC3D3081E7149F6007BA522 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D3071E7149F6007BA522 /* SearchViewController.swift */; };
+		9BC3D30D1E7149F6007BA522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BC3D30C1E7149F6007BA522 /* Assets.xcassets */; };
+		9BC3D3101E7149F6007BA522 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BC3D30E1E7149F6007BA522 /* LaunchScreen.storyboard */; };
+		9BCEFDBE1E7D5AA60098C2FA /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCEFDBD1E7D5AA60098C2FA /* LoadingViewController.swift */; };
+		9BCEFDC01E7D5D9F0098C2FA /* FBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCEFDBF1E7D5D9F0098C2FA /* FBManager.swift */; };
+		9BFB84091EA295F700B22FF0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3870581E962130005D96DE /* LoginViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9BC3D3171E7149F6007BA522 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BC3D2F81E7149F6007BA522 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BC3D2FF1E7149F6007BA522;
+			remoteInfo = "Club Animal";
+		};
+		9BC3D3221E7149F6007BA522 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BC3D2F81E7149F6007BA522 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BC3D2FF1E7149F6007BA522;
+			remoteInfo = "Club Animal";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		284CB80B94DA67FF3CD3559C /* Pods_ClubAnimal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClubAnimal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		966560C1BB8803226A1AE7DE /* Pods-Clubber.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clubber.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Clubber/Pods-Clubber.debug.xcconfig"; sourceTree = "<group>"; };
+		9B118DF21E9D1C62003ACC83 /* ClubEventBigCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubEventBigCell.swift; sourceTree = "<group>"; };
+		9B118DF41E9E81F7003ACC83 /* ClubEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubEvent.swift; sourceTree = "<group>"; };
+		9B118E1E1E9F6C98003ACC83 /* LoadingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
+		9B118E211E9F6FD6003ACC83 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		9B118E231E9F9AEC003ACC83 /* ClubEventSmallCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubEventSmallCell.swift; sourceTree = "<group>"; };
+		9B118E251E9F9BFB003ACC83 /* CategoryEventVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryEventVC.swift; sourceTree = "<group>"; };
+		9B3870581E962130005D96DE /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9B38705A1E9629B8005D96DE /* BoardCategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardCategoryVC.swift; sourceTree = "<group>"; };
+		9B38705C1E962BBC005D96DE /* ClubCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubCategoryCell.swift; sourceTree = "<group>"; };
+		9B38705E1E97D4FC005D96DE /* ClubCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubCategory.swift; sourceTree = "<group>"; };
+		9B3870881E9BADE6005D96DE /* BoardSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardSegmentedControl.swift; sourceTree = "<group>"; };
+		9B38708C1E9CF78A005D96DE /* BoardRecommendVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardRecommendVC.swift; sourceTree = "<group>"; };
+		9B4653F81E7D64DB009E02AB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9B4653FC1E7D700B009E02AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9B4653FE1E7EF396009E02AB /* Clubber.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Clubber.entitlements; sourceTree = SOURCE_ROOT; };
+		9B4654241E811DD1009E02AB /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		9B4654261E811E64009E02AB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9B4654281E8276B3009E02AB /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
+		9B76225F1E8A8BA600400DAD /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
+		9BB467081E83C13F0073CA0F /* LoadingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
+		9BC3D3001E7149F6007BA522 /* Clubber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clubber.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BC3D3031E7149F6007BA522 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9BC3D3051E7149F6007BA522 /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
+		9BC3D3071E7149F6007BA522 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		9BC3D30C1E7149F6007BA522 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9BC3D30F1E7149F6007BA522 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9BC3D3111E7149F6007BA522 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BC3D3161E7149F6007BA522 /* ClubberTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClubberTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BC3D3211E7149F6007BA522 /* ClubberUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClubberUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BCEFDBD1E7D5AA60098C2FA /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		9BCEFDBF1E7D5D9F0098C2FA /* FBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBManager.swift; sourceTree = "<group>"; };
+		B26C9C3C50C9D7889480B527 /* Pods_Clubber.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clubber.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C170FB8101E51FFCA67D9DCF /* Pods-Clubber.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clubber.release.xcconfig"; path = "Pods/Target Support Files/Pods-Clubber/Pods-Clubber.release.xcconfig"; sourceTree = "<group>"; };
+		D23D694705EDBE89ED36591D /* Pods-ClubAnimal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClubAnimal.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClubAnimal/Pods-ClubAnimal.release.xcconfig"; sourceTree = "<group>"; };
+		D90819B96683A17F9F0A45A9 /* Pods-ClubAnimal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClubAnimal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClubAnimal/Pods-ClubAnimal.debug.xcconfig"; sourceTree = "<group>"; };
+		EE8C66B1976157DF95ACFFD7 /* Pods_ClubAnimalTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClubAnimalTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F85326C518E9F85E51BC548D /* Pods_ClubAnimalUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClubAnimalUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9BC3D2FD1E7149F6007BA522 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57309767280D027D50542C79 /* Pods_Clubber.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BC3D3131E7149F6007BA522 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BC3D31E1E7149F6007BA522 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3E748EB1A3394DE7ACBB5552 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D90819B96683A17F9F0A45A9 /* Pods-ClubAnimal.debug.xcconfig */,
+				D23D694705EDBE89ED36591D /* Pods-ClubAnimal.release.xcconfig */,
+				966560C1BB8803226A1AE7DE /* Pods-Clubber.debug.xcconfig */,
+				C170FB8101E51FFCA67D9DCF /* Pods-Clubber.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		422F524E975BDFBCA5294E0F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				284CB80B94DA67FF3CD3559C /* Pods_ClubAnimal.framework */,
+				EE8C66B1976157DF95ACFFD7 /* Pods_ClubAnimalTests.framework */,
+				F85326C518E9F85E51BC548D /* Pods_ClubAnimalUITests.framework */,
+				B26C9C3C50C9D7889480B527 /* Pods_Clubber.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9B118E201E9F6D17003ACC83 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				9B118E211E9F6FD6003ACC83 /* Utils.swift */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		9B4653F71E7D60F8009E02AB /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				9BCEFDBF1E7D5D9F0098C2FA /* FBManager.swift */,
+				9B4654241E811DD1009E02AB /* APIManager.swift */,
+				9B4654261E811E64009E02AB /* Constants.swift */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
+		9B4653FA1E7D64E3009E02AB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9B4653F81E7D64DB009E02AB /* User.swift */,
+				9B38705E1E97D4FC005D96DE /* ClubCategory.swift */,
+				9B118DF41E9E81F7003ACC83 /* ClubEvent.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		9B4654211E8117AA009E02AB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9B3870581E962130005D96DE /* LoginViewController.swift */,
+				9BCEFDBD1E7D5AA60098C2FA /* LoadingViewController.swift */,
+				9BC3D3051E7149F6007BA522 /* BoardViewController.swift */,
+				9B38708C1E9CF78A005D96DE /* BoardRecommendVC.swift */,
+				9B38705A1E9629B8005D96DE /* BoardCategoryVC.swift */,
+				9B118E251E9F9BFB003ACC83 /* CategoryEventVC.swift */,
+				9BC3D3071E7149F6007BA522 /* SearchViewController.swift */,
+				9B4654281E8276B3009E02AB /* MeViewController.swift */,
+				9B76225F1E8A8BA600400DAD /* FeedbackViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		9BB467071E83C10B0073CA0F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9B118E1E1E9F6C98003ACC83 /* LoadingIndicator.swift */,
+				9BB467081E83C13F0073CA0F /* LoadingButton.swift */,
+				9B3870881E9BADE6005D96DE /* BoardSegmentedControl.swift */,
+				9B38705C1E962BBC005D96DE /* ClubCategoryCell.swift */,
+				9B118DF21E9D1C62003ACC83 /* ClubEventBigCell.swift */,
+				9B118E231E9F9AEC003ACC83 /* ClubEventSmallCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		9BC3D2F71E7149F6007BA522 = {
+			isa = PBXGroup;
+			children = (
+				9B118E201E9F6D17003ACC83 /* Util */,
+				9BB467071E83C10B0073CA0F /* View */,
+				9B4654211E8117AA009E02AB /* Controller */,
+				9B4653FA1E7D64E3009E02AB /* Model */,
+				9B4653F71E7D60F8009E02AB /* Manager */,
+				9BC3D3021E7149F6007BA522 /* Clubber */,
+				9BC3D3011E7149F6007BA522 /* Products */,
+				3E748EB1A3394DE7ACBB5552 /* Pods */,
+				422F524E975BDFBCA5294E0F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9BC3D3011E7149F6007BA522 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9BC3D3001E7149F6007BA522 /* Clubber.app */,
+				9BC3D3161E7149F6007BA522 /* ClubberTests.xctest */,
+				9BC3D3211E7149F6007BA522 /* ClubberUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9BC3D3021E7149F6007BA522 /* Clubber */ = {
+			isa = PBXGroup;
+			children = (
+				9B4653FE1E7EF396009E02AB /* Clubber.entitlements */,
+				9BC3D3031E7149F6007BA522 /* AppDelegate.swift */,
+				9BC3D30C1E7149F6007BA522 /* Assets.xcassets */,
+				9BC3D30E1E7149F6007BA522 /* LaunchScreen.storyboard */,
+				9B4653FB1E7D700B009E02AB /* Main.storyboard */,
+				9BC3D3111E7149F6007BA522 /* Info.plist */,
+			);
+			path = Clubber;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9BC3D2FF1E7149F6007BA522 /* Clubber */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BC3D32A1E7149F6007BA522 /* Build configuration list for PBXNativeTarget "Clubber" */;
+			buildPhases = (
+				B4B22D3C1D4820969ACD8B4A /* [CP] Check Pods Manifest.lock */,
+				9BC3D2FC1E7149F6007BA522 /* Sources */,
+				9BC3D2FD1E7149F6007BA522 /* Frameworks */,
+				9BC3D2FE1E7149F6007BA522 /* Resources */,
+				398F0326B23E12A369FF24A6 /* [CP] Embed Pods Frameworks */,
+				1349344D34C4531DEDFB0B1A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Clubber;
+			productName = "Club Animal";
+			productReference = 9BC3D3001E7149F6007BA522 /* Clubber.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9BC3D3151E7149F6007BA522 /* ClubberTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BC3D32D1E7149F6007BA522 /* Build configuration list for PBXNativeTarget "ClubberTests" */;
+			buildPhases = (
+				9BC3D3121E7149F6007BA522 /* Sources */,
+				9BC3D3131E7149F6007BA522 /* Frameworks */,
+				9BC3D3141E7149F6007BA522 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9BC3D3181E7149F6007BA522 /* PBXTargetDependency */,
+			);
+			name = ClubberTests;
+			productName = "Club AnimalTests";
+			productReference = 9BC3D3161E7149F6007BA522 /* ClubberTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9BC3D3201E7149F6007BA522 /* ClubberUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BC3D3301E7149F6007BA522 /* Build configuration list for PBXNativeTarget "ClubberUITests" */;
+			buildPhases = (
+				9BC3D31D1E7149F6007BA522 /* Sources */,
+				9BC3D31E1E7149F6007BA522 /* Frameworks */,
+				9BC3D31F1E7149F6007BA522 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9BC3D3231E7149F6007BA522 /* PBXTargetDependency */,
+			);
+			name = ClubberUITests;
+			productName = "Club AnimalUITests";
+			productReference = 9BC3D3211E7149F6007BA522 /* ClubberUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9BC3D2F81E7149F6007BA522 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Henry Su";
+				TargetAttributes = {
+					9BC3D2FF1E7149F6007BA522 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 83XE9BDRQ7;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
+					};
+					9BC3D3151E7149F6007BA522 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 9BC3D2FF1E7149F6007BA522;
+					};
+					9BC3D3201E7149F6007BA522 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 9BC3D2FF1E7149F6007BA522;
+					};
+				};
+			};
+			buildConfigurationList = 9BC3D2FB1E7149F6007BA522 /* Build configuration list for PBXProject "Clubber" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9BC3D2F71E7149F6007BA522;
+			productRefGroup = 9BC3D3011E7149F6007BA522 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9BC3D2FF1E7149F6007BA522 /* Clubber */,
+				9BC3D3151E7149F6007BA522 /* ClubberTests */,
+				9BC3D3201E7149F6007BA522 /* ClubberUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9BC3D2FE1E7149F6007BA522 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B4653FD1E7D700B009E02AB /* Main.storyboard in Resources */,
+				9BC3D3101E7149F6007BA522 /* LaunchScreen.storyboard in Resources */,
+				9BC3D30D1E7149F6007BA522 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BC3D3141E7149F6007BA522 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BC3D31F1E7149F6007BA522 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1349344D34C4531DEDFB0B1A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Clubber/Pods-Clubber-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		398F0326B23E12A369FF24A6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Clubber/Pods-Clubber-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4B22D3C1D4820969ACD8B4A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9BC3D2FC1E7149F6007BA522 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B4654291E8276B3009E02AB /* MeViewController.swift in Sources */,
+				9BCEFDC01E7D5D9F0098C2FA /* FBManager.swift in Sources */,
+				9B3870891E9BADE6005D96DE /* BoardSegmentedControl.swift in Sources */,
+				9BFB84091EA295F700B22FF0 /* LoginViewController.swift in Sources */,
+				9B7622601E8A8BA600400DAD /* FeedbackViewController.swift in Sources */,
+				9B38705B1E9629B8005D96DE /* BoardCategoryVC.swift in Sources */,
+				9BCEFDBE1E7D5AA60098C2FA /* LoadingViewController.swift in Sources */,
+				9B118E261E9F9BFB003ACC83 /* CategoryEventVC.swift in Sources */,
+				9B4653F91E7D64DB009E02AB /* User.swift in Sources */,
+				9BC3D3081E7149F6007BA522 /* SearchViewController.swift in Sources */,
+				9BB467091E83C13F0073CA0F /* LoadingButton.swift in Sources */,
+				9BC3D3041E7149F6007BA522 /* AppDelegate.swift in Sources */,
+				9B38708D1E9CF78A005D96DE /* BoardRecommendVC.swift in Sources */,
+				9BC3D3061E7149F6007BA522 /* BoardViewController.swift in Sources */,
+				9B118E1F1E9F6C98003ACC83 /* LoadingIndicator.swift in Sources */,
+				9B38705F1E97D4FC005D96DE /* ClubCategory.swift in Sources */,
+				9B4654251E811DD1009E02AB /* APIManager.swift in Sources */,
+				9B118DF31E9D1C62003ACC83 /* ClubEventBigCell.swift in Sources */,
+				9B38705D1E962BBC005D96DE /* ClubCategoryCell.swift in Sources */,
+				9B118E221E9F6FD6003ACC83 /* Utils.swift in Sources */,
+				9B4654271E811E64009E02AB /* Constants.swift in Sources */,
+				9B118E241E9F9AEC003ACC83 /* ClubEventSmallCell.swift in Sources */,
+				9B118DF51E9E81F7003ACC83 /* ClubEvent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BC3D3121E7149F6007BA522 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BC3D31D1E7149F6007BA522 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9BC3D3181E7149F6007BA522 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9BC3D2FF1E7149F6007BA522 /* Clubber */;
+			targetProxy = 9BC3D3171E7149F6007BA522 /* PBXContainerItemProxy */;
+		};
+		9BC3D3231E7149F6007BA522 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9BC3D2FF1E7149F6007BA522 /* Clubber */;
+			targetProxy = 9BC3D3221E7149F6007BA522 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9B4653FB1E7D700B009E02AB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B4653FC1E7D700B009E02AB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9BC3D30E1E7149F6007BA522 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9BC3D30F1E7149F6007BA522 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9BC3D3281E7149F6007BA522 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9BC3D3291E7149F6007BA522 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9BC3D32B1E7149F6007BA522 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 966560C1BB8803226A1AE7DE /* Pods-Clubber.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Clubber.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 83XE9BDRQ7;
+				INFOPLIST_FILE = Clubber/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = henrysu.Clubber;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		9BC3D32C1E7149F6007BA522 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C170FB8101E51FFCA67D9DCF /* Pods-Clubber.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Clubber.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 83XE9BDRQ7;
+				INFOPLIST_FILE = Clubber/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = henrysu.Clubber;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		9BC3D32E1E7149F6007BA522 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = Clubber/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = henrysu.Cluber;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clubber.app/Clubber";
+			};
+			name = Debug;
+		};
+		9BC3D32F1E7149F6007BA522 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = Clubber/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = henrysu.Cluber;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clubber.app/Clubber";
+			};
+			name = Release;
+		};
+		9BC3D3311E7149F6007BA522 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = "Club AnimalUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "henrysu.Club-AnimalUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "Club Animal";
+			};
+			name = Debug;
+		};
+		9BC3D3321E7149F6007BA522 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = "Club AnimalUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "henrysu.Club-AnimalUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "Club Animal";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9BC3D2FB1E7149F6007BA522 /* Build configuration list for PBXProject "Clubber" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BC3D3281E7149F6007BA522 /* Debug */,
+				9BC3D3291E7149F6007BA522 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BC3D32A1E7149F6007BA522 /* Build configuration list for PBXNativeTarget "Clubber" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BC3D32B1E7149F6007BA522 /* Debug */,
+				9BC3D32C1E7149F6007BA522 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BC3D32D1E7149F6007BA522 /* Build configuration list for PBXNativeTarget "ClubberTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BC3D32E1E7149F6007BA522 /* Debug */,
+				9BC3D32F1E7149F6007BA522 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BC3D3301E7149F6007BA522 /* Build configuration list for PBXNativeTarget "ClubberUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BC3D3311E7149F6007BA522 /* Debug */,
+				9BC3D3321E7149F6007BA522 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9BC3D2F81E7149F6007BA522 /* Project object */;
+}

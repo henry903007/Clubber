@@ -21,7 +21,9 @@ class LoadingIndicator: UIActivityIndicatorView {
     }
     
     func hideLoading() {
-        activityIndicator.stopAnimating()
+        if (activityIndicator != nil) {
+            activityIndicator.stopAnimating()
+        }
     }
     
     private func createActivityIndicator() -> UIActivityIndicatorView {

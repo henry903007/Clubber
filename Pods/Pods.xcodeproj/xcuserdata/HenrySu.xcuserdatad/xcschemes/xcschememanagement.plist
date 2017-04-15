@@ -29,17 +29,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-ClubAnimal.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-ClubAnimalTests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-ClubAnimalUITests.xcscheme</key>
+		<key>Pods-Clubber.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -52,12 +42,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>041318CCED6A9D0E7CD076056EC7E51E</key>
+		<key>1E3707BA0CC83A29B8E716B2A749FFFA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>145C995A59E8539685022B7C8629D82A</key>
+		<key>4262DA06A34630ECB2709B68D3A5D18B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,17 +72,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CD551773A6DB21661620287E457C3BBF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>E396A93E4C79B22B7816E9F02F62ECED</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F347C2387C80F1C733FF1F878661BDD2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

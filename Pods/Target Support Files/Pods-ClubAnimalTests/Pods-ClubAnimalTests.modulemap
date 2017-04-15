@@ -1,6 +1,0 @@
-framework module Pods_ClubAnimalTests {
-  umbrella header "Pods-ClubAnimalTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

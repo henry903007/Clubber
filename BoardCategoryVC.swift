@@ -46,6 +46,7 @@ class BoardCategoryVC: UICollectionViewController, UICollectionViewDelegateFlowL
         
 
     }
+
     
     func loadClubTypes() {
         
