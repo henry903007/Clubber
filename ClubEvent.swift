@@ -16,10 +16,15 @@ class ClubEvent {
     var name: String?
     var location: String?
     var imageURL: String?
-    var category: String?
     
-    var club: String?
-    var school: String?
+    var categoryName: String?
+    var categoryId: String?
+
+    var clubName: String?
+    var clubId: String?
+    
+    var schoolName: String?
+    var schoolId: String?
     
     var startDate: String?
     var endDate: String?
@@ -49,12 +54,23 @@ class ClubEvent {
         }
         
 
-//        TODO: Get school and club
-//        let categoryData = json["types"].dictionary
-//        self.category = clubData?["name"]?.string
-//        
-//        let clubData = json["clubs"].dictionary
-//        self.club = clubData?["name"]?.string
+        let categoryData = json["types"].array
+        if (categoryData?.count)! > 0 {
+            self.categoryName = categoryData?[0]["name"].string
+            self.categoryId = categoryData?[0]["objectId"].string
+        }
+        let clubData = json["clubs"].array
+        if (clubData?.count)! > 0 {
+            self.clubName = clubData?[0]["name"].string
+            self.clubId = clubData?[0]["objectId"].string
+        }
+        
+        
+        let schoolData = json["schools"].array
+        if (schoolData?.count)! > 0 {
+            self.schoolName = schoolData?[0]["name"].string
+            self.schoolId = schoolData?[0]["objectId"].string
+        }
 
         
     }

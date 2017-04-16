@@ -129,12 +129,12 @@ class APIManager {
     }
     
     // API - Get events by category ID
-    func getClubEvents(byCategoryId id: String,completionHandler: @escaping (JSON) -> Void ) {
+    func getClubEvents(byCategoryId categoryId: String, completionHandler: @escaping (JSON) -> Void ) {
         
         let path = "/search/events"
         let url = baseURL!.appendingPathComponent(path)
         
-        let parameters: Parameters = ["typeId": id]
+        let parameters: Parameters = ["typeId": categoryId]
 
         
         Alamofire.request(url!, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: HEADERS_WITH_SESSION_KEY)
@@ -153,6 +153,31 @@ class APIManager {
             })
     }
     
+    
+    // API - Get an event's data
+    func getEventData(byEventId eventId: String, completionHandler: @escaping (JSON) -> Void ) {
+        
+        let path = "/classes/events/\(eventId)"
+        let url = baseURL!.appendingPathComponent(path)
+        
+        let parameters: Parameters = ["includes": "types,users,schools,clubs"]
+
+        
+        Alamofire.request(url!, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: HEADERS_WITH_SESSION_KEY)
+            .responseJSON(completionHandler: { (response) in
+                
+                switch response.result {
+                case .success(let value):
+                    let jsonData = JSON(value)
+                    completionHandler(jsonData)
+                    break
+                    
+                case .failure:
+                    completionHandler(JSON.null)
+                    break
+                }
+            })
+    }
     
     
     
