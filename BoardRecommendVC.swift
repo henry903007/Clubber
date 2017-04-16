@@ -12,6 +12,8 @@ class BoardRecommendVC: UITableViewController {
 
     private let reuseIdentifier = "ClubEventBigCell"
 
+    let loadingView = LoadingIndicator()
+
     var clubEvents = [ClubEvent]()
 
 
@@ -59,9 +61,6 @@ class BoardRecommendVC: UITableViewController {
     
     func loadClubEvents() {
         
-        let loadingView = LoadingIndicator()
-
-        
         if !(self.refreshControl?.isRefreshing)! {
             loadingView.showLoading(in: self.tableView)
         }
@@ -79,7 +78,7 @@ class BoardRecommendVC: UITableViewController {
                     self.tableView?.reloadData()
         
                     if !(self.refreshControl?.isRefreshing)! {
-                        loadingView.hideLoading()
+                        self.loadingView.hideLoading()
                     }
                 }
             }

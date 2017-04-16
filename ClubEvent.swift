@@ -26,6 +26,8 @@ class ClubEvent {
     var startTime: String?
     var endTime: String?
     
+    var isCollected = false
+    
 
 
 
@@ -38,40 +40,29 @@ class ClubEvent {
         
         let startDateData = json["startAt"].dictionary
         if let startDateString = startDateData?["iso"]?.string {
-            (self.startDate, self.startTime) = convertDateFormat(dateString: startDateString)
+            (self.startDate, self.startTime) = Utils.splitDateString(dateString: startDateString)
         }
         
         let endDateData = json["endAt"].dictionary
         if let endDateString = endDateData?["iso"]?.string {
-            (self.endDate, self.endTime) = convertDateFormat(dateString: endDateString)
+            (self.endDate, self.endTime) = Utils.splitDateString(dateString: endDateString)
         }
         
 
-        
+//        TODO: Get school and club
 //        let categoryData = json["types"].dictionary
 //        self.category = clubData?["name"]?.string
 //        
 //        let clubData = json["clubs"].dictionary
 //        self.club = clubData?["name"]?.string
-//        
 
         
+    }
+
+    
+    func setCollected(_ isCollected: Bool) {
+        self.isCollected = isCollected
     }
     
-    func convertDateFormat(dateString: String) -> (date: String?, time: String?) {
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        let date = dateFormatter.date(from: dateString)!
-        
-        dateFormatter.dateFormat = "yyyy/MM/dd"
-        let date_str = dateFormatter.string(from:date)
-        
-        dateFormatter.dateFormat = "HH:mm"
-        let time_str = dateFormatter.string(from:date)
-        
-        return (date_str, time_str)
-
- 
-    }
+    
 }

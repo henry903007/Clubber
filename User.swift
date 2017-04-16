@@ -23,6 +23,7 @@ class User {
     static let currentUser = User()
     
     func setInfo(json: JSON) {
+        self.objectId = json["objectId"].string
         self.name = json["name"].string
         self.email = json["email"].string
         self.fbuid = json["id"].string
@@ -33,9 +34,6 @@ class User {
         
     }
     
-    func setObjectId(_ objectId: String) {
-        self.objectId = objectId
-    }
     
     func setIsNewUser(_ isNewUser: Bool) {
         self.isNewUser = isNewUser

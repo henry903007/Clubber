@@ -43,7 +43,7 @@ class APIManager {
                 let jsonData = JSON(value)
                 print(jsonData)
                 self.sessionToken = jsonData["sessionToken"].string!
-                User.currentUser.setObjectId(jsonData["objectId"].string!)
+//                User.currentUser.setObjectId(jsonData["objectId"].string!)
                 
                 if jsonData["username"] != JSON.null {
                     User.currentUser.setIsNewUser(false)
