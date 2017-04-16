@@ -86,23 +86,44 @@ class CategoryEventVC: UITableViewController {
             if json != nil {
                 self.clubEvents = []
                 if let listClubEvents = json.array {
-                    for item in listClubEvents {
-                        let clubEvent = ClubEvent(json: item)
-                        self.clubEvents.append(clubEvent)
+                    
+                    if listClubEvents.count == 0 {
+                        if !(self.refreshControl?.isRefreshing)! {
+                            self.loadingView.hideLoading()
+                        }
+                        return
                     }
                     
-                    self.tableView.reloadData()
-
-                    if !(self.refreshControl?.isRefreshing)! {
-                        self.loadingView.hideLoading()
+                    for event in listClubEvents {
+                        APIManager.shared.getEventData(byEventId: event["objectId"].string!, completionHandler: { (eventJson) in
+                            
+                            if json != nil {
+                                let clubEvent = ClubEvent(json: eventJson)
+                                self.clubEvents.append(clubEvent)
+                                
+                                // TODO: use Promise
+                                // Call table view's reloadData after getting all event data
+                                if self.clubEvents.count == listClubEvents.count {
+                                    // Sort ascendingly by date
+                                    self.clubEvents.sort(by: { $0.startDate! < $1.startDate! })
+                                    self.tableView?.reloadData()
+                                    
+                                    if !(self.refreshControl?.isRefreshing)! {
+                                        self.loadingView.hideLoading()
+                                    }
+                                    
+                                }
+                                
+                            }
+                        })
+                        
                     }
                     
                 }
+            
             }
-           
         })
         
-
     }
 
 
@@ -128,8 +149,8 @@ class CategoryEventVC: UITableViewController {
         //indexPath.section is used rather than indexPath.row
         clubEvent = clubEvents[indexPath.section]
         
-        //        cell.lbSchool.text
-        //        cell.lbClub.text
+        cell.lbSchool.text = clubEvent.schoolName ?? "神秘學校"
+        cell.lbClub.text = clubEvent.clubName ?? "神秘社團"
         cell.lbEvent.text = clubEvent.name!
         cell.lbTime.text = clubEvent.startTime!
         

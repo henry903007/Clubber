@@ -71,38 +71,41 @@ class BoardRecommendVC: UITableViewController {
                 
                 self.clubEvents = []
                 
-                    if let listClubEvents = json["results"].array {
-                        for event in listClubEvents {
-                            APIManager.shared.getEventData(byEventId: event["objectId"].string!, completionHandler: { (eventJson) in
-                                //                            print(eventJson)
-                                if json != nil {
-                                    let clubEvent = ClubEvent(json: eventJson)
-                                    self.clubEvents.append(clubEvent)
-
-                                    // TODO: use Promise
-                                    // Call table view's reloadData after getting all event data
-                                    if self.clubEvents.count == listClubEvents.count {
-                                        // Sort ascendingly by date
-                                        self.clubEvents.sort(by: { $0.startDate! < $1.startDate! })
-                                        self.tableView?.reloadData()
-                                        
-                                        if !(self.refreshControl?.isRefreshing)! {
-                                            self.loadingView.hideLoading()
-                                        }
-                                        
-                                    }
-                            
-                                }
-                            })
-
+                if let listClubEvents = json["results"].array {
+                    
+                    if listClubEvents.count == 0 {
+                        if !(self.refreshControl?.isRefreshing)! {
+                            self.loadingView.hideLoading()
                         }
-
+                        return
                     }
-                
-                
+                    
+                    for event in listClubEvents {
+                        APIManager.shared.getEventData(byEventId: event["objectId"].string!, completionHandler: { (eventJson) in
 
-
-                
+                            if json != nil {
+                                let clubEvent = ClubEvent(json: eventJson)
+                                self.clubEvents.append(clubEvent)
+                                
+                                // TODO: use Promise
+                                // Call table view's reloadData after getting all event data
+                                if self.clubEvents.count == listClubEvents.count {
+                                    // Sort ascendingly by date
+                                    self.clubEvents.sort(by: { $0.startDate! < $1.startDate! })
+                                    self.tableView?.reloadData()
+                                    
+                                    if !(self.refreshControl?.isRefreshing)! {
+                                        self.loadingView.hideLoading()
+                                    }
+                                    
+                                }
+                                
+                            }
+                        })
+                        
+                    }
+                    
+                }
             }
         }
     }
