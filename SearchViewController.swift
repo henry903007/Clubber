@@ -10,9 +10,14 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "搜尋"
+        
+        searchBar.backgroundImage = UIImage()
+
     }
 
 }

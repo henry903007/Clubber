@@ -5,13 +5,14 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Board View Controller-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="BoardViewController" customModule="ClubAnimal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="BoardViewController" customModule="Clubber" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -23,7 +24,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BkI-o8-CyE">
                                 <rect key="frame" x="0.0" y="104" width="375" height="514"/>
                             </containerView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ukh-EF-MEa" customClass="BoardSegmentedControl" customModule="ClubAnimal" customModuleProvider="target">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ukh-EF-MEa" customClass="BoardSegmentedControl" customModule="Clubber" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="41"/>
                                 <color key="backgroundColor" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -63,7 +64,7 @@
         <!--Search View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SearchViewController" customModule="ClubAnimal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="SearchViewController" customModule="Clubber" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -72,19 +73,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="82.5" y="312.5" width="210" height="42"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="79.5" y="362.5" width="215" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1kW-su-1n0">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -92,16 +80,121 @@
                                     <navigationItem title="Title" id="Wlf-nZ-lCG"/>
                                 </items>
                             </navigationBar>
+                            <searchBar contentMode="redraw" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyn-yI-CzJ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <color key="barTintColor" red="0.20392156859999999" green="0.57647058819999997" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VNy-hf-08q">
+                                <rect key="frame" x="16" y="120" width="343" height="54"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2d-HW-jMW">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="22"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="日期：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeI-TY-b4e">
+                                                <rect key="frame" x="0.0" y="0.0" width="43" height="22"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2017 / 1 / 1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="348-xX-Z9j">
+                                                <rect key="frame" x="43" y="0.0" width="140" height="22"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="22" id="rN7-4A-dig"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0l-ye-OMp">
+                                                <rect key="frame" x="183" y="0.0" width="20" height="22"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="20" id="7h7-2t-P09"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2017 / 3 / 11" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hJU-Tp-3lT">
+                                                <rect key="frame" x="203" y="0.0" width="140" height="22"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="348-xX-Z9j" firstAttribute="height" secondItem="hJU-Tp-3lT" secondAttribute="height" id="DP3-rZ-V3D"/>
+                                            <constraint firstItem="348-xX-Z9j" firstAttribute="width" secondItem="hJU-Tp-3lT" secondAttribute="width" id="i0e-QO-41N"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dC1-6t-eor">
+                                        <rect key="frame" x="0.0" y="32" width="343" height="22"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="時間：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5i-Uf-L50">
+                                                <rect key="frame" x="0.0" y="0.0" width="43" height="22"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="11:00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ws7-Yn-w36">
+                                                <rect key="frame" x="43" y="0.0" width="140" height="22"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="22" id="XB8-Up-vRI"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFN-NC-p6W">
+                                                <rect key="frame" x="183" y="0.0" width="20" height="22"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="20" id="UNg-Z8-k4l"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="14:00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QFz-yd-cVy">
+                                                <rect key="frame" x="203" y="0.0" width="140" height="22"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="QFz-yd-cVy" firstAttribute="height" secondItem="ws7-Yn-w36" secondAttribute="height" id="HuA-Kf-l8o"/>
+                                            <constraint firstItem="ws7-Yn-w36" firstAttribute="width" secondItem="QFz-yd-cVy" secondAttribute="width" id="bHd-CB-UhT"/>
+                                            <constraint firstItem="fFN-NC-p6W" firstAttribute="leading" secondItem="ws7-Yn-w36" secondAttribute="trailing" id="sXl-eX-fCH"/>
+                                            <constraint firstItem="QFz-yd-cVy" firstAttribute="leading" secondItem="fFN-NC-p6W" secondAttribute="trailing" id="vxv-Kv-GW9"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="d2d-HW-jMW" firstAttribute="leading" secondItem="VNy-hf-08q" secondAttribute="leading" id="Emc-EG-2gW"/>
+                                    <constraint firstItem="dC1-6t-eor" firstAttribute="leading" secondItem="VNy-hf-08q" secondAttribute="leading" id="I8d-WC-NM5"/>
+                                    <constraint firstAttribute="trailing" secondItem="dC1-6t-eor" secondAttribute="trailing" id="IwF-hd-WDh"/>
+                                    <constraint firstAttribute="trailing" secondItem="d2d-HW-jMW" secondAttribute="trailing" id="feo-f2-2eE"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.20392156862745098" green="0.57647058823529407" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
-                            <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
-                            <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
+                            <constraint firstItem="VNy-hf-08q" firstAttribute="top" secondItem="kyn-yI-CzJ" secondAttribute="bottom" constant="12" id="7wA-hb-zk8"/>
+                            <constraint firstAttribute="trailing" secondItem="kyn-yI-CzJ" secondAttribute="trailing" id="Hfb-ng-UyH"/>
+                            <constraint firstItem="VNy-hf-08q" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="Q6H-pX-SgA"/>
+                            <constraint firstItem="kyn-yI-CzJ" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="har-2c-VTb"/>
+                            <constraint firstItem="kyn-yI-CzJ" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="tNT-yD-x5Q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VNy-hf-08q" secondAttribute="trailing" id="uPE-bp-xas"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cIQ-q7-yS4"/>
+                    <connections>
+                        <outlet property="searchBar" destination="kyn-yI-CzJ" id="hnO-KI-cGa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -110,7 +203,7 @@
         <!--Board CategoryVC-->
         <scene sceneID="7O5-BW-UIP">
             <objects>
-                <collectionViewController storyboardIdentifier="boardCategoryVC" automaticallyAdjustsScrollViewInsets="NO" id="59c-9R-G7X" customClass="BoardCategoryVC" customModule="ClubAnimal" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="boardCategoryVC" automaticallyAdjustsScrollViewInsets="NO" id="59c-9R-G7X" customClass="BoardCategoryVC" customModule="Clubber" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="YVN-ns-jzj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -122,7 +215,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ClubCategoryCell" id="VKJ-IK-Owc" customClass="ClubCategoryCell" customModule="ClubAnimal" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ClubCategoryCell" id="VKJ-IK-Owc" customClass="ClubCategoryCell" customModule="Clubber" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="160" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -169,13 +262,13 @@
         <!--Category EventVC-->
         <scene sceneID="hjT-1L-R1H">
             <objects>
-                <tableViewController id="UOX-W6-1RU" customClass="CategoryEventVC" customModule="ClubAnimal" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="UOX-W6-1RU" customClass="CategoryEventVC" customModule="Clubber" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="64" sectionHeaderHeight="28" sectionFooterHeight="28" id="0OE-35-xH0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.20392156862745098" green="0.57647058823529407" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClubEventSmallCell" id="HVo-xT-pbA" customClass="ClubEventSmallCell" customModule="ClubAnimal" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClubEventSmallCell" id="HVo-xT-pbA" customClass="ClubEventSmallCell" customModule="Clubber" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HVo-xT-pbA" id="I7V-ud-kKa">
@@ -197,7 +290,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="first" translatesAutoresizingMaskIntoConstraints="NO" id="1EX-oF-VA4">
-                                            <rect key="frame" x="338" y="22" width="20" height="20"/>
+                                            <rect key="frame" x="337.5" y="22" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="fjz-tm-oau"/>
                                                 <constraint firstAttribute="height" constant="20" id="xKB-Re-hXB"/>
@@ -292,7 +385,7 @@
         <!--Me View Controller-->
         <scene sceneID="6dT-UC-oOz">
             <objects>
-                <viewController id="vfB-FA-DQw" customClass="MeViewController" customModule="ClubAnimal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vfB-FA-DQw" customClass="MeViewController" customModule="Clubber" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7qI-cC-up4"/>
                         <viewControllerLayoutGuide type="bottom" id="SRP-tq-rSP"/>
@@ -301,7 +394,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G5J-dS-Xd5" customClass="LoadingButton" customModule="ClubAnimal" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G5J-dS-Xd5" customClass="LoadingButton" customModule="Clubber" customModuleProvider="target">
                                 <rect key="frame" x="81" y="494" width="213" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.43529411764705883" green="0.74117647058823533" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
@@ -312,7 +405,7 @@
                                     <action selector="touchLogout:" destination="vfB-FA-DQw" eventType="touchUpInside" id="gol-JV-WhE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTF-ZM-VNn" customClass="LoadingButton" customModule="ClubAnimal" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTF-ZM-VNn" customClass="LoadingButton" customModule="Clubber" customModuleProvider="target">
                                 <rect key="frame" x="81" y="447" width="213" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.43529411759999997" green="0.74117647060000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -358,7 +451,7 @@
         <!--Feedback View Controller-->
         <scene sceneID="KQT-GY-tCZ">
             <objects>
-                <viewController id="vL9-iC-9Pb" customClass="FeedbackViewController" customModule="ClubAnimal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vL9-iC-9Pb" customClass="FeedbackViewController" customModule="Clubber" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ieg-gW-URU"/>
                         <viewControllerLayoutGuide type="bottom" id="Bf0-SS-Hgw"/>
@@ -400,7 +493,7 @@
         <!--Login View Controller-->
         <scene sceneID="a48-ar-OLs">
             <objects>
-                <viewController storyboardIdentifier="LoginVC" id="O4g-Bs-LHn" customClass="LoginViewController" customModule="ClubAnimal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="O4g-Bs-LHn" customClass="LoginViewController" customModule="Clubber" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="e4U-wh-nBp"/>
                         <viewControllerLayoutGuide type="bottom" id="wDy-lv-EHo"/>
@@ -409,7 +502,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1GW-WA-V2h" customClass="LoadingButton" customModule="ClubAnimal" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1GW-WA-V2h" customClass="LoadingButton" customModule="Clubber" customModuleProvider="target">
                                 <rect key="frame" x="67" y="537" width="240" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.25882352941176467" green="0.40392156862745099" blue="0.69803921568627447" alpha="1" colorSpace="calibratedRGB"/>
@@ -744,7 +837,7 @@
         <!--Loading View Controller-->
         <scene sceneID="c0J-B1-eHu">
             <objects>
-                <viewController id="S7y-Ig-VzI" customClass="LoadingViewController" customModule="ClubAnimal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="S7y-Ig-VzI" customClass="LoadingViewController" customModule="Clubber" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="V38-EG-d7f"/>
                         <viewControllerLayoutGuide type="bottom" id="AKW-lf-aTy"/>
@@ -795,14 +888,14 @@
         <!--Board RecommendVC-->
         <scene sceneID="fAb-pG-q2N">
             <objects>
-                <tableViewController storyboardIdentifier="boardRecommendVC" automaticallyAdjustsScrollViewInsets="NO" id="YgW-Vq-B2r" customClass="BoardRecommendVC" customModule="ClubAnimal" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="boardRecommendVC" automaticallyAdjustsScrollViewInsets="NO" id="YgW-Vq-B2r" customClass="BoardRecommendVC" customModule="Clubber" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="180" sectionHeaderHeight="28" sectionFooterHeight="28" id="U8e-kB-xEM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.20392156862745098" green="0.57647058823529407" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ClubEventBigCell" id="2Jd-qQ-eA9" customClass="ClubEventBigCell" customModule="ClubAnimal" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ClubEventBigCell" id="2Jd-qQ-eA9" customClass="ClubEventBigCell" customModule="Clubber" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="180"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Jd-qQ-eA9" id="xAS-s5-8Yh">
@@ -1040,6 +1133,6 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Y3Y-JL-Vna"/>
+        <segue reference="lfh-S6-0xS"/>
     </inferredMetricsTieBreakers>
 </document>
