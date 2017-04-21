@@ -40,7 +40,7 @@ class ClubEvent {
     init(json: JSON) {
         self.objectId = json["objectId"].string
         self.name = json["name"].string
-        self.location = json["localtion"].string
+        self.location = json["location"].string
         self.imageURL = json["imgURL"].string
         
         let startDateData = json["startAt"].dictionary
