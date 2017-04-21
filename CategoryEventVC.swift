@@ -13,10 +13,13 @@ class CategoryEventVC: UITableViewController {
     private let reuseIdentifier = "ClubEventSmallCell"
     
     let loadingView = LoadingIndicator()
-
+    let dateFormatter = DateFormatter()
+    
     var clubEvents = [ClubEvent]()
     var categoryName: String?
     var categoryId: String?
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +63,9 @@ class CategoryEventVC: UITableViewController {
             
             DispatchQueue.main.async {
                 let attributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.systemFont(ofSize: 10)]
-                let updateString = "Last Updated at \(Date())"
+                
+                self.dateFormatter.dateFormat = "MM/dd HH:mm"
+                let updateString = "Last Updated at \(self.dateFormatter.string(from: Date()))"
                 
                 self.refreshControl?.attributedTitle = NSAttributedString(string: updateString, attributes: attributes)
 

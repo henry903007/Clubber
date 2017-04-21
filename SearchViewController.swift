@@ -35,7 +35,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     }
     
     func initSearchBar() {
-        searchBar.backgroundImage = UIImage()
+//        searchBar.backgroundImage = UIImage()
     }
     
     func initTextFields() {
