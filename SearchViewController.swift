@@ -15,18 +15,27 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textEndDate: UITextField!
     @IBOutlet weak var textStartTime: UITextField!
     @IBOutlet weak var textEndTime: UITextField!
+    @IBOutlet weak var tbvRecentSearch: UITableView!
     
+    fileprivate let reuseIdentifier = "ClubEventSmallCell"
+    
+    let loadingView = LoadingIndicator()
     var editingTextField: UITextField? = nil
-
-    
     let datePicker = UIDatePicker()
     let timePicker = UIDatePicker()
     let dateFormatter = DateFormatter()
 
+    var recentSearches = [ClubEvent]()
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "搜尋"
+        
+        // Setup margin of the tableview
+        tbvRecentSearch.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 22, right: 0)
+        loadRecentSearches()
         
         initSearchBar()
         initTextFields()
@@ -35,7 +44,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     }
     
     func initSearchBar() {
-//        searchBar.backgroundImage = UIImage()
+        searchBar.backgroundImage = UIImage()
     }
     
     func initTextFields() {
@@ -122,6 +131,34 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    
+    func loadRecentSearches() {
+        
+            loadingView.showLoading(in: self.tbvRecentSearch)
+        
+        
+        
+        APIManager.shared.getClubEvents { (json) in
+            if json != nil {
+                self.recentSearches = []
+                if let listClubEvents = json["results"].array {
+                    
+                    if listClubEvents.count != 0 {
+                        for item in listClubEvents {
+                            let clubEvent = ClubEvent(json: item)
+                            self.recentSearches.append(clubEvent)
+                        }
+                        self.tbvRecentSearch?.reloadData()
+                    }
+                    
+                    self.loadingView.hideLoading()
+                }
+            }
+        }
+    }
+
+    
+    
     // MARK: - UITextFieldDelegate
     func textFieldDidBeginEditing(_ textField: UITextField) {
         editingTextField = textField
@@ -142,6 +179,52 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     }
     
     
+
+
     
 }
 
+
+extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
+
+    // MARK: - Table view data source
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return recentSearches.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.reuseIdentifier, for: indexPath) as! ClubEventSmallCell
+        
+        
+        let clubEvent: ClubEvent
+        
+        //indexPath.section is used rather than indexPath.row
+        clubEvent = recentSearches[indexPath.section]
+        
+        cell.lbSchool.text = clubEvent.schoolName ?? "神秘學校"
+        cell.lbClub.text = clubEvent.clubName ?? "神秘社團"
+        cell.lbEvent.text = clubEvent.name!
+        cell.lbTime.text = clubEvent.startTime!
+        
+        // Setup cell style
+        cell.layer.cornerRadius = 3
+        
+        return cell
+    }
+    
+    // Setup spacing between cells
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let v: UIView = UIView()
+        v.backgroundColor = UIColor.clear
+        return v
+    }
+}
