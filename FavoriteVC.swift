@@ -24,7 +24,27 @@ class FavoriteVC: UIViewController {
     let loadingView = LoadingIndicator()
 
 
-    @IBAction func layoutSwitchDidClick(_ sender: UIBarButtonItem) {
+
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.title = "收藏"
+        
+        // Setup margin of the tableview
+        tbvFavoriteEvents.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 7.5, right: 0)
+        
+        searchBar.backgroundImage = UIImage()
+
+        loadUserFavoriteEvents(showLoading: true)
+        
+        self.hideKeyboardWhenTappedAround()
+
+
+    }
+
+
+        @IBAction func layoutSwitchDidClick(_ sender: UIBarButtonItem) {
         
         if isBigCellLayout {
             isBigCellLayout = false
@@ -37,33 +57,19 @@ class FavoriteVC: UIViewController {
             sender.image = UIImage(named: "layout-small-cell")
 
         }
-        loadUserFavoriteEvents()
-//        tbvFavoriteEvents.reloadData()
+            
+        // update layout first
+        // if there are new data, it will be shown next switching 
+        tbvFavoriteEvents.reloadData()
+        loadUserFavoriteEvents(showLoading: false)
+      
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.title = "收藏"
-        
-        // Setup margin of the tableview
-        tbvFavoriteEvents.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 7.5, right: 0)
-        
-        searchBar.backgroundImage = UIImage()
 
-        loadUserFavoriteEvents()
-        
-        self.hideKeyboardWhenTappedAround()
-
-
-    }
-
-
-    
-    func loadUserFavoriteEvents() {
-        
-        loadingView.showLoading(in: self.tbvFavoriteEvents)
-        
+    func loadUserFavoriteEvents(showLoading: Bool) {
+        if showLoading {
+            loadingView.showLoading(in: self.tbvFavoriteEvents)
+        }
         APIManager.shared.getUserData { (json) in
             if json != nil {
                 self.favoriteEvents = [:]
@@ -87,8 +93,9 @@ class FavoriteVC: UIViewController {
                         self.tbvFavoriteEvents.reloadData()
                     }
                     
-                    self.loadingView.hideLoading()
-                    
+                    if showLoading {
+                        self.loadingView.hideLoading()
+                    }
                 }
             }
         }

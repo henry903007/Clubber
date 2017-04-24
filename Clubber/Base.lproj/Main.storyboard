@@ -78,10 +78,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <color key="barTintColor" red="0.20392156859999999" green="0.57647058819999997" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <scopeButtonTitles>
-                                    <string>Title</string>
-                                    <string>Title</string>
-                                </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="8rJ-Kc-sve" id="znV-mL-p8t"/>
+                                </connections>
                             </searchBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VNy-hf-08q">
                                 <rect key="frame" x="16" y="56" width="343" height="54"/>
@@ -187,7 +186,7 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="74" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="I66-Od-rZt">
-                                <rect key="frame" x="0.0" y="110" width="375" height="444"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="434"/>
                                 <color key="backgroundColor" red="0.20392156859999999" green="0.57647058819999997" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClubEventSmallCell" id="uwJ-FI-dkh" customClass="ClubEventSmallCell" customModule="Clubber" customModuleProvider="target">
@@ -277,7 +276,7 @@
                         <constraints>
                             <constraint firstItem="I66-Od-rZt" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="6pJ-ED-Cq1"/>
                             <constraint firstItem="VNy-hf-08q" firstAttribute="top" secondItem="kyn-yI-CzJ" secondAttribute="bottom" constant="12" id="7wA-hb-zk8"/>
-                            <constraint firstItem="I66-Od-rZt" firstAttribute="top" secondItem="VNy-hf-08q" secondAttribute="bottom" id="FJH-xI-JCL"/>
+                            <constraint firstItem="I66-Od-rZt" firstAttribute="top" secondItem="VNy-hf-08q" secondAttribute="bottom" constant="10" id="FJH-xI-JCL"/>
                             <constraint firstAttribute="trailing" secondItem="kyn-yI-CzJ" secondAttribute="trailing" id="Hfb-ng-UyH"/>
                             <constraint firstItem="VNy-hf-08q" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="Q6H-pX-SgA"/>
                             <constraint firstAttribute="trailing" secondItem="I66-Od-rZt" secondAttribute="trailing" id="eP9-i3-4iC"/>
