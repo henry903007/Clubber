@@ -33,7 +33,7 @@ class Utils {
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         let date = dateFormatter.date(from: dateString)!
         
-        dateFormatter.dateFormat = "yyyy/MM/dd"
+        dateFormatter.dateFormat = "yyyy.MM.dd"
         let date_str = dateFormatter.string(from:date)
         
         dateFormatter.dateFormat = "HH:mm"

@@ -39,10 +39,14 @@ class ClubEventBigCell: UITableViewCell {
             return super.frame
         }
         set (newFrame) {
-            let inset: CGFloat = 18
+            let widthInset: CGFloat = 18
+            let heightInset: CGFloat = 7.5
             var frame = newFrame
-            frame.origin.x += inset
-            frame.size.width -= 2 * inset
+            frame.origin.x += widthInset
+            frame.size.width -= 2 * widthInset
+            frame.origin.y += heightInset
+            frame.size.height -= 2 * heightInset
+
             super.frame = frame
         }
     }

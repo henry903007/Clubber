@@ -23,7 +23,7 @@ class BoardRecommendVC: UITableViewController {
         super.viewDidLoad()
         
         // Setup margin of the tableview
-        tableView.contentInset = UIEdgeInsets(top: 3, left: 0, bottom: 18, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: 10.5, left: 0, bottom: 10.5, right: 0)
 
         // Initialize the refresh control.
         self.refreshControl = UIRefreshControl()
@@ -103,12 +103,12 @@ class BoardRecommendVC: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return clubEvents.count
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return clubEvents.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -117,7 +117,7 @@ class BoardRecommendVC: UITableViewController {
         let clubEvent: ClubEvent
         
         //indexPath.section is used rather than indexPath.row
-        clubEvent = clubEvents[indexPath.section]
+        clubEvent = clubEvents[indexPath.row]
         
         cell.lbSchool.text = clubEvent.schoolName ?? "神秘學校"
         cell.lbClub.text = clubEvent.clubName ?? "神秘社團"
@@ -133,15 +133,15 @@ class BoardRecommendVC: UITableViewController {
     }
     
     // Setup spacing between cells
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 15
-    }
+//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 15
+//    }
  
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let v: UIView = UIView()
-        v.backgroundColor = UIColor.clear
-        return v
-    }
+//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let v: UIView = UIView()
+//        v.backgroundColor = UIColor.clear
+//        return v
+//    }
 
     /*
     // Override to support conditional editing of the table view.

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UITextFieldDelegate {
+class SearchViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var textStartDate: UITextField!
@@ -33,8 +33,10 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.title = "搜尋"
         
+        self.hideKeyboardWhenTappedAround()
+        
         // Setup margin of the tableview
-        tbvRecentSearch.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 22, right: 0)
+        tbvRecentSearch.contentInset = UIEdgeInsets(top: 17, left: 0, bottom: 17, right: 0)
         loadRecentSearches()
         
         initSearchBar()
@@ -159,6 +161,55 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
 
     
     
+    
+
+
+    
+}
+
+
+extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
+
+    // MARK: - Table view data source
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return recentSearches.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.reuseIdentifier, for: indexPath) as! ClubEventSmallCell
+        
+        
+        let clubEvent: ClubEvent
+        
+        clubEvent = recentSearches[indexPath.row]
+        
+        cell.lbSchool.text = clubEvent.schoolName ?? "神秘學校"
+        cell.lbClub.text = clubEvent.clubName ?? "神秘社團"
+        cell.lbEvent.text = clubEvent.name!
+        cell.lbTime.text = clubEvent.startTime!
+        if let startDate = clubEvent.startDate {
+            let day = startDate.substring(from: startDate.index(startDate.endIndex, offsetBy: -2))
+            cell.imgDate.image = UIImage(named: day)
+        }
+
+        
+        // Setup cell style
+        cell.layer.cornerRadius = 3
+
+        
+        return cell
+    }
+    
+
+}
+
+
+extension SearchViewController: UITextFieldDelegate {
     // MARK: - UITextFieldDelegate
     func textFieldDidBeginEditing(_ textField: UITextField) {
         editingTextField = textField
@@ -178,53 +229,17 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
-    
 
-
-    
 }
 
-
-extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
-
-    // MARK: - Table view data source
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return recentSearches.count
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.reuseIdentifier, for: indexPath) as! ClubEventSmallCell
-        
-        
-        let clubEvent: ClubEvent
-        
-        //indexPath.section is used rather than indexPath.row
-        clubEvent = recentSearches[indexPath.section]
-        
-        cell.lbSchool.text = clubEvent.schoolName ?? "神秘學校"
-        cell.lbClub.text = clubEvent.clubName ?? "神秘社團"
-        cell.lbEvent.text = clubEvent.name!
-        cell.lbTime.text = clubEvent.startTime!
-        
-        // Setup cell style
-        cell.layer.cornerRadius = 3
-        
-        return cell
-    }
-    
-    // Setup spacing between cells
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let v: UIView = UIView()
-        v.backgroundColor = UIColor.clear
-        return v
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
