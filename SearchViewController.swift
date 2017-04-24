@@ -24,8 +24,11 @@ class SearchViewController: UIViewController {
     let datePicker = UIDatePicker()
     let timePicker = UIDatePicker()
     let dateFormatter = DateFormatter()
+    let timeFormatter = DateFormatter()
+
 
     var recentSearches = [ClubEvent]()
+    var searchResults = [ClubEvent]()
 
     
     
@@ -36,9 +39,11 @@ class SearchViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
         
         // Setup margin of the tableview
-        tbvRecentSearch.contentInset = UIEdgeInsets(top: 17, left: 0, bottom: 17, right: 0)
+        tbvRecentSearch.contentInset = UIEdgeInsets(top: 7, left: 0, bottom: 17, right: 0)
         loadRecentSearches()
         
+        dateFormatter.dateFormat = "yyyy / MM / dd"
+        timeFormatter.dateFormat = "HH:mm"
         initSearchBar()
         initTextFields()
         createDatePickers()
@@ -53,7 +58,6 @@ class SearchViewController: UIViewController {
         let now = Date()
         let aWeekFromNow = Calendar.current.date(byAdding: .day, value: 7, to: now)
 
-        dateFormatter.dateFormat = "yyyy / MM / dd"
         textStartDate.text = dateFormatter.string(from: now)
         textEndDate.text = dateFormatter.string(from: aWeekFromNow!)
 
@@ -66,12 +70,10 @@ class SearchViewController: UIViewController {
         
         // set up date picker
         datePicker.datePickerMode = .date
-        dateFormatter.dateFormat = "yyyy / MM / dd"
         datePicker.addTarget(self, action: #selector(updateDateForTextField(isDoneBtnClicked:)), for: .valueChanged)
         
         // set up time picker
         timePicker.datePickerMode = .time
-        dateFormatter.dateFormat = "HH:mm"
         timePicker.addTarget(self, action: #selector(updateDateForTextField(isDoneBtnClicked:)), for: .valueChanged)
 
         // toolbar
@@ -120,12 +122,10 @@ class SearchViewController: UIViewController {
             switch editingTextField! {
             case textStartDate, textEndDate:
                 
-                dateFormatter.dateFormat = "yyyy / MM / dd"
                 editingTextField!.text = dateFormatter.string(from: datePicker.date)
 
             case textStartTime, textEndTime:
-                dateFormatter.dateFormat = "HH:mm"
-                editingTextField!.text = dateFormatter.string(from: timePicker.date)
+                editingTextField!.text = timeFormatter.string(from: timePicker.date)
 
             default:
                 break
@@ -167,6 +167,68 @@ class SearchViewController: UIViewController {
     
 }
 
+extension SearchViewController: UISearchBarDelegate {
+
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        
+        searchResults = self.recentSearches.filter({ (res: ClubEvent) -> Bool in
+            
+            // if time fileds are not set, results will not take time fields into account
+            if textStartTime.text == "00:00" && textEndTime.text == "00:00" {
+                return (res.name?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil ||
+                    res.schoolName?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil ||
+                    res.clubName?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil ) &&
+                    dateFormatter.date(from: res.startDate!)! >= dateFormatter.date(from: textStartDate.text!)! &&
+                    dateFormatter.date(from: res.startDate!)! <= dateFormatter.date(from: textEndDate.text!)!
+            }
+            return (res.name?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil ||
+                res.schoolName?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil ||
+                res.clubName?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil ) &&
+                dateFormatter.date(from: res.startDate!)! >= dateFormatter.date(from: textStartDate.text!)! &&
+                dateFormatter.date(from: res.startDate!)! <= dateFormatter.date(from: textEndDate.text!)! &&
+                timeFormatter.date(from: res.startTime!)! >= timeFormatter.date(from: textStartTime.text!)! &&
+                timeFormatter.date(from: res.startTime!)! <= timeFormatter.date(from: textEndTime.text!)!
+            
+        })
+
+        
+        self.tbvRecentSearch.reloadData()
+    }
+    
+
+    
+
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+
+        searchResults = self.recentSearches.filter({ (res: ClubEvent) -> Bool in
+            
+            // if time fileds are not set, results will not take time fields into account
+            if textStartTime.text == "00:00" && textEndTime.text == "00:00" {
+                return res.name?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil &&
+                    dateFormatter.date(from: res.startDate!)! >= dateFormatter.date(from: textStartDate.text!)! &&
+                    dateFormatter.date(from: res.startDate!)! <= dateFormatter.date(from: textEndDate.text!)!
+            }
+            return res.name?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil &&
+                dateFormatter.date(from: res.startDate!)! >= dateFormatter.date(from: textStartDate.text!)! &&
+                dateFormatter.date(from: res.startDate!)! <= dateFormatter.date(from: textEndDate.text!)! &&
+                timeFormatter.date(from: res.startTime!)! >= timeFormatter.date(from: textStartTime.text!)! &&
+                timeFormatter.date(from: res.startTime!)! <= timeFormatter.date(from: textEndTime.text!)!
+            
+        })
+        
+        
+        self.tbvRecentSearch.reloadData()
+        
+        searchBar.endEditing(true)
+    }
+    
+
+
+
+}
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
@@ -177,6 +239,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchBar.text != "" {
+            return searchResults.count
+        }
+        
         return recentSearches.count
     }
     
@@ -186,7 +252,14 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         
         let clubEvent: ClubEvent
         
-        clubEvent = recentSearches[indexPath.row]
+        if searchBar.text != "" {
+            
+            clubEvent = searchResults[indexPath.row]
+        }
+        else {
+            clubEvent = recentSearches[indexPath.row]
+            
+        }
         
         cell.lbSchool.text = clubEvent.schoolName ?? "神秘學校"
         cell.lbClub.text = clubEvent.clubName ?? "神秘社團"
