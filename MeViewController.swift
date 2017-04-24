@@ -38,7 +38,7 @@ class MeViewController: UIViewController {
         APIManager.shared.logout(completionHandler: { (error) in
             
             if error == nil {
-                
+                print(error)
                 let queue = DispatchQueue(label: "clubber.henrysu.logoutQueue")
 
                 queue.sync {

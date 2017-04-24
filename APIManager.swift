@@ -84,6 +84,29 @@ class APIManager {
         
     }
     
+    // API - Get user's data
+    func getUserData(completionHandler: @escaping (JSON) -> Void ) {
+        
+        let path = "/users/me/"
+        let url = baseURL!.appendingPathComponent(path)
+        
+        Alamofire.request(url!, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: HEADERS_WITH_SESSION_KEY)
+            .responseJSON(completionHandler: { (response) in
+                
+                switch response.result {
+                case .success(let value):
+                    let jsonData = JSON(value)
+                    completionHandler(jsonData)
+                    break
+                    
+                case .failure:
+                    completionHandler(JSON.null)
+                    break
+                }
+            })
+    }
+
+    
     // API - Get the list of culb's categories
     func getClubCategories(completionHandler: @escaping (JSON) -> Void ) {
         

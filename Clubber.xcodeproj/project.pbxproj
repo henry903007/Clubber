@@ -33,6 +33,8 @@
 		9BC3D3101E7149F6007BA522 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BC3D30E1E7149F6007BA522 /* LaunchScreen.storyboard */; };
 		9BCEFDBE1E7D5AA60098C2FA /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCEFDBD1E7D5AA60098C2FA /* LoadingViewController.swift */; };
 		9BCEFDC01E7D5D9F0098C2FA /* FBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCEFDBF1E7D5D9F0098C2FA /* FBManager.swift */; };
+		9BDC359B1EADEEAB00CE10FA /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC359A1EADEEAB00CE10FA /* FavoriteVC.swift */; };
+		9BDC359D1EAE2B1B00CE10FA /* DateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC359C1EAE2B1B00CE10FA /* DateHeader.swift */; };
 		9BFB84091EA295F700B22FF0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3870581E962130005D96DE /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +89,8 @@
 		9BC3D3211E7149F6007BA522 /* ClubberUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClubberUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BCEFDBD1E7D5AA60098C2FA /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		9BCEFDBF1E7D5D9F0098C2FA /* FBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBManager.swift; sourceTree = "<group>"; };
+		9BDC359A1EADEEAB00CE10FA /* FavoriteVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
+		9BDC359C1EAE2B1B00CE10FA /* DateHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHeader.swift; sourceTree = "<group>"; };
 		B26C9C3C50C9D7889480B527 /* Pods_Clubber.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clubber.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C170FB8101E51FFCA67D9DCF /* Pods-Clubber.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clubber.release.xcconfig"; path = "Pods/Target Support Files/Pods-Clubber/Pods-Clubber.release.xcconfig"; sourceTree = "<group>"; };
 		D23D694705EDBE89ED36591D /* Pods-ClubAnimal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClubAnimal.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClubAnimal/Pods-ClubAnimal.release.xcconfig"; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 				9B38705A1E9629B8005D96DE /* BoardCategoryVC.swift */,
 				9B118E251E9F9BFB003ACC83 /* CategoryEventVC.swift */,
 				9BC3D3071E7149F6007BA522 /* SearchViewController.swift */,
+				9BDC359A1EADEEAB00CE10FA /* FavoriteVC.swift */,
 				9B4654281E8276B3009E02AB /* MeViewController.swift */,
 				9B76225F1E8A8BA600400DAD /* FeedbackViewController.swift */,
 			);
@@ -196,6 +201,7 @@
 				9B38705C1E962BBC005D96DE /* ClubCategoryCell.swift */,
 				9B118DF21E9D1C62003ACC83 /* ClubEventBigCell.swift */,
 				9B118E231E9F9AEC003ACC83 /* ClubEventSmallCell.swift */,
+				9BDC359C1EAE2B1B00CE10FA /* DateHeader.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -208,6 +214,7 @@
 				9BB467071E83C10B0073CA0F /* View */,
 				9B4653F71E7D60F8009E02AB /* Manager */,
 				9B118E201E9F6D17003ACC83 /* Util */,
+				9BDC35A01EAE2B9700CE10FA /* Xib */,
 				9BC3D3021E7149F6007BA522 /* Clubber */,
 				9BC3D3011E7149F6007BA522 /* Products */,
 				3E748EB1A3394DE7ACBB5552 /* Pods */,
@@ -231,11 +238,18 @@
 				9B4653FE1E7EF396009E02AB /* Clubber.entitlements */,
 				9BC3D3031E7149F6007BA522 /* AppDelegate.swift */,
 				9BC3D30C1E7149F6007BA522 /* Assets.xcassets */,
-				9BC3D30E1E7149F6007BA522 /* LaunchScreen.storyboard */,
-				9B4653FB1E7D700B009E02AB /* Main.storyboard */,
 				9BC3D3111E7149F6007BA522 /* Info.plist */,
 			);
 			path = Clubber;
+			sourceTree = "<group>";
+		};
+		9BDC35A01EAE2B9700CE10FA /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				9BC3D30E1E7149F6007BA522 /* LaunchScreen.storyboard */,
+				9B4653FB1E7D700B009E02AB /* Main.storyboard */,
+			);
+			name = Xib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -433,11 +447,13 @@
 				9BCEFDC01E7D5D9F0098C2FA /* FBManager.swift in Sources */,
 				9B3870891E9BADE6005D96DE /* BoardSegmentedControl.swift in Sources */,
 				9BFB84091EA295F700B22FF0 /* LoginViewController.swift in Sources */,
+				9BDC359B1EADEEAB00CE10FA /* FavoriteVC.swift in Sources */,
 				9B7622601E8A8BA600400DAD /* FeedbackViewController.swift in Sources */,
 				9B38705B1E9629B8005D96DE /* BoardCategoryVC.swift in Sources */,
 				9BCEFDBE1E7D5AA60098C2FA /* LoadingViewController.swift in Sources */,
 				9B118E261E9F9BFB003ACC83 /* CategoryEventVC.swift in Sources */,
 				9B4653F91E7D64DB009E02AB /* User.swift in Sources */,
+				9BDC359D1EAE2B1B00CE10FA /* DateHeader.swift in Sources */,
 				9BC3D3081E7149F6007BA522 /* SearchViewController.swift in Sources */,
 				9BB467091E83C13F0073CA0F /* LoadingButton.swift in Sources */,
 				9BC3D3041E7149F6007BA522 /* AppDelegate.swift in Sources */,
@@ -491,6 +507,7 @@
 				9B4653FC1E7D700B009E02AB /* Base */,
 			);
 			name = Main.storyboard;
+			path = Clubber;
 			sourceTree = "<group>";
 		};
 		9BC3D30E1E7149F6007BA522 /* LaunchScreen.storyboard */ = {
@@ -499,6 +516,7 @@
 				9BC3D30F1E7149F6007BA522 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = Clubber;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

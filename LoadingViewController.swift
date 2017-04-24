@@ -17,7 +17,7 @@ class LoadingViewController: UIViewController {
         // if user is logged in directly, get the user data from Facebook
         if User.currentUser.name == nil {
             FBManager.getFBUserData(completionHandler: {
-                print("Get FB data in loadingVC")
+//                print("FB Token \(FBSDKAccessToken.current().tokenString)")
                 let defaults = UserDefaults.standard
                 defaults.set(FBSDKAccessToken.current().expirationDate,
                              forKey: "FBAccessTokenExpirationDate")

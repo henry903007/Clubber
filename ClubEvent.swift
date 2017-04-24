@@ -43,35 +43,40 @@ class ClubEvent {
         self.location = json["location"].string
         self.imageURL = json["imgURL"].string
         
-        let startDateData = json["startAt"].dictionary
-        if let startDateString = startDateData?["iso"]?.string {
-            (self.startDate, self.startTime) = Utils.splitDateString(dateString: startDateString)
+        if let startDateData = json["startAt"].dictionary {
+            if let startDateString = startDateData["iso"]?.string {
+                (self.startDate, self.startTime) = Utils.splitDateString(dateString: startDateString)
+            }
         }
         
-        let endDateData = json["endAt"].dictionary
-        if let endDateString = endDateData?["iso"]?.string {
-            (self.endDate, self.endTime) = Utils.splitDateString(dateString: endDateString)
+        if let endDateData = json["endAt"].dictionary {
+            if let endDateString = endDateData["iso"]?.string {
+                (self.endDate, self.endTime) = Utils.splitDateString(dateString: endDateString)
+            }
         }
         
 
-        let categoryData = json["types"].array
-        if (categoryData?.count)! > 0 {
-            self.categoryName = categoryData?[0]["name"].string
-            self.categoryId = categoryData?[0]["objectId"].string
+        if let categoryData = json["types"].array {
+            if (categoryData.count) > 0 {
+                self.categoryName = categoryData[0]["name"].string
+                self.categoryId = categoryData[0]["objectId"].string
+            }
         }
-        let clubData = json["clubs"].array
-        if (clubData?.count)! > 0 {
-            self.clubName = clubData?[0]["name"].string
-            self.clubId = clubData?[0]["objectId"].string
+        
+        if let clubData = json["clubs"].array {
+            if (clubData.count) > 0 {
+                self.clubName = clubData[0]["name"].string
+                self.clubId = clubData[0]["objectId"].string
+            }
         }
         
         
-        let schoolData = json["schools"].array
-        if (schoolData?.count)! > 0 {
-            self.schoolName = schoolData?[0]["name"].string
-            self.schoolId = schoolData?[0]["objectId"].string
+        if let schoolData = json["schools"].array {
+            if (schoolData.count) > 0 {
+                self.schoolName = schoolData[0]["name"].string
+                self.schoolId = schoolData[0]["objectId"].string
+            }
         }
-
         
     }
 
