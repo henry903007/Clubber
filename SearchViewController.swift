@@ -193,7 +193,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         cell.lbEvent.text = clubEvent.name!
         cell.lbTime.text = clubEvent.startTime!
         if let startDate = clubEvent.startDate {
-            let day = startDate.substring(from: startDate.index(startDate.endIndex, offsetBy: -2))
+            let day = String(startDate.characters.suffix(2))
             cell.imgDate.image = UIImage(named: day)
         }
 
