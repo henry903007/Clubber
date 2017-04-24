@@ -502,7 +502,7 @@
                                             <outlet property="lbTitle" destination="W0X-D7-Dlm" id="9j3-0h-2Ea"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ClubEventBigCell" id="3aY-l8-mEW" customClass="ClubEventBigCell" customModule="Clubber" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ClubEventBigCell" rowHeight="265" id="3aY-l8-mEW" customClass="ClubEventBigCell" customModule="Clubber" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="375" height="265"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3aY-l8-mEW" id="gxi-2H-8R6">
@@ -646,6 +646,82 @@
                                             <outlet property="lbTime" destination="RRE-gv-r9T" id="qch-u1-Ol6"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClubEventSmallCell" rowHeight="74" id="GvK-Ey-2ea" customClass="ClubEventSmallCell" customModule="Clubber" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="315" width="375" height="74"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GvK-Ey-2ea" id="aAe-M4-ciW">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="01" translatesAutoresizingMaskIntoConstraints="NO" id="O9t-L2-oUL">
+                                                    <rect key="frame" x="12" y="16" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="9BT-Bg-Yrg"/>
+                                                        <constraint firstAttribute="width" constant="30" id="OYu-T8-rbh"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:00" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qtk-gg-53F">
+                                                    <rect key="frame" x="16" y="46" width="23" height="14"/>
+                                                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="10"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favorite-off" translatesAutoresizingMaskIntoConstraints="NO" id="8P2-3L-kgS">
+                                                    <rect key="frame" x="338" y="27" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="8OD-Pc-o3j"/>
+                                                        <constraint firstAttribute="height" constant="20" id="gOg-bp-asF"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="s4y-uD-Jog">
+                                                    <rect key="frame" x="62" y="18" width="118.5" height="38"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Y4J-fu-McI">
+                                                            <rect key="frame" x="0.0" y="0.0" width="104" height="14.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="學校名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eh5-kf-f0D">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="49.5" height="14.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="社團名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wt4-XM-O5B">
+                                                                    <rect key="frame" x="54.5" y="0.0" width="49.5" height="14.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活動 / 課程名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xdg-N2-V8A">
+                                                            <rect key="frame" x="0.0" y="17.5" width="118.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Qtk-gg-53F" firstAttribute="top" secondItem="O9t-L2-oUL" secondAttribute="bottom" id="5lH-WP-iIw"/>
+                                                <constraint firstAttribute="trailing" secondItem="8P2-3L-kgS" secondAttribute="trailing" constant="17.5" id="KJZ-DW-Afv"/>
+                                                <constraint firstItem="8P2-3L-kgS" firstAttribute="centerY" secondItem="aAe-M4-ciW" secondAttribute="centerY" id="P4W-In-Gls"/>
+                                                <constraint firstItem="Qtk-gg-53F" firstAttribute="centerX" secondItem="O9t-L2-oUL" secondAttribute="centerX" id="Xea-nX-Jgk"/>
+                                                <constraint firstItem="O9t-L2-oUL" firstAttribute="leading" secondItem="aAe-M4-ciW" secondAttribute="leading" constant="12" id="bXh-nz-j1y"/>
+                                                <constraint firstItem="s4y-uD-Jog" firstAttribute="centerY" secondItem="aAe-M4-ciW" secondAttribute="centerY" id="iS6-hD-Scr"/>
+                                                <constraint firstItem="O9t-L2-oUL" firstAttribute="top" secondItem="s4y-uD-Jog" secondAttribute="top" constant="-2" id="ilf-lp-7tJ"/>
+                                                <constraint firstItem="s4y-uD-Jog" firstAttribute="leading" secondItem="O9t-L2-oUL" secondAttribute="trailing" constant="20" id="t5t-FV-k2x"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.99607843139999996" green="0.99215686270000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="imgDate" destination="O9t-L2-oUL" id="Re9-4n-K67"/>
+                                            <outlet property="lbClub" destination="Wt4-XM-O5B" id="Xt0-iw-cZX"/>
+                                            <outlet property="lbEvent" destination="Xdg-N2-V8A" id="IIq-NO-ars"/>
+                                            <outlet property="lbSchool" destination="eh5-kf-f0D" id="za8-z2-gJ3"/>
+                                            <outlet property="lbTime" destination="Qtk-gg-53F" id="aDi-dP-FJV"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="jqm-78-t5n" id="85a-Nu-Kez"/>
@@ -664,7 +740,14 @@
                             <constraint firstItem="qlU-Iy-1YU" firstAttribute="top" secondItem="rDI-06-sec" secondAttribute="bottom" constant="5" id="WW8-7o-IbK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="D5t-aX-dTH"/>
+                    <navigationItem key="navigationItem" id="D5t-aX-dTH">
+                        <barButtonItem key="rightBarButtonItem" image="layout-small-cell" id="Uuw-sC-c7W">
+                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <connections>
+                                <action selector="layoutSwitchDidClick:" destination="jqm-78-t5n" id="LzD-3w-SBv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="rDI-06-sec" id="wrV-FZ-kXq"/>
                         <outlet property="tbvFavoriteEvents" destination="qlU-Iy-1YU" id="2qH-kE-wFz"/>
@@ -1453,6 +1536,7 @@
         <image name="01" width="34" height="34"/>
         <image name="background" width="375" height="667"/>
         <image name="favorite-off" width="24" height="24"/>
+        <image name="layout-small-cell" width="24" height="24"/>
         <image name="logo-ntnu" width="85" height="85"/>
         <image name="logo-ntu" width="85" height="85"/>
         <image name="logo-ntust" width="85" height="85"/>
