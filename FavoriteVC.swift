@@ -10,19 +10,18 @@ import UIKit
 
 class FavoriteVC: UIViewController {
 
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var tbvFavoriteEvents: UITableView!
-    
     fileprivate let reuseIdentifierBig = "ClubEventBigCell"
     fileprivate let reuseIdentifierSmall = "ClubEventSmallCell"
 
-    var favoriteEvents = [String: [ClubEvent]]() // "2017, 4" : []
-    var eventDateSections = [String]()
-    
-    var isBigCellLayout = true
-    
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tbvFavoriteEvents: UITableView!
     let loadingView = LoadingIndicator()
-
+    
+    var favoriteEvents = [String: [ClubEvent]]() // "2017, 4" : []
+    var filteredFavoriteEvents = [String: [ClubEvent]]()
+    var eventSectionTitle = [String]()
+    var filteredEventSectionTitle = [String]()
+    var isBigCellLayout = true
 
 
     
@@ -59,7 +58,7 @@ class FavoriteVC: UIViewController {
         }
             
         // update layout first
-        // if there are new data, it will be shown next switching 
+        // if there are new data, it will be shown next switching
         tbvFavoriteEvents.reloadData()
         loadUserFavoriteEvents(showLoading: false)
       
@@ -83,7 +82,7 @@ class FavoriteVC: UIViewController {
                                 let clubEvent = ClubEvent(json: event)
                                 
                                 if self.favoriteEvents[monthSection] == nil {
-                                    self.eventDateSections.append(monthSection)
+                                    self.eventSectionTitle.append(monthSection)
                                     self.favoriteEvents[monthSection] = []
                                 }
                                 self.favoriteEvents[monthSection]?.append(clubEvent)
@@ -99,10 +98,63 @@ class FavoriteVC: UIViewController {
                 }
             }
         }
-        
-        
     }
     
+    
+}
+
+
+extension FavoriteVC: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        filteredFavoriteEvents = [:]
+        filteredEventSectionTitle = []
+        
+        for section in eventSectionTitle {
+            let filteredResult = favoriteEvents[section]?.filter({ (res: ClubEvent) -> Bool in
+                
+                return res.name?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil ||
+                    res.schoolName?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil ||
+                    res.clubName?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
+            })
+            
+            if (filteredResult?.count)! > 0 {
+                filteredEventSectionTitle.append(section)
+                filteredFavoriteEvents[section] = filteredResult
+            }
+
+        }
+
+        self.tbvFavoriteEvents.reloadData()
+    }
+    
+    
+    
+    
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        filteredFavoriteEvents = [:]
+        filteredEventSectionTitle = []
+
+        for section in eventSectionTitle {
+            let filteredResult = favoriteEvents[section]?.filter({ (res: ClubEvent) -> Bool in
+                
+                return res.name?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil ||
+                    res.schoolName?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil ||
+                    res.clubName?.lowercased().range(of: (searchBar.text?.lowercased())!) != nil
+            })
+            
+            if (filteredResult?.count)! > 0 {
+                filteredEventSectionTitle.append(section)
+                filteredFavoriteEvents[section] = filteredResult
+            }
+        }
+
+        self.tbvFavoriteEvents.reloadData()
+        
+        searchBar.endEditing(true)
+    }
 }
 
 
@@ -110,13 +162,19 @@ extension FavoriteVC: UITableViewDataSource, UITableViewDelegate {
     // MARK: - Table view data source
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        if searchBar.text != "" {
+            return filteredFavoriteEvents.count
+        }
+        
         return favoriteEvents.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return favoriteEvents[eventDateSections[section]]!.count
+        if searchBar.text != "" {
+            return filteredFavoriteEvents[filteredEventSectionTitle[section]]!.count
+        }
+        
+        return favoriteEvents[eventSectionTitle[section]]!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -124,10 +182,16 @@ extension FavoriteVC: UITableViewDataSource, UITableViewDelegate {
         var cell: UITableViewCell
         let clubEvent: ClubEvent
         
-        // get section then get event in that section
-        clubEvent = (favoriteEvents[eventDateSections[indexPath.section]]?[indexPath.row])!
-        
+        if searchBar.text != "" {
+            clubEvent = (filteredFavoriteEvents[filteredEventSectionTitle[indexPath.section]]?[indexPath.row])!
 
+        }
+        else {
+            // get section then get event in that section
+            clubEvent = (favoriteEvents[eventSectionTitle[indexPath.section]]?[indexPath.row])!
+        }
+
+        
         if isBigCellLayout {
             let bigCell: ClubEventBigCell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifierBig, for: indexPath) as! ClubEventBigCell
             
@@ -179,9 +243,16 @@ extension FavoriteVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let  headerCell = tableView.dequeueReusableCell(withIdentifier: "DateHeaderCell") as! DateHeader
+        let sectionTitle: [String]
         
-        // [yyyy, mm]
-        let sectionTitle = eventDateSections[section].components(separatedBy: ",")
+        if searchBar.text != "" {
+            // [yyyy, mm]
+             sectionTitle = filteredEventSectionTitle[section].components(separatedBy: ",")
+        }
+        else {
+            sectionTitle = eventSectionTitle[section].components(separatedBy: ",")
+        }
+
 
         headerCell.lbTitle.text = "\(sectionTitle[0]) 年  \(sectionTitle[1]) 月"
         
