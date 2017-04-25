@@ -186,7 +186,11 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="74" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="I66-Od-rZt">
+<<<<<<< HEAD
                                 <rect key="frame" x="0.0" y="120" width="414" height="503"/>
+=======
+                                <rect key="frame" x="0.0" y="120" width="375" height="434"/>
+>>>>>>> 6e6eb532107a166010e7971f30266c4b726da6fe
                                 <color key="backgroundColor" red="0.20392156859999999" green="0.57647058819999997" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClubEventSmallCell" id="uwJ-FI-dkh" customClass="ClubEventSmallCell" customModule="Clubber" customModuleProvider="target">
