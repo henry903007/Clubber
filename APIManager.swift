@@ -41,7 +41,6 @@ class APIManager {
             case .success(let value):
                 
                 let jsonData = JSON(value)
-                print(jsonData)
                 self.sessionToken = jsonData["sessionToken"].string!
 //                User.currentUser.setObjectId(jsonData["objectId"].string!)
                 

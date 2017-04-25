@@ -27,8 +27,9 @@ class FavoriteVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.title = "收藏"
+        hideKeyboardWhenTappedAround()
+
         
         // Setup margin of the tableview
         tbvFavoriteEvents.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 7.5, right: 0)
@@ -37,7 +38,6 @@ class FavoriteVC: UIViewController {
 
         loadUserFavoriteEvents(showLoading: true)
         
-        self.hideKeyboardWhenTappedAround()
 
 
     }

@@ -19,8 +19,11 @@ class ClubEventBigCell: UITableViewCell {
     
     @IBOutlet weak var imgThumbnail: UIImageView!
     
-    @IBOutlet weak var imgBtnCollect: UIImageView!
-    
+    @IBOutlet weak var btnFavorite: UIButton!
+
+
+    @IBAction func favoriteBtnDidClick(_ sender: UIButton) {
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

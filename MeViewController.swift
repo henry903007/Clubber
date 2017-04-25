@@ -12,12 +12,14 @@ class MeViewController: UIViewController {
 
     @IBOutlet weak var imgUserAvatar: UIImageView!
     @IBOutlet weak var username: UILabel!
+    @IBOutlet weak var schoolName: UILabel!
     @IBOutlet weak var logoutBtn: LoadingButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "我"
         username.text = User.currentUser.name ?? "使用者名稱"
+        schoolName.text = User.currentUser.schoolName ?? "神秘學校"
         Utils.loadImageFromURL(imageView: imgUserAvatar, urlString: User.currentUser.pictureURL!)
         imgUserAvatar.layer.cornerRadius = 50
         imgUserAvatar.clipsToBounds = true
@@ -38,7 +40,6 @@ class MeViewController: UIViewController {
         APIManager.shared.logout(completionHandler: { (error) in
             
             if error == nil {
-                print(error)
                 let queue = DispatchQueue(label: "clubber.henrysu.logoutQueue")
 
                 queue.sync {

@@ -25,9 +25,8 @@ class FBManager {
                     if error == nil {
                         
                         let json = JSON(result!)
-                        print(json)
                         
-                        User.currentUser.setInfo(json: json)
+                        User.currentUser.setInfoFromFacebook(facebookJson: json)
                         
                         completionHandler()
                     }

@@ -19,11 +19,14 @@ class ClubEventSmallCell: UITableViewCell {
     
     @IBOutlet weak var imgDate: UIImageView!
     
+    @IBOutlet weak var btnFavorite: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    @IBAction func favoriteBtnDidClick(_ sender: UIButton) {
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

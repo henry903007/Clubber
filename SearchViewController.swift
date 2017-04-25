@@ -35,8 +35,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "搜尋"
-        
-        self.hideKeyboardWhenTappedAround()
+        hideKeyboardWhenTappedAround()
         
         // Setup margin of the tableview
         tbvRecentSearch.contentInset = UIEdgeInsets(top: 7, left: 0, bottom: 17, right: 0)

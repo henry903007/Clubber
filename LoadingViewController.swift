@@ -17,12 +17,17 @@ class LoadingViewController: UIViewController {
         // if user is logged in directly, get the user data from Facebook
         if User.currentUser.name == nil {
             FBManager.getFBUserData(completionHandler: {
-//                print("FB Token \(FBSDKAccessToken.current().tokenString)")
                 let defaults = UserDefaults.standard
                 defaults.set(FBSDKAccessToken.current().expirationDate,
                              forKey: "FBAccessTokenExpirationDate")
                 
-                self.performSegue(withIdentifier: "HomeTabBarSegue", sender: self)
+                APIManager.shared.getUserData(completionHandler: { (json) in
+                    if json != nil {
+                        User.currentUser.setInfo(json: json)
+                    }
+                    self.performSegue(withIdentifier: "HomeTabBarSegue", sender: self)
+                })
+                
                 
             })
         }

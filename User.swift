@@ -16,28 +16,49 @@ class User {
     var fbuid: String?
     var pictureURL: String?
     var objectId: String?
+    var schoolName: String?
+    var schoolId: String?
+    
     var isNewUser = true
     
 //    var school
     
     static let currentUser = User()
     
-    func setInfo(json: JSON) {
-        self.objectId = json["objectId"].string
-        self.name = json["name"].string
-        self.email = json["email"].string
-        self.fbuid = json["id"].string
+    func setInfoFromFacebook(facebookJson: JSON) {
+        self.objectId = facebookJson["objectId"].string
+        self.name = facebookJson["name"].string
+        self.email = facebookJson["email"].string
+        self.fbuid = facebookJson["id"].string
         
-        let image = json["picture"].dictionary
+        let image = facebookJson["picture"].dictionary
         let imageData = image?["data"]?.dictionary
         self.pictureURL = imageData?["url"]?.string
         
+
+        
     }
+    
+    func setInfo(json: JSON) {
+        self.objectId = json["objectId"].string
+
+        if let schoolData = json["schools"].array {
+            if (schoolData.count) > 0 {
+                self.schoolName = schoolData[0]["name"].string
+                self.schoolId = schoolData[0]["objectId"].string
+            }
+        }
+        
+        
+    }
+
     
     
     func setIsNewUser(_ isNewUser: Bool) {
         self.isNewUser = isNewUser
     }
+    
+    
     
     
     func resetInfo() {
