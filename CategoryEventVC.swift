@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class CategoryEventVC: UITableViewController {
 
@@ -65,7 +66,7 @@ class CategoryEventVC: UITableViewController {
                 let attributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.systemFont(ofSize: 10)]
                 
                 self.dateFormatter.dateFormat = "MM/dd HH:mm"
-                let updateString = "Last Updated at \(self.dateFormatter.string(from: Date()))"
+                let updateString = "Last updated at \(self.dateFormatter.string(from: Date()))"
                 
                 self.refreshControl?.attributedTitle = NSAttributedString(string: updateString, attributes: attributes)
 
@@ -91,6 +92,14 @@ class CategoryEventVC: UITableViewController {
                     if listClubEvents.count != 0 {
                         for item in listClubEvents {
                             let clubEvent = ClubEvent(json: item)
+                            if let eventUsers = item["users"].array {
+                                if self.isCurrentUserInTheUserArray(userArray: eventUsers) {
+                                    clubEvent.setCollected(true)
+                                }
+                                else {
+                                    clubEvent.setCollected(false)
+                                }
+                            }
                             self.clubEvents.append(clubEvent)
                         }
                         self.tableView.reloadData()
@@ -111,7 +120,14 @@ class CategoryEventVC: UITableViewController {
 
     
     
-
+    func isCurrentUserInTheUserArray(userArray: [JSON]) -> Bool {
+        for user in userArray {
+            if user["objectId"].string == User.currentUser.objectId {
+                return true
+            }
+        }
+        return false
+    }
 
 
     // MARK: - Table view data source
@@ -142,7 +158,13 @@ class CategoryEventVC: UITableViewController {
             let day = String(startDate.characters.suffix(2))
             cell.imgDate.image = UIImage(named: day)
         }
-        
+        if clubEvent.isCollected {
+            cell.btnFavorite.setImage(#imageLiteral(resourceName: "favorite-on"), for: .normal)
+        }
+        else {
+            cell.btnFavorite.setImage(#imageLiteral(resourceName: "favorite-off"), for: .normal)
+        }
+
         // Setup cell style
         cell.layer.cornerRadius = 3
         

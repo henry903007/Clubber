@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class BoardRecommendVC: UITableViewController {
 
@@ -52,7 +53,7 @@ class BoardRecommendVC: UITableViewController {
                 let attributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.systemFont(ofSize: 10)]
                 
                 self.dateFormatter.dateFormat = "MM/dd HH:mm"
-                let updateString = "Last Updated at \(self.dateFormatter.string(from: Date()))"
+                let updateString = "Last updated at \(self.dateFormatter.string(from: Date()))"
                 
                 
                 self.refreshControl?.attributedTitle = NSAttributedString(string: updateString, attributes: attributes)
@@ -78,6 +79,14 @@ class BoardRecommendVC: UITableViewController {
                     if listClubEvents.count != 0 {
                         for item in listClubEvents {
                             let clubEvent = ClubEvent(json: item)
+                            if let eventUsers = item["users"].array {
+                                if self.isCurrentUserInTheUserArray(userArray: eventUsers) {
+                                    clubEvent.setCollected(true)
+                                }
+                                else {
+                                    clubEvent.setCollected(false)
+                                }
+                            }
                             self.clubEvents.append(clubEvent)
                         }
                         self.tableView?.reloadData()
@@ -92,11 +101,16 @@ class BoardRecommendVC: UITableViewController {
     }
     
     
-    
-
+    func isCurrentUserInTheUserArray(userArray: [JSON]) -> Bool {
+        for user in userArray {
+            if user["objectId"].string == User.currentUser.objectId {
+                return true
+            }
+        }
         
-
-
+        return false
+        
+    }
     
     
     // MARK: - Table view data source
@@ -125,13 +139,19 @@ class BoardRecommendVC: UITableViewController {
         cell.lbLocation.text = clubEvent.location
         cell.lbTime.text = "\(clubEvent.startDate!) - \(clubEvent.endDate!) / \(clubEvent.startTime!) - \(clubEvent.endTime!)"
         Utils.loadImageFromURL(imageView: cell.imgThumbnail, urlString: clubEvent.imageURL!)
-        
+        if clubEvent.isCollected {
+            cell.btnFavorite.setImage(#imageLiteral(resourceName: "favorite-on"), for: .normal)
+        }
+        else {
+            cell.btnFavorite.setImage(#imageLiteral(resourceName: "favorite-off"), for: .normal)
+        }
         // Setup cell style
         cell.layer.cornerRadius = 3
         
         return cell
     }
     
+
 
     
     /*

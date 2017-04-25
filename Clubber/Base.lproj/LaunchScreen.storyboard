@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,12 +19,35 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="lng-KA-6zS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LOGO" translatesAutoresizingMaskIntoConstraints="NO" id="P9G-eZ-ntd">
+                                <rect key="frame" x="126.5" y="180" width="121" height="208"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="121" id="lUJ-oj-JvG"/>
+                                    <constraint firstAttribute="height" constant="208" id="r7S-Tq-7Tb"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="lng-KA-6zS" secondAttribute="trailing" id="IE8-tF-83A"/>
+                            <constraint firstItem="P9G-eZ-ntd" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="160" id="KKg-mG-CdK"/>
+                            <constraint firstItem="lng-KA-6zS" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="-20" id="WcV-HH-TFh"/>
+                            <constraint firstItem="lng-KA-6zS" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="dwG-ev-gnK"/>
+                            <constraint firstItem="P9G-eZ-ntd" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="s3k-nn-mkG"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="lng-KA-6zS" secondAttribute="bottom" id="yiv-V0-kJv"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LOGO" width="121" height="208"/>
+        <image name="background" width="375" height="667"/>
+    </resources>
 </document>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class SearchViewController: UIViewController {
 
@@ -147,6 +148,14 @@ class SearchViewController: UIViewController {
                     if listClubEvents.count != 0 {
                         for item in listClubEvents {
                             let clubEvent = ClubEvent(json: item)
+                            if let eventUsers = item["users"].array {
+                                if self.isCurrentUserInTheUserArray(userArray: eventUsers) {
+                                    clubEvent.setCollected(true)
+                                }
+                                else {
+                                    clubEvent.setCollected(false)
+                                }
+                            }
                             self.recentSearches.append(clubEvent)
                         }
                         self.tbvRecentSearch?.reloadData()
@@ -159,6 +168,14 @@ class SearchViewController: UIViewController {
     }
 
     
+    func isCurrentUserInTheUserArray(userArray: [JSON]) -> Bool {
+        for user in userArray {
+            if user["objectId"].string == User.currentUser.objectId {
+                return true
+            }
+        }
+        return false
+    }
     
     
 
@@ -267,6 +284,12 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         if let startDate = clubEvent.startDate {
             let day = String(startDate.characters.suffix(2))
             cell.imgDate.image = UIImage(named: day)
+        }
+        if clubEvent.isCollected {
+            cell.btnFavorite.setImage(#imageLiteral(resourceName: "favorite-on"), for: .normal)
+        }
+        else {
+            cell.btnFavorite.setImage(#imageLiteral(resourceName: "favorite-off"), for: .normal)
         }
 
         
