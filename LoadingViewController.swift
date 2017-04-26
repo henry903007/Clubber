@@ -18,9 +18,10 @@ class LoadingViewController: UIViewController {
         if User.currentUser.name == nil {
             FBManager.getFBUserData(completionHandler: {
                 let defaults = UserDefaults.standard
+                print(defaults.string(forKey: "sessionToken") ?? "")
+
                 defaults.set(FBSDKAccessToken.current().expirationDate,
                              forKey: "FBAccessTokenExpirationDate")
-                
                 APIManager.shared.getUserData(completionHandler: { (json) in
                     if json != nil {
                         User.currentUser.setInfo(json: json)

@@ -10,6 +10,8 @@ import UIKit
 
 class ClubEventBigCell: UITableViewCell {
 
+    var favButtonDidClick : (() -> Void)? = nil
+
     @IBOutlet weak var lbSchool: UILabel!
     @IBOutlet weak var lbClub: UILabel!
     @IBOutlet weak var lbEvent: UILabel!
@@ -23,7 +25,12 @@ class ClubEventBigCell: UITableViewCell {
 
 
     @IBAction func favoriteBtnDidClick(_ sender: UIButton) {
+        if let favButtonDidClick = self.favButtonDidClick {
+            favButtonDidClick()
+        }
     }
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

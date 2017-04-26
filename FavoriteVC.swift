@@ -41,6 +41,11 @@ class FavoriteVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        favoriteEvents = [:]
+        eventSectionTitle = []
+        filteredFavoriteEvents = [:]
+        filteredEventSectionTitle = []
+
         loadUserFavoriteEvents(showLoading: false)
     }
     
@@ -60,10 +65,8 @@ class FavoriteVC: UIViewController {
             
         }
         
-        // update layout first
-        // if there are new data, it will be shown next switching
+        self.view.endEditing(true)
         tbvFavoriteEvents.reloadData()
-//        loadUserFavoriteEvents(showLoading: false)
         
     }
     
@@ -75,9 +78,12 @@ class FavoriteVC: UIViewController {
         APIManager.shared.getUserData { (json) in
             if json != nil {
                 self.favoriteEvents = [:]
+                self.eventSectionTitle = []
+                self.filteredFavoriteEvents = [:]
+                self.filteredEventSectionTitle = []
+                
                 if let listClubEvents = json["events"].array {
                     
-                    if listClubEvents.count != 0 {
                         for event in listClubEvents {
                             
                             if let monthSection = event["time"].string {
@@ -94,7 +100,7 @@ class FavoriteVC: UIViewController {
                             
                         }
                         self.tbvFavoriteEvents.reloadData()
-                    }
+                    
                     
                     if showLoading {
                         self.loadingView.hideLoading()
@@ -111,7 +117,12 @@ class FavoriteVC: UIViewController {
 
 extension FavoriteVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(self.favoriteEvents)
+        print(self.eventSectionTitle)
+        print(self.filteredFavoriteEvents)
+        print(self.filteredEventSectionTitle)
         
+
         filteredFavoriteEvents = [:]
         filteredEventSectionTitle = []
         
@@ -129,6 +140,12 @@ extension FavoriteVC: UISearchBarDelegate {
             }
 
         }
+
+        print(self.favoriteEvents)
+        print(self.eventSectionTitle)
+        print(self.filteredFavoriteEvents)
+        print(self.filteredEventSectionTitle)
+        
 
         self.tbvFavoriteEvents.reloadData()
     }
@@ -156,10 +173,13 @@ extension FavoriteVC: UISearchBarDelegate {
             }
         }
 
-        self.tbvFavoriteEvents.reloadData()
+        tbvFavoriteEvents.reloadData()
         
         searchBar.endEditing(true)
     }
+
+    
+
 }
 
 
@@ -207,7 +227,43 @@ extension FavoriteVC: UITableViewDataSource, UITableViewDelegate {
             bigCell.lbTime.text = "\(clubEvent.startDate!) - \(clubEvent.endDate!) / \(clubEvent.startTime!) - \(clubEvent.endTime!)"
             Utils.loadImageFromURL(imageView: bigCell.imgThumbnail, urlString: clubEvent.imageURL!)
             bigCell.btnFavorite.setImage(#imageLiteral(resourceName: "favorite-on"), for: .normal)
+            bigCell.favButtonDidClick = {
                 
+                // update dataset in display
+                if self.searchBar.text != "" {
+                    let currentTitle = self.filteredEventSectionTitle[indexPath.section]
+                    
+                    self.filteredFavoriteEvents[currentTitle]?.remove(at: indexPath.row)
+                    self.favoriteEvents[currentTitle]?.remove(at: indexPath.row)
+                    
+                    if self.favoriteEvents[currentTitle]?.count == 0 {
+                        self.favoriteEvents.removeValue(forKey: currentTitle)
+                        self.eventSectionTitle.remove(at: self.eventSectionTitle.index(of: currentTitle)! )
+                    }
+                    
+                    if self.filteredFavoriteEvents[currentTitle]?.count == 0 {
+                        self.filteredFavoriteEvents.removeValue(forKey: currentTitle)
+                        self.filteredEventSectionTitle.remove(at: indexPath.section)
+                    }
+                }
+                else {
+                    let currentTitle = self.eventSectionTitle[indexPath.section]
+
+                    self.favoriteEvents[currentTitle]?.remove(at: indexPath.row)
+                    if self.favoriteEvents[currentTitle]?.count == 0 {
+                        self.favoriteEvents.removeValue(forKey: currentTitle)
+                        self.eventSectionTitle.remove(at: indexPath.section)
+                    }
+                }
+                
+                
+                tableView.reloadData()
+                
+                APIManager.shared.deleteFavoiteEvent(userId: User.currentUser.objectId!, eventId: clubEvent.objectId!, completionHandler: {}
+                )
+            }
+
+            
             cell = bigCell
         }
         else {
@@ -222,7 +278,39 @@ extension FavoriteVC: UITableViewDataSource, UITableViewDelegate {
                 smallCell.imgDate.image = UIImage(named: day)
             }
             smallCell.btnFavorite.setImage(#imageLiteral(resourceName: "favorite-on"), for: .normal)
-    
+            smallCell.favButtonDidClick = {
+
+                // update dataset in display
+                if self.searchBar.text != "" {
+                    let currentTitle = self.filteredEventSectionTitle[indexPath.section]
+                    
+                    self.filteredFavoriteEvents[currentTitle]?.remove(at: indexPath.row)
+                    self.favoriteEvents[currentTitle]?.remove(at: indexPath.row)
+                    
+                    if self.favoriteEvents[currentTitle]?.count == 0 {
+                        self.favoriteEvents.removeValue(forKey: currentTitle)
+                        self.eventSectionTitle.remove(at: self.eventSectionTitle.index(of: currentTitle)! )
+                    }
+                    
+                    if self.filteredFavoriteEvents[currentTitle]?.count == 0 {
+                        self.filteredFavoriteEvents.removeValue(forKey: currentTitle)
+                        self.filteredEventSectionTitle.remove(at: indexPath.section)
+                    }
+                }
+                else {
+                    let currentTitle = self.eventSectionTitle[indexPath.section]
+                    
+                    self.favoriteEvents[currentTitle]?.remove(at: indexPath.row)
+                    if self.favoriteEvents[currentTitle]?.count == 0 {
+                        self.favoriteEvents.removeValue(forKey: currentTitle)
+                        self.eventSectionTitle.remove(at: indexPath.section)
+                    }
+                }
+                
+                tableView.reloadData()
+                
+                APIManager.shared.deleteFavoiteEvent(userId: User.currentUser.objectId!, eventId: clubEvent.objectId!, completionHandler: {})
+            }
             
             cell = smallCell
         }

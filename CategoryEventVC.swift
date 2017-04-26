@@ -47,6 +47,9 @@ class CategoryEventVC: UITableViewController {
         }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        refreshData()
+    }
 
     
     func refreshData() {
@@ -133,12 +136,10 @@ class CategoryEventVC: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return clubEvents.count
     }
     
@@ -163,6 +164,20 @@ class CategoryEventVC: UITableViewController {
         }
         else {
             cell.btnFavorite.setImage(#imageLiteral(resourceName: "favorite-off"), for: .normal)
+        }
+
+        cell.favButtonDidClick = {
+            if clubEvent.isCollected {
+                cell.btnFavorite.setImage(#imageLiteral(resourceName: "favorite-off"), for: .normal)
+                clubEvent.setCollected(false)
+                APIManager.shared.deleteFavoiteEvent(userId: User.currentUser.objectId!, eventId: clubEvent.objectId!, completionHandler: {})
+            }
+            else {
+                cell.btnFavorite.setImage(#imageLiteral(resourceName: "favorite-on"), for: .normal)
+                clubEvent.setCollected(true)
+                
+                APIManager.shared.addFavoiteEvent(userId: User.currentUser.objectId!, eventId: clubEvent.objectId!, completionHandler: {})
+            }
         }
 
         // Setup cell style

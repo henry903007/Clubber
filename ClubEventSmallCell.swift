@@ -10,6 +10,8 @@ import UIKit
 
 class ClubEventSmallCell: UITableViewCell {
 
+    var favButtonDidClick : (() -> Void)? = nil
+
     @IBOutlet weak var lbSchool: UILabel!
     
     @IBOutlet weak var lbClub: UILabel!
@@ -26,6 +28,11 @@ class ClubEventSmallCell: UITableViewCell {
     }
 
     @IBAction func favoriteBtnDidClick(_ sender: UIButton) {
+        if let favButtonDidClick = self.favButtonDidClick {
+            favButtonDidClick()
+        }
+
+        
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

@@ -40,7 +40,7 @@ class SearchViewController: UIViewController {
         
         // Setup margin of the tableview
         tbvRecentSearch.contentInset = UIEdgeInsets(top: 7, left: 0, bottom: 17, right: 0)
-        loadRecentSearches()
+        loadRecentSearches(showLoading: true)
         
         dateFormatter.dateFormat = "yyyy / MM / dd"
         timeFormatter.dateFormat = "HH:mm"
@@ -49,6 +49,11 @@ class SearchViewController: UIViewController {
         createDatePickers()
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        refreshData()
+    }
+    
     
     func initSearchBar() {
         searchBar.backgroundImage = UIImage()
@@ -134,11 +139,13 @@ class SearchViewController: UIViewController {
     }
     
     
-    func loadRecentSearches() {
+    func refreshData() {
+        loadRecentSearches(showLoading: false)
+    }
+    
+    func loadRecentSearches(showLoading: Bool) {
         
-            loadingView.showLoading(in: self.tbvRecentSearch)
-        
-        
+        loadingView.showLoading(in: self.tbvRecentSearch)
         
         APIManager.shared.getClubEvents { (json) in
             if json != nil {
@@ -291,6 +298,21 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         else {
             cell.btnFavorite.setImage(#imageLiteral(resourceName: "favorite-off"), for: .normal)
         }
+        
+        cell.favButtonDidClick = {
+            if clubEvent.isCollected {
+                cell.btnFavorite.setImage(#imageLiteral(resourceName: "favorite-off"), for: .normal)
+                clubEvent.setCollected(false)
+                APIManager.shared.deleteFavoiteEvent(userId: User.currentUser.objectId!, eventId: clubEvent.objectId!, completionHandler: {})
+            }
+            else {
+                cell.btnFavorite.setImage(#imageLiteral(resourceName: "favorite-on"), for: .normal)
+                clubEvent.setCollected(true)
+                
+                APIManager.shared.addFavoiteEvent(userId: User.currentUser.objectId!, eventId: clubEvent.objectId!, completionHandler: {})
+            }
+        }
+
 
         
         // Setup cell style

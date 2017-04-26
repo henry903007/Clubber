@@ -36,14 +36,16 @@ class BoardRecommendVC: UITableViewController {
         self.refreshControl?.attributedTitle = NSAttributedString(string: updateString, attributes: attributes)
         
         
-        loadClubEvents()
+        loadClubEvents(showLoading: true)
 
     }
 
-    
+    override func viewWillAppear(_ animated: Bool) {
+        refreshData()
+    }
     
     func refreshData() {
-        loadClubEvents()
+        loadClubEvents(showLoading: false)
         
         if (self.refreshControl?.isRefreshing)! {
             
@@ -64,9 +66,9 @@ class BoardRecommendVC: UITableViewController {
     }
     
     
-    func loadClubEvents() {
+    func loadClubEvents(showLoading: Bool) {
         
-        if !(self.refreshControl?.isRefreshing)! {
+        if showLoading {
             loadingView.showLoading(in: self.tableView)
         }
         
@@ -91,7 +93,7 @@ class BoardRecommendVC: UITableViewController {
                         }
                         self.tableView?.reloadData()
                     }
-                    if !(self.refreshControl?.isRefreshing)! {
+                    if showLoading {
                         self.loadingView.hideLoading()
                     }
                     
@@ -116,12 +118,10 @@ class BoardRecommendVC: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return clubEvents.count
     }
 
@@ -130,7 +130,6 @@ class BoardRecommendVC: UITableViewController {
 
         let clubEvent: ClubEvent
         
-        //indexPath.section is used rather than indexPath.row
         clubEvent = clubEvents[indexPath.row]
         
         cell.lbSchool.text = clubEvent.schoolName ?? "神秘學校"
@@ -145,6 +144,21 @@ class BoardRecommendVC: UITableViewController {
         else {
             cell.btnFavorite.setImage(#imageLiteral(resourceName: "favorite-off"), for: .normal)
         }
+        
+        cell.favButtonDidClick = {
+            if clubEvent.isCollected {
+                cell.btnFavorite.setImage(#imageLiteral(resourceName: "favorite-off"), for: .normal)
+                clubEvent.setCollected(false)
+                APIManager.shared.deleteFavoiteEvent(userId: User.currentUser.objectId!, eventId: clubEvent.objectId!, completionHandler: {})
+            }
+            else {
+                cell.btnFavorite.setImage(#imageLiteral(resourceName: "favorite-on"), for: .normal)
+                clubEvent.setCollected(true)
+
+                APIManager.shared.addFavoiteEvent(userId: User.currentUser.objectId!, eventId: clubEvent.objectId!, completionHandler: {})
+            }
+        }
+        
         // Setup cell style
         cell.layer.cornerRadius = 3
         

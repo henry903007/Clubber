@@ -201,6 +201,51 @@ class APIManager {
             })
     }
     
+    // API - Favorite an event
+    func addFavoiteEvent(userId: String, eventId: String, completionHandler: @escaping () -> Void ) {
+        
+        let path = "users/\(userId)/events/\(eventId)"
+        let url = baseURL!.appendingPathComponent(path)
+        
+        
+        Alamofire.request(url!, method: .post, parameters: nil, encoding: URLEncoding.default, headers: HEADERS_WITH_SESSION_KEY)
+            .responseJSON(completionHandler: { (response) in
+                
+                switch response.result {
+                case .success:
+                    completionHandler()
+                    break
+                    
+                case .failure:
+                    completionHandler()
+                    break
+                }
+            })
+    }
+    
+    
+    // API - Unfavorite an event
+    func deleteFavoiteEvent(userId: String, eventId: String, completionHandler: @escaping () -> Void ) {
+        
+        let path = "users/\(userId)/events/\(eventId)"
+        let url = baseURL!.appendingPathComponent(path)
+        
+        
+        Alamofire.request(url!, method: .delete, parameters: nil, encoding: URLEncoding.default, headers: HEADERS_WITH_SESSION_KEY)
+            .responseJSON(completionHandler: { (response) in
+                
+                switch response.result {
+                case .success:
+                    completionHandler()
+                    break
+                    
+                case .failure:
+                    completionHandler()
+                    break
+                }
+            })
+    }
+    
     
     
     
