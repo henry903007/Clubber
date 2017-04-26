@@ -18,7 +18,7 @@ class LoadingButton: UIButton {
         self.setTitle("", for: UIControlState.normal)
         self.isUserInteractionEnabled = false
         
-        loadingIndicator.showLoading(in: self)
+        loadingIndicator.showLoading(in: self, color: UIColor.white)
     }
     
     func hideLoading() {

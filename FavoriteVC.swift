@@ -73,7 +73,7 @@ class FavoriteVC: UIViewController {
     
     func loadUserFavoriteEvents(showLoading: Bool) {
         if showLoading {
-            loadingView.showLoading(in: self.tbvFavoriteEvents)
+            loadingView.showLoading(in: self.tbvFavoriteEvents, color: UIColor.white)
         }
         APIManager.shared.getUserData { (json) in
             if json != nil {
@@ -84,23 +84,24 @@ class FavoriteVC: UIViewController {
                 
                 if let listClubEvents = json["events"].array {
                     
-                        for event in listClubEvents {
+                    for event in listClubEvents {
+                        
+                        if let monthSection = event["time"].string {
                             
-                            if let monthSection = event["time"].string {
-                                
-                                let clubEvent = ClubEvent(json: event)
-                                
-                                
-                                if self.favoriteEvents[monthSection] == nil {
-                                    self.eventSectionTitle.append(monthSection)
-                                    self.favoriteEvents[monthSection] = []
-                                }
-                                self.favoriteEvents[monthSection]?.append(clubEvent)
+                            let clubEvent = ClubEvent(json: event)
+                            
+                            
+                            if self.favoriteEvents[monthSection] == nil {
+                                self.eventSectionTitle.append(monthSection)
+                                self.favoriteEvents[monthSection] = []
                             }
-                            
+                            self.favoriteEvents[monthSection]?.append(clubEvent)
                         }
-                        self.tbvFavoriteEvents.reloadData()
+                        
+                    }
                     
+                        self.tbvFavoriteEvents.reloadData()
+
                     
                     if showLoading {
                         self.loadingView.hideLoading()
@@ -320,6 +321,26 @@ extension FavoriteVC: UITableViewDataSource, UITableViewDelegate {
         cell.layer.cornerRadius = 3
         
         return cell
+    }
+    
+    // TODO: Select cell while refreshing will cause indexpath out ou range erroe
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "EventDetailVC") as? EventDetailVC {
+
+            let clubEvent: ClubEvent
+            
+            if searchBar.text != "" {
+                clubEvent = (filteredFavoriteEvents[filteredEventSectionTitle[indexPath.section]]?[indexPath.row])!
+            }
+            else {
+                // get section then get event in that section
+                clubEvent = (favoriteEvents[eventSectionTitle[indexPath.section]]?[indexPath.row])!
+            }
+
+            
+            vc.eventId = clubEvent.objectId
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

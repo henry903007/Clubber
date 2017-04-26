@@ -19,6 +19,8 @@
 		9B38705F1E97D4FC005D96DE /* ClubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38705E1E97D4FC005D96DE /* ClubCategory.swift */; };
 		9B3870891E9BADE6005D96DE /* BoardSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3870881E9BADE6005D96DE /* BoardSegmentedControl.swift */; };
 		9B38708D1E9CF78A005D96DE /* BoardRecommendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38708C1E9CF78A005D96DE /* BoardRecommendVC.swift */; };
+		9B3B34541EB075DA007FEA47 /* EventDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B34531EB075DA007FEA47 /* EventDetailVC.swift */; };
+		9B3B34561EB091A0007FEA47 /* ClubDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B34551EB091A0007FEA47 /* ClubDetailVC.swift */; };
 		9B4653F91E7D64DB009E02AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4653F81E7D64DB009E02AB /* User.swift */; };
 		9B4653FD1E7D700B009E02AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B4653FB1E7D700B009E02AB /* Main.storyboard */; };
 		9B4654251E811DD1009E02AB /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4654241E811DD1009E02AB /* APIManager.swift */; };
@@ -70,6 +72,8 @@
 		9B38705E1E97D4FC005D96DE /* ClubCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubCategory.swift; sourceTree = "<group>"; };
 		9B3870881E9BADE6005D96DE /* BoardSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardSegmentedControl.swift; sourceTree = "<group>"; };
 		9B38708C1E9CF78A005D96DE /* BoardRecommendVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardRecommendVC.swift; sourceTree = "<group>"; };
+		9B3B34531EB075DA007FEA47 /* EventDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailVC.swift; sourceTree = "<group>"; };
+		9B3B34551EB091A0007FEA47 /* ClubDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubDetailVC.swift; sourceTree = "<group>"; };
 		9B4653F81E7D64DB009E02AB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9B4653FC1E7D700B009E02AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9B4653FE1E7EF396009E02AB /* Clubber.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Clubber.entitlements; sourceTree = SOURCE_ROOT; };
@@ -188,6 +192,8 @@
 				9BDC359A1EADEEAB00CE10FA /* FavoriteVC.swift */,
 				9B4654281E8276B3009E02AB /* MeViewController.swift */,
 				9B76225F1E8A8BA600400DAD /* FeedbackViewController.swift */,
+				9B3B34531EB075DA007FEA47 /* EventDetailVC.swift */,
+				9B3B34551EB091A0007FEA47 /* ClubDetailVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -450,6 +456,7 @@
 				9BDC359B1EADEEAB00CE10FA /* FavoriteVC.swift in Sources */,
 				9B7622601E8A8BA600400DAD /* FeedbackViewController.swift in Sources */,
 				9B38705B1E9629B8005D96DE /* BoardCategoryVC.swift in Sources */,
+				9B3B34561EB091A0007FEA47 /* ClubDetailVC.swift in Sources */,
 				9BCEFDBE1E7D5AA60098C2FA /* LoadingViewController.swift in Sources */,
 				9B118E261E9F9BFB003ACC83 /* CategoryEventVC.swift in Sources */,
 				9B4653F91E7D64DB009E02AB /* User.swift in Sources */,
@@ -459,6 +466,7 @@
 				9BC3D3041E7149F6007BA522 /* AppDelegate.swift in Sources */,
 				9B38708D1E9CF78A005D96DE /* BoardRecommendVC.swift in Sources */,
 				9BC3D3061E7149F6007BA522 /* BoardViewController.swift in Sources */,
+				9B3B34541EB075DA007FEA47 /* EventDetailVC.swift in Sources */,
 				9B118E1F1E9F6C98003ACC83 /* LoadingIndicator.swift in Sources */,
 				9B38705F1E97D4FC005D96DE /* ClubCategory.swift in Sources */,
 				9B4654251E811DD1009E02AB /* APIManager.swift in Sources */,

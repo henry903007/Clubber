@@ -145,7 +145,7 @@ class SearchViewController: UIViewController {
     
     func loadRecentSearches(showLoading: Bool) {
         
-        loadingView.showLoading(in: self.tbvRecentSearch)
+        loadingView.showLoading(in: self.tbvRecentSearch, color: UIColor.white)
         
         APIManager.shared.getClubEvents { (json) in
             if json != nil {
@@ -276,7 +276,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let clubEvent: ClubEvent
         
         if searchBar.text != "" {
-            
             clubEvent = searchResults[indexPath.row]
         }
         else {
@@ -321,6 +320,26 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "EventDetailVC") as? EventDetailVC {
+            
+            let clubEvent: ClubEvent
+
+            if searchBar.text != "" {
+                clubEvent = searchResults[indexPath.row]
+            }
+            else {
+                clubEvent = recentSearches[indexPath.row]
+            }
+            
+            vc.eventId = clubEvent.objectId
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     
 
 }

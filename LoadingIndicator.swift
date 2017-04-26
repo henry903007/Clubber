@@ -11,12 +11,12 @@ import UIKit
 class LoadingIndicator: UIActivityIndicatorView {
 
     var activityIndicator: UIActivityIndicatorView!
+    
+    func showLoading(in view: UIView, color: UIColor) {
 
-    func showLoading(in view: UIView) {
         if (activityIndicator == nil) {
-            activityIndicator = createActivityIndicator()
+            activityIndicator = createActivityIndicator(color: color)
         }
-        
         showSpinning(view)
     }
     
@@ -26,10 +26,10 @@ class LoadingIndicator: UIActivityIndicatorView {
         }
     }
     
-    private func createActivityIndicator() -> UIActivityIndicatorView {
+    private func createActivityIndicator(color: UIColor) -> UIActivityIndicatorView {
         let activityIndicator = UIActivityIndicatorView()
         activityIndicator.hidesWhenStopped = true
-        activityIndicator.color = UIColor.white
+        activityIndicator.color = color
         return activityIndicator
     }
     

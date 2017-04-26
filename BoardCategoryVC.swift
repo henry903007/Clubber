@@ -51,7 +51,7 @@ class BoardCategoryVC: UICollectionViewController, UICollectionViewDelegateFlowL
     func loadClubTypes() {
         
         let loadingView = LoadingIndicator()
-        loadingView.showLoading(in: collectionView!)
+        loadingView.showLoading(in: collectionView!, color: UIColor.white)
         
         APIManager.shared.getClubCategories { (json) in
             if json != nil {

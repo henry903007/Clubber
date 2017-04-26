@@ -176,7 +176,7 @@ class APIManager {
     }
     
     
-    // API - Get an event's data
+    // API - Get an event's detail data
     func getEventData(byEventId eventId: String, completionHandler: @escaping (JSON) -> Void ) {
         
         let path = "/classes/events/\(eventId)"
