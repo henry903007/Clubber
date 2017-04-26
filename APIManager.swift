@@ -230,8 +230,10 @@ class APIManager {
         let path = "users/\(userId)/events/\(eventId)"
         let url = baseURL!.appendingPathComponent(path)
         
+        let parameters: Parameters = ["includes": "types,users,schools,clubs"]
+
         
-        Alamofire.request(url!, method: .delete, parameters: nil, encoding: URLEncoding.default, headers: HEADERS_WITH_SESSION_KEY)
+        Alamofire.request(url!, method: .delete, parameters: parameters, encoding: URLEncoding.default, headers: HEADERS_WITH_SESSION_KEY)
             .responseJSON(completionHandler: { (response) in
                 
                 switch response.result {
@@ -249,6 +251,30 @@ class APIManager {
     
     
     
+    // API - Get an club's detail data
+    func getClubData(byClubId clubId: String, completionHandler: @escaping (JSON) -> Void ) {
+        
+        let path = "/classes/clubs/\(clubId)"
+        let url = baseURL!.appendingPathComponent(path)
+        
+        let parameters: Parameters = ["includes": "types,users,schools,events"]
+        
+        
+        Alamofire.request(url!, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: HEADERS_WITH_SESSION_KEY)
+            .responseJSON(completionHandler: { (response) in
+                
+                switch response.result {
+                case .success(let value):
+                    let jsonData = JSON(value)
+                    completionHandler(jsonData)
+                    break
+                    
+                case .failure:
+                    completionHandler(JSON.null)
+                    break
+                }
+            })
+    }
     
     
 }

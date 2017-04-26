@@ -32,7 +32,8 @@ class EventDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: "clubDidClick")
+        lbClub.addGestureRecognizer(gestureRecognizer)
     
         if eventId != nil {
             loadEventData(id: self.eventId!, showLoading: true)
@@ -83,8 +84,8 @@ class EventDetailVC: UIViewController {
                         }
                     }
 
-                    self.lbSchool.text = clubEvent.schoolName
-                    self.lbClub.text = clubEvent.clubName
+                    self.lbSchool.text = clubEvent.schoolName ?? "神秘學校"
+                    self.lbClub.text = clubEvent.clubName ?? "神秘社團"
                     self.lbEvent.text = clubEvent.name
                     
                     self.lbLocation.text = clubEvent.location
@@ -124,4 +125,13 @@ class EventDetailVC: UIViewController {
             view.isHidden = hidden
         }, completion: nil)
     }
+    
+    func clubDidClick() {
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "ClubDetailVC") as? ClubDetailVC {
+            
+            vc.clubId = clubEvent.clubId
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
 }
