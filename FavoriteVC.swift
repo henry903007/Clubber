@@ -38,33 +38,36 @@ class FavoriteVC: UIViewController {
 
         loadUserFavoriteEvents(showLoading: true)
         
-
-
     }
-
-
-        @IBAction func layoutSwitchDidClick(_ sender: UIBarButtonItem) {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadUserFavoriteEvents(showLoading: false)
+    }
+    
+    
+    
+    @IBAction func layoutSwitchDidClick(_ sender: UIBarButtonItem) {
         
         if isBigCellLayout {
             isBigCellLayout = false
             sender.image = UIImage(named: "layout-big-cell")
-
-
+            
+            
         }
         else {
             isBigCellLayout = true
             sender.image = UIImage(named: "layout-small-cell")
-
-        }
             
+        }
+        
         // update layout first
         // if there are new data, it will be shown next switching
         tbvFavoriteEvents.reloadData()
-        loadUserFavoriteEvents(showLoading: false)
-      
+//        loadUserFavoriteEvents(showLoading: false)
+        
     }
     
-
+    
     func loadUserFavoriteEvents(showLoading: Bool) {
         if showLoading {
             loadingView.showLoading(in: self.tbvFavoriteEvents)
@@ -80,6 +83,7 @@ class FavoriteVC: UIViewController {
                             if let monthSection = event["time"].string {
                                 
                                 let clubEvent = ClubEvent(json: event)
+                                
                                 
                                 if self.favoriteEvents[monthSection] == nil {
                                     self.eventSectionTitle.append(monthSection)
@@ -202,7 +206,8 @@ extension FavoriteVC: UITableViewDataSource, UITableViewDelegate {
             bigCell.lbLocation.text = clubEvent.location
             bigCell.lbTime.text = "\(clubEvent.startDate!) - \(clubEvent.endDate!) / \(clubEvent.startTime!) - \(clubEvent.endTime!)"
             Utils.loadImageFromURL(imageView: bigCell.imgThumbnail, urlString: clubEvent.imageURL!)
-            
+            bigCell.btnFavorite.setImage(#imageLiteral(resourceName: "favorite-on"), for: .normal)
+                
             cell = bigCell
         }
         else {
@@ -216,6 +221,8 @@ extension FavoriteVC: UITableViewDataSource, UITableViewDelegate {
                 let day = String(startDate.characters.suffix(2))
                 smallCell.imgDate.image = UIImage(named: day)
             }
+            smallCell.btnFavorite.setImage(#imageLiteral(resourceName: "favorite-on"), for: .normal)
+    
             
             cell = smallCell
         }
