@@ -70,7 +70,9 @@ class ClubDetailVC: UIViewController {
                     self.lbContactInfo.text = club.contactInfo
                     self.lbDescription.text = club.description
                     self.lbCategory.text = club.categoryName ?? "神秘類型"
+                    // For DEMO
                     Utils.loadImageFromURL(imageView: self.imgThumbnail, urlString: "https://farm9.staticflickr.com/8670/16050358412_7f6fd9c647.jpg")
+                    
                     self.clubEvents = []
                     if let listClubEvents = clubJson["events"].array {
                         
