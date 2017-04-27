@@ -69,6 +69,7 @@ class ClubDetailVC: UIViewController {
                     self.lbClub.text = club.name
                     self.lbContactInfo.text = club.contactInfo
                     self.lbDescription.text = club.description
+                    self.lbCategory.text = club.categoryName ?? "神秘類型"
                     
                     self.clubEvents = []
                     if let listClubEvents = clubJson["events"].array {
