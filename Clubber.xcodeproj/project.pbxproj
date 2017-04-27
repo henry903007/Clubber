@@ -22,6 +22,7 @@
 		9B3B34541EB075DA007FEA47 /* EventDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B34531EB075DA007FEA47 /* EventDetailVC.swift */; };
 		9B3B34561EB091A0007FEA47 /* ClubDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B34551EB091A0007FEA47 /* ClubDetailVC.swift */; };
 		9B3B34581EB0D73C007FEA47 /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B34571EB0D73C007FEA47 /* Club.swift */; };
+		9B3B345A1EB0F1BB007FEA47 /* SetupSchoolVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B34591EB0F1BB007FEA47 /* SetupSchoolVC.swift */; };
 		9B4653F91E7D64DB009E02AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4653F81E7D64DB009E02AB /* User.swift */; };
 		9B4653FD1E7D700B009E02AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B4653FB1E7D700B009E02AB /* Main.storyboard */; };
 		9B4654251E811DD1009E02AB /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4654241E811DD1009E02AB /* APIManager.swift */; };
@@ -76,6 +77,7 @@
 		9B3B34531EB075DA007FEA47 /* EventDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailVC.swift; sourceTree = "<group>"; };
 		9B3B34551EB091A0007FEA47 /* ClubDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubDetailVC.swift; sourceTree = "<group>"; };
 		9B3B34571EB0D73C007FEA47 /* Club.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
+		9B3B34591EB0F1BB007FEA47 /* SetupSchoolVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupSchoolVC.swift; sourceTree = "<group>"; };
 		9B4653F81E7D64DB009E02AB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9B4653FC1E7D700B009E02AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9B4653FE1E7EF396009E02AB /* Clubber.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Clubber.entitlements; sourceTree = SOURCE_ROOT; };
@@ -197,6 +199,7 @@
 				9B76225F1E8A8BA600400DAD /* FeedbackViewController.swift */,
 				9B3B34531EB075DA007FEA47 /* EventDetailVC.swift */,
 				9B3B34551EB091A0007FEA47 /* ClubDetailVC.swift */,
+				9B3B34591EB0F1BB007FEA47 /* SetupSchoolVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 			files = (
 				9B4654291E8276B3009E02AB /* MeViewController.swift in Sources */,
 				9BCEFDC01E7D5D9F0098C2FA /* FBManager.swift in Sources */,
+				9B3B345A1EB0F1BB007FEA47 /* SetupSchoolVC.swift in Sources */,
 				9B3870891E9BADE6005D96DE /* BoardSegmentedControl.swift in Sources */,
 				9B3B34581EB0D73C007FEA47 /* Club.swift in Sources */,
 				9BFB84091EA295F700B22FF0 /* LoginViewController.swift in Sources */,

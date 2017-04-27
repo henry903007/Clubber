@@ -1213,10 +1213,10 @@
             </objects>
             <point key="canvasLocation" x="-4418.3999999999996" y="1092.5037481259371"/>
         </scene>
-        <!--View Controller-->
+        <!--Setup SchoolVC-->
         <scene sceneID="3Eg-TC-Tax">
             <objects>
-                <viewController id="gcl-1n-thY" sceneMemberID="viewController">
+                <viewController id="gcl-1n-thY" customClass="SetupSchoolVC" customModule="Clubber" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="48u-OZ-kQD"/>
                         <viewControllerLayoutGuide type="bottom" id="I5s-uO-ju1"/>
@@ -1225,66 +1225,130 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo-ntu" translatesAutoresizingMaskIntoConstraints="NO" id="stv-8V-t6r">
-                                <rect key="frame" x="16" y="250" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="台大" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7KG-A2-IrJ">
-                                <rect key="frame" x="40" y="376" width="40" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你是哪間學校的呢？" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9w-hM-rkc">
+                                <rect key="frame" x="124.33333333333331" y="204" width="165.33333333333337" height="21.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.20784313725490194" green="0.58039215686274503" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo-ntust" translatesAutoresizingMaskIntoConstraints="NO" id="Fsq-9i-ta1">
-                                <rect key="frame" x="143" y="250" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="台科大" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaJ-g9-r4u">
-                                <rect key="frame" x="167" y="376" width="52" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo-ntnu" translatesAutoresizingMaskIntoConstraints="NO" id="5ps-A0-rzc">
-                                <rect key="frame" x="270" y="249" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="台師大" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8KG-5n-FqV">
-                                <rect key="frame" x="294" y="375" width="52" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="你是哪間學校的呢？" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9w-hM-rkc">
-                                <rect key="frame" x="92" y="135" width="191" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnR-9B-Y7r">
-                                <rect key="frame" x="108" y="579" width="158" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="SKIP"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GwX-cx-NNe">
-                                <rect key="frame" x="108" y="528" width="158" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="下一步">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnR-9B-Y7r">
+                                <rect key="frame" x="190.66666666666666" y="586" width="33" height="30"/>
+                                <state key="normal" title="SKIP">
+                                    <color key="titleColor" red="0.75294117647058822" green="0.75294117647058822" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="IYj-9i-eJz" kind="show" id="tjH-Sx-kHH"/>
+                                    <segue destination="IYj-9i-eJz" kind="show" id="AW6-xs-VSa"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GwX-cx-NNe">
+                                <rect key="frame" x="107" y="536" width="200" height="40"/>
+                                <color key="backgroundColor" red="0.20784313725490194" green="0.58039215686274503" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="kHo-xU-Fr7"/>
+                                    <constraint firstAttribute="width" constant="200" id="kL2-jX-mPF"/>
+                                </constraints>
+                                <state key="normal" title="下一步">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="IYj-9i-eJz" kind="show" identifier="SchoolSetupSegue" id="tjH-Sx-kHH"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="KcY-dN-dUi">
+                                <rect key="frame" x="55.333333333333343" y="285.66666666666674" width="305" height="120.33333333333331"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="h8W-aR-SQI">
+                                        <rect key="frame" x="0.0" y="0.0" width="85" height="120.33333333333331"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="logo-NTU" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YrG-sr-c04">
+                                                <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="85" id="4cH-vX-w8Q"/>
+                                                    <constraint firstAttribute="height" constant="85" id="vtS-dQ-USv"/>
+                                                </constraints>
+                                                <state key="normal" title="Button" image="logo-ntu"/>
+                                                <connections>
+                                                    <action selector="schoolLogoDidClick:" destination="gcl-1n-thY" eventType="touchUpInside" id="DmV-8S-3Db"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="台大" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7KG-A2-IrJ">
+                                                <rect key="frame" x="25.333333333333336" y="100" width="34.666666666666657" height="20.333333333333314"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="xeL-Wd-4JN">
+                                        <rect key="frame" x="110" y="0.0" width="85" height="120.33333333333331"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="logo-NTUST" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L3b-70-ya6">
+                                                <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="85" id="esq-5f-p0N"/>
+                                                    <constraint firstAttribute="width" constant="85" id="nqq-ix-jM4"/>
+                                                </constraints>
+                                                <state key="normal" title="Button" image="logo-ntust"/>
+                                                <connections>
+                                                    <action selector="schoolLogoDidClick:" destination="gcl-1n-thY" eventType="touchUpInside" id="opV-bI-v5M"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="台科大" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaJ-g9-r4u">
+                                                <rect key="frame" x="16.666666666666657" y="100" width="52" height="20.333333333333314"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="xJH-JX-Rpa">
+                                        <rect key="frame" x="220" y="0.0" width="85" height="120.33333333333331"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="logo-NTNU" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3YZ-iB-kP9">
+                                                <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="85" id="6tc-bb-a0h"/>
+                                                    <constraint firstAttribute="height" constant="85" id="Rh9-W1-Rxo"/>
+                                                </constraints>
+                                                <state key="normal" title="Button" image="logo-ntnu"/>
+                                                <connections>
+                                                    <action selector="schoolLogoDidClick:" destination="gcl-1n-thY" eventType="touchUpInside" id="wsa-Bf-qyn"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="台師大" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8KG-5n-FqV">
+                                                <rect key="frame" x="16.666666666666686" y="100" width="52" height="20.333333333333314"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.99607843137254903" green="0.99215686274509807" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="gnR-9B-Y7r" firstAttribute="top" secondItem="GwX-cx-NNe" secondAttribute="bottom" constant="10" id="20b-qG-1Ky"/>
+                            <constraint firstItem="t9w-hM-rkc" firstAttribute="centerX" secondItem="H3d-rd-Ah6" secondAttribute="centerX" id="2ab-pg-b8h"/>
+                            <constraint firstItem="gnR-9B-Y7r" firstAttribute="centerX" secondItem="H3d-rd-Ah6" secondAttribute="centerX" id="EjG-c2-ztd"/>
+                            <constraint firstItem="I5s-uO-ju1" firstAttribute="top" secondItem="gnR-9B-Y7r" secondAttribute="bottom" constant="120" id="JPV-4r-vUq"/>
+                            <constraint firstItem="KcY-dN-dUi" firstAttribute="centerX" secondItem="H3d-rd-Ah6" secondAttribute="centerX" id="L6o-uF-G2S"/>
+                            <constraint firstItem="t9w-hM-rkc" firstAttribute="top" secondItem="48u-OZ-kQD" secondAttribute="bottom" constant="140" id="h8u-B3-r3U"/>
+                            <constraint firstItem="KcY-dN-dUi" firstAttribute="top" secondItem="t9w-hM-rkc" secondAttribute="bottom" constant="60" id="mwP-0C-zVJ"/>
+                            <constraint firstItem="GwX-cx-NNe" firstAttribute="centerX" secondItem="H3d-rd-Ah6" secondAttribute="centerX" id="q4X-4t-pvJ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="LRQ-GA-6lO"/>
+                    <connections>
+                        <outlet property="btnNTNU" destination="3YZ-iB-kP9" id="MMV-N3-fS3"/>
+                        <outlet property="btnNTU" destination="YrG-sr-c04" id="DCs-Sa-rO9"/>
+                        <outlet property="btnNTUST" destination="L3b-70-ya6" id="vUr-6G-Xua"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ok8-3p-I0H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1362,29 +1426,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRy-wL-tbT">
-                                <rect key="frame" x="108" y="508" width="158" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="下一步">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Y9c-cd-lAO" kind="show" id="LFq-Cs-1dn"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLB-ib-azu">
-                                <rect key="frame" x="108" y="559" width="158" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="SKIP"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="以下哪些類型你比較有興趣呢？" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKe-Uc-3sj">
-                                <rect key="frame" x="66" y="95" width="243" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KAc-e7-2Jd">
                                 <rect key="frame" x="67" y="220" width="240" height="184"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1404,80 +1445,57 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="lUi-pH-GtH">
-                                        <rect key="frame" x="63.333333333333336" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Dk1-40-ZTb">
-                                        <rect key="frame" x="126.66666666666667" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="lhc-r8-BEI">
-                                        <rect key="frame" x="190" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="jQG-J8-uGs">
-                                        <rect key="frame" x="0.0" y="65" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="JEZ-WO-71p">
-                                        <rect key="frame" x="60" y="65" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gBz-Qq-MbG">
-                                        <rect key="frame" x="120" y="60" width="60" height="60"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                        <size key="customSize" width="60" height="60"/>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="yza-1x-jv8">
-                                        <rect key="frame" x="190" y="65" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="trf-Dl-oBw">
-                                        <rect key="frame" x="0.0" y="130" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tFk-H3-VBK">
+                                <rect key="frame" x="190.66666666666666" y="586" width="33" height="30"/>
+                                <state key="normal" title="SKIP">
+                                    <color key="titleColor" red="0.75294117650000003" green="0.75294117650000003" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Y9c-cd-lAO" kind="show" id="t32-1d-zF2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgR-pu-stc">
+                                <rect key="frame" x="107" y="536" width="200" height="40"/>
+                                <color key="backgroundColor" red="0.20784313730000001" green="0.58039215690000001" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="4Py-Iv-FcW"/>
+                                    <constraint firstAttribute="height" constant="40" id="yh4-Eo-Y4Q"/>
+                                </constraints>
+                                <state key="normal" title="下一步">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="Y9c-cd-lAO" kind="show" identifier="ClubPrefSetupSegue" id="KKz-Tr-nFW"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="馬上開始你精彩的社團生活吧！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wcq-RY-WXo">
+                                <rect key="frame" x="76" y="105" width="318" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.20784313730000001" green="0.58039215690000001" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.99607843137254903" green="0.99215686274509807" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="tFk-H3-VBK" firstAttribute="top" secondItem="jgR-pu-stc" secondAttribute="bottom" constant="10" id="1q5-91-4qM"/>
+                            <constraint firstItem="jgR-pu-stc" firstAttribute="centerX" secondItem="QfC-Ld-ebs" secondAttribute="centerX" id="UtM-bQ-el5"/>
+                            <constraint firstItem="YOV-gh-eyq" firstAttribute="top" secondItem="tFk-H3-VBK" secondAttribute="bottom" constant="120" id="fml-6f-rpq"/>
+                            <constraint firstItem="tFk-H3-VBK" firstAttribute="top" secondItem="jgR-pu-stc" secondAttribute="bottom" constant="10" id="mm7-Sa-05e"/>
+                            <constraint firstItem="tFk-H3-VBK" firstAttribute="centerX" secondItem="QfC-Ld-ebs" secondAttribute="centerX" id="qji-wT-ETL"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tzM-gg-RAi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1924" y="176"/>
+            <point key="canvasLocation" x="-1924.6376811594205" y="175.27173913043481"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="yCS-h2-PGp">
@@ -1491,31 +1509,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="馬上開始你精彩的社團生活吧！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Na-Xm-pgE">
-                                <rect key="frame" x="66" y="292" width="243" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ALJ-zq-iti">
-                                <rect key="frame" x="108" y="517" width="158" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiH-pe-4ZG">
+                                <rect key="frame" x="107" y="546" width="200" height="60"/>
+                                <color key="backgroundColor" red="0.20784313730000001" green="0.58039215690000001" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="9Jz-6F-bAn"/>
+                                    <constraint firstAttribute="height" constant="60" id="lfQ-Yx-Quy"/>
+                                </constraints>
                                 <state key="normal" title="下一步">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="49e-Tb-3d3" kind="showDetail" id="3Ga-Ds-tPT"/>
+                                    <segue destination="49e-Tb-3d3" kind="showDetail" id="7B8-G6-U3C"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-setup" translatesAutoresizingMaskIntoConstraints="NO" id="MP1-MT-hjf">
+                                <rect key="frame" x="19.666666666666657" y="20" width="375" height="345"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="KAw-sL-kbS"/>
+                                    <constraint firstAttribute="width" secondItem="MP1-MT-hjf" secondAttribute="height" multiplier="25:23" id="jKd-lt-5zu"/>
+                                    <constraint firstAttribute="height" constant="345" id="r4K-k5-naA"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="馬上開始你精彩的社團生活吧！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aws-hu-PJc">
+                                <rect key="frame" x="78.666666666666686" y="420" width="257" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.22745098039215686" green="0.22745098039215686" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.99607843137254903" green="0.99215686274509807" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="aiT-Yz-t1n" firstAttribute="top" secondItem="eiH-pe-4ZG" secondAttribute="bottom" constant="130" id="6Mr-aZ-uFV"/>
+                            <constraint firstItem="aws-hu-PJc" firstAttribute="top" secondItem="MP1-MT-hjf" secondAttribute="bottom" constant="55" id="6tA-aG-Pvi"/>
+                            <constraint firstItem="MP1-MT-hjf" firstAttribute="centerX" secondItem="Eui-I2-C6m" secondAttribute="centerX" id="efL-N9-H6X"/>
+                            <constraint firstItem="aws-hu-PJc" firstAttribute="centerX" secondItem="Eui-I2-C6m" secondAttribute="centerX" id="jXP-pX-WsF"/>
+                            <constraint firstItem="eiH-pe-4ZG" firstAttribute="centerX" secondItem="Eui-I2-C6m" secondAttribute="centerX" id="l1a-AP-qCv"/>
+                            <constraint firstItem="MP1-MT-hjf" firstAttribute="top" secondItem="EKt-kC-1wX" secondAttribute="bottom" id="psG-4x-QoY"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JoL-Vq-MWJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1092" y="176"/>
+            <point key="canvasLocation" x="-1092.753623188406" y="175.27173913043481"/>
         </scene>
         <!--Loading View Controller-->
         <scene sceneID="c0J-B1-eHu">
@@ -2063,6 +2104,7 @@
         <image name="logo-ntnu" width="85" height="85"/>
         <image name="logo-ntu" width="85" height="85"/>
         <image name="logo-ntust" width="85" height="85"/>
+        <image name="logo-setup" width="375" height="345"/>
         <image name="tab-board-off" width="28" height="28"/>
         <image name="tab-board-on" width="28" height="28"/>
         <image name="tab-book-off" width="28" height="28"/>
@@ -2073,6 +2115,8 @@
         <image name="tab-search-on" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Y3Y-JL-Vna"/>
+        <segue reference="tjH-Sx-kHH"/>
+        <segue reference="KKz-Tr-nFW"/>
+        <segue reference="7B8-G6-U3C"/>
     </inferredMetricsTieBreakers>
 </document>

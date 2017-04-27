@@ -83,19 +83,46 @@ class APIManager {
         
     }
     
+    
+    
+    // API - Setup user's school
+    func setupSchool(userId: String, schoolId: String, completionHandler: @escaping () -> Void ) {
+        
+        let path = "users/\(userId)/schools/\(schoolId)"
+        let url = baseURL!.appendingPathComponent(path)
+        
+        
+        Alamofire.request(url!, method: .post, parameters: nil, encoding: URLEncoding.default, headers: HEADERS_WITH_SESSION_KEY)
+            .responseJSON(completionHandler: { (response) in
+                
+                switch response.result {
+                case .success:
+                    completionHandler()
+                    break
+                    
+                case .failure:
+                    completionHandler()
+                    break
+                }
+            })
+    }
+    
+    
     // API - Get user's data
     func getUserData(completionHandler: @escaping (JSON) -> Void ) {
         
         let path = "/users/me/"
         let url = baseURL!.appendingPathComponent(path)
         
-        Alamofire.request(url!, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: HEADERS_WITH_SESSION_KEY)
+        Alamofire.request(url!, method: .get, parameters: nil, encoding: URLEncoding.default, headers: HEADERS_WITH_SESSION_KEY)
             .responseJSON(completionHandler: { (response) in
                 
                 switch response.result {
                 case .success(let value):
                     let jsonData = JSON(value)
+//                    print(jsonData)
                     completionHandler(jsonData)
+                    print(defaults.string(forKey: "sessionToken"))
                     break
                     
                 case .failure:
@@ -275,6 +302,9 @@ class APIManager {
                 }
             })
     }
+    
+    
+    
     
     
 }

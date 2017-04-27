@@ -32,7 +32,7 @@ class EventDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: "clubDidClick")
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(EventDetailVC.clubDidClick))
         lbClub.addGestureRecognizer(gestureRecognizer)
     
         if eventId != nil {

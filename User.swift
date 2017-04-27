@@ -26,7 +26,6 @@ class User {
     static let currentUser = User()
     
     func setInfoFromFacebook(facebookJson: JSON) {
-        self.objectId = facebookJson["objectId"].string
         self.name = facebookJson["name"].string
         self.email = facebookJson["email"].string
         self.fbuid = facebookJson["id"].string
@@ -52,6 +51,10 @@ class User {
         
     }
 
+    func setSchool(name: String, id: String) {
+        self.schoolId = id
+        self.schoolName = name
+    }
     
     
     func setIsNewUser(_ isNewUser: Bool) {
@@ -68,6 +71,8 @@ class User {
         self.objectId = nil
         self.isNewUser = true
         self.pictureURL = nil
+        self.schoolName = nil
+        self.schoolId = nil
     }
     
     
