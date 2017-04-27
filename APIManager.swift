@@ -120,9 +120,7 @@ class APIManager {
                 switch response.result {
                 case .success(let value):
                     let jsonData = JSON(value)
-//                    print(jsonData)
                     completionHandler(jsonData)
-                    print(defaults.string(forKey: "sessionToken"))
                     break
                     
                 case .failure:

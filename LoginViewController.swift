@@ -68,10 +68,8 @@ class LoginViewController: UIViewController {
                                      forKey: "FBAccessTokenExpirationDate")
                         }
                         
-                        print(defaults.string(forKey: "sessionToken"))
 
                         APIManager.shared.getUserData(completionHandler: { (json) in
-                            print(json)
                             if json["error"] == nil {
                                 User.currentUser.setInfo(json: json)
                                 self.fbLoginSuccess = true
@@ -105,7 +103,6 @@ class LoginViewController: UIViewController {
                                                          forKey: "FBAccessTokenExpirationDate")
                                         }
                                         
-                                        print(defaults.string(forKey: "sessionToken"))
 
                                         APIManager.shared.getUserData(completionHandler: { (json) in
                                             print(json)

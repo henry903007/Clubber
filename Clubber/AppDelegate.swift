@@ -24,23 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var vc = UIViewController()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-//        print(defaults.object(forKey: "FBAccessTokenExpirationDate") as? Date ?? Date()) // FBAccessTokenExpirationDate
-//        print(Date()) // now        
-//        print(defaults.string(forKey: "sessionToken") ?? "")
+        print(defaults.object(forKey: "FBAccessTokenExpirationDate") as? Date ?? Date()) // FBAccessTokenExpirationDate
+        print(Date()) // now        
+        print(defaults.string(forKey: "sessionToken") ?? "")
 
         
         
         if defaults.string(forKey: "sessionToken") != nil &&
             (defaults.object(forKey: "FBAccessTokenExpirationDate") as? Date ?? Date()) > Date() {
-            
-//            FBManager.getFBUserData(completionHandler: {
-//                print("Get FB data in Appdelegate")
-//                let defaults = UserDefaults.standard
-//                defaults.set(FBSDKAccessToken.current().expirationDate,
-//                             forKey: "FBAccessTokenExpirationDate")
-//              
-//
-//            })
             
             vc = storyboard.instantiateInitialViewController()!
             

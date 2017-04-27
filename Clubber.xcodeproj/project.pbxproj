@@ -23,6 +23,7 @@
 		9B3B34561EB091A0007FEA47 /* ClubDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B34551EB091A0007FEA47 /* ClubDetailVC.swift */; };
 		9B3B34581EB0D73C007FEA47 /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B34571EB0D73C007FEA47 /* Club.swift */; };
 		9B3B345A1EB0F1BB007FEA47 /* SetupSchoolVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B34591EB0F1BB007FEA47 /* SetupSchoolVC.swift */; };
+		9B3B345C1EB1C95D007FEA47 /* SetupPreferenceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B345B1EB1C95D007FEA47 /* SetupPreferenceVC.swift */; };
 		9B4653F91E7D64DB009E02AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4653F81E7D64DB009E02AB /* User.swift */; };
 		9B4653FD1E7D700B009E02AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B4653FB1E7D700B009E02AB /* Main.storyboard */; };
 		9B4654251E811DD1009E02AB /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4654241E811DD1009E02AB /* APIManager.swift */; };
@@ -78,6 +79,7 @@
 		9B3B34551EB091A0007FEA47 /* ClubDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubDetailVC.swift; sourceTree = "<group>"; };
 		9B3B34571EB0D73C007FEA47 /* Club.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
 		9B3B34591EB0F1BB007FEA47 /* SetupSchoolVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupSchoolVC.swift; sourceTree = "<group>"; };
+		9B3B345B1EB1C95D007FEA47 /* SetupPreferenceVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupPreferenceVC.swift; sourceTree = "<group>"; };
 		9B4653F81E7D64DB009E02AB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9B4653FC1E7D700B009E02AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9B4653FE1E7EF396009E02AB /* Clubber.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Clubber.entitlements; sourceTree = SOURCE_ROOT; };
@@ -200,6 +202,7 @@
 				9B3B34531EB075DA007FEA47 /* EventDetailVC.swift */,
 				9B3B34551EB091A0007FEA47 /* ClubDetailVC.swift */,
 				9B3B34591EB0F1BB007FEA47 /* SetupSchoolVC.swift */,
+				9B3B345B1EB1C95D007FEA47 /* SetupPreferenceVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				9B118E1F1E9F6C98003ACC83 /* LoadingIndicator.swift in Sources */,
 				9B38705F1E97D4FC005D96DE /* ClubCategory.swift in Sources */,
 				9B4654251E811DD1009E02AB /* APIManager.swift in Sources */,
+				9B3B345C1EB1C95D007FEA47 /* SetupPreferenceVC.swift in Sources */,
 				9B118DF31E9D1C62003ACC83 /* ClubEventBigCell.swift in Sources */,
 				9B38705D1E962BBC005D96DE /* ClubCategoryCell.swift in Sources */,
 				9B118E221E9F6FD6003ACC83 /* Utils.swift in Sources */,

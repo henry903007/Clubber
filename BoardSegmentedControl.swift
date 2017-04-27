@@ -11,8 +11,8 @@ import UIKit
 class BoardSegmentedControl: UISegmentedControl {
 
     func initUI(){
-        setupBackground()
-        setupFonts()
+//        setupBackground()
+//        setupFonts()
     }
     
     func setupBackground(){
