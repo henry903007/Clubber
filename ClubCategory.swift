@@ -14,6 +14,7 @@ class ClubCategory {
     var objectId: String?
     var name: String?
 
+    var isSelected = false
     
     init(json: JSON) {
         self.objectId = json["objectId"].string
@@ -21,4 +22,7 @@ class ClubCategory {
 
     }
 
+    func setIsSelected(_ isSelected: Bool) {
+        self.isSelected = isSelected
+    }
 }

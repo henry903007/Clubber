@@ -20,37 +20,45 @@ class SetupSchoolVC: UIViewController {
         if sender.restorationIdentifier == "logo-NTU" {
 
             selectedSchool = "NTU"
-            print("NTU")
-            btnNTU.backgroundColor = UIColor.lightText
-            btnNTUST.backgroundColor = UIColor.clear
-            btnNTNU.backgroundColor = UIColor.clear
+            
+            btnNTU.setImage(UIImage(named: "logo-ntu"), for: .normal)
+            btnNTUST.setImage(UIImage(named: "logo-ntust-unhighlight"), for: .normal)
+            btnNTNU.setImage(UIImage(named: "logo-ntnu-unhighlight"), for: .normal)
+
         }
         else if sender.restorationIdentifier == "logo-NTUST" {
             selectedSchool = "NTUST"
-print("NTUST")
-            btnNTU.backgroundColor = UIColor.clear
-            btnNTUST.backgroundColor = UIColor.lightText
-            btnNTNU.backgroundColor = UIColor.clear
+
+            btnNTU.setImage(UIImage(named: "logo-ntu-unhighlight"), for: .normal)
+            btnNTUST.setImage(UIImage(named: "logo-ntust"), for: .normal)
+            btnNTNU.setImage(UIImage(named: "logo-ntnu-unhighlight"), for: .normal)
         }
         else {
             selectedSchool = "NTNU"
-print("NTnU")
-            btnNTU.backgroundColor = UIColor.clear
-            btnNTUST.backgroundColor = UIColor.clear
-            btnNTNU.backgroundColor = UIColor.lightText
+
+            btnNTU.setImage(UIImage(named: "logo-ntu-unhighlight"), for: .normal)
+            btnNTUST.setImage(UIImage(named: "logo-ntust-unhighlight"), for: .normal)
+            btnNTNU.setImage(UIImage(named: "logo-ntnu"), for: .normal)
         }
         
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "選擇學校"
 
-        // Do any additional setup after loading the view.
+
+        
     }
 
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "SchoolSetupSegue" {
             var schoolId = ""
+            
+            if selectedSchool == nil {
+                return false
+            }
             
             switch selectedSchool! {
             case "NTU":

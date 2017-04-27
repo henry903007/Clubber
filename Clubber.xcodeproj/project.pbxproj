@@ -24,6 +24,7 @@
 		9B3B34581EB0D73C007FEA47 /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B34571EB0D73C007FEA47 /* Club.swift */; };
 		9B3B345A1EB0F1BB007FEA47 /* SetupSchoolVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B34591EB0F1BB007FEA47 /* SetupSchoolVC.swift */; };
 		9B3B345C1EB1C95D007FEA47 /* SetupPreferenceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B345B1EB1C95D007FEA47 /* SetupPreferenceVC.swift */; };
+		9B3B345D1EB1E53E007FEA47 /* SetupPreferenceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B345B1EB1C95D007FEA47 /* SetupPreferenceVC.swift */; };
 		9B4653F91E7D64DB009E02AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4653F81E7D64DB009E02AB /* User.swift */; };
 		9B4653FD1E7D700B009E02AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B4653FB1E7D700B009E02AB /* Main.storyboard */; };
 		9B4654251E811DD1009E02AB /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4654241E811DD1009E02AB /* APIManager.swift */; };
@@ -502,6 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B3B345D1EB1E53E007FEA47 /* SetupPreferenceVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

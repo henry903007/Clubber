@@ -141,14 +141,14 @@ class BoardCategoryVC: UICollectionViewController, UICollectionViewDelegateFlowL
     
     // MARK: - UICollectionViewFlowLayout
     
-//        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//            let picDimension = self.view.frame.size.width / 3.0
-//            return CGSize(width: picDimension, height: picDimension)
-//        }
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            let picDimension = self.view.frame.size.width / 3.0
+            return CGSize(width: 160, height: 80)
+        }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
                 let leftRightInset = self.view.frame.size.width / 12.0
-        return UIEdgeInsetsMake(24, leftRightInset, 24, leftRightInset)
+        return UIEdgeInsetsMake(24, 18, 24, 18)
     }
     
     
