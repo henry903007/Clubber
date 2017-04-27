@@ -69,7 +69,8 @@ class ClubDetailVC: UIViewController {
                     self.lbClub.text = club.name
                     self.lbContactInfo.text = club.contactInfo
                     self.lbDescription.text = club.description
-                    
+                    self.lbCategory.text = club.categoryName ?? "神秘類型"
+                    Utils.loadImageFromURL(imageView: self.imgThumbnail, urlString: "https://farm9.staticflickr.com/8670/16050358412_7f6fd9c647.jpg")
                     self.clubEvents = []
                     if let listClubEvents = clubJson["events"].array {
                         
@@ -115,7 +116,7 @@ class ClubDetailVC: UIViewController {
     
     
     func showHideViewWithAnim(view: UIView, hidden: Bool) {
-        UIView.transition(with: view, duration: 0.3, options: .transitionCrossDissolve, animations: { _ in
+        UIView.transition(with: view, duration: 0.5, options: .transitionCrossDissolve, animations: { _ in
             view.isHidden = hidden
         }, completion: nil)
     }
