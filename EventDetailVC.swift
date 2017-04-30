@@ -121,7 +121,7 @@ class EventDetailVC: UIViewController {
     
     
     func showHideViewWithAnim(view: UIView, hidden: Bool) {
-        UIView.transition(with: view, duration: 0.3, options: .transitionCrossDissolve, animations: { _ in
+        UIView.transition(with: view, duration: 0.5, options: .transitionCrossDissolve, animations: { _ in
             view.isHidden = hidden
         }, completion: nil)
     }

@@ -41,11 +41,13 @@ class FavoriteVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        favoriteEvents = [:]
-        eventSectionTitle = []
-        filteredFavoriteEvents = [:]
-        filteredEventSectionTitle = []
-
+        
+        searchBar.text = ""
+//        favoriteEvents = [:]
+//        eventSectionTitle = []
+//        filteredFavoriteEvents = [:]
+//        filteredEventSectionTitle = []
+//
         loadUserFavoriteEvents(showLoading: false)
     }
     
@@ -71,6 +73,7 @@ class FavoriteVC: UIViewController {
     }
     
     
+
     func loadUserFavoriteEvents(showLoading: Bool) {
         if showLoading {
             loadingView.showLoading(in: self.tbvFavoriteEvents, color: UIColor.white)
@@ -86,6 +89,7 @@ class FavoriteVC: UIViewController {
                     
                     for event in listClubEvents {
                         
+                        // TODO: API bug, some events will have no 'time' field
                         if let monthSection = event["time"].string {
                             
                             let clubEvent = ClubEvent(json: event)
